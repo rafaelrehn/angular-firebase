@@ -1,0 +1,12 @@
+<!-- <div class="mb-3" [formGroup]="form">
+  <label for="{{input?.id}}" class="form-label">{{input?.label}}</label>
+  <input type="{{input.type}}" class="form-control" id="{{input?.id}}" name="{{input?.name}}" autocomplete="off"
+  [formControlName]="input.name">
+</div> -->
+
+<mat-form-field appearance="fill" [formGroup]="form">
+  <mat-label>{{input?.label}}</mat-label>
+  <input type="{{input.type}}" class="form-control" id="{{input?.id}}" name="{{input?.name}}" autocomplete="off"
+  [formControlName]="input.name"
+  matInput>
+</mat-form-field>

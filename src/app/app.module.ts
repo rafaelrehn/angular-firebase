@@ -1,8 +1,19 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { environment } from 'src/environments/environment';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
+import { AngularFireAuthModule } from "@angular/fire/auth";
+import { AngularFireModule } from '@angular/fire';
+import { VeiculosModule } from './modulos/veiculos/veiculos.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+const FirebaseConfig = [
+  AngularFireAuthModule,
+  AngularFireModule.initializeApp(environment.firebase) // Your config
+];
 
 @NgModule({
   declarations: [
@@ -10,7 +21,10 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FirebaseConfig,
+    VeiculosModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

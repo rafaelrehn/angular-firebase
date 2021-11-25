@@ -1,0 +1,7 @@
+<p>crud-edit works!</p>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()" autocomplete="off">
+  <app-form [form]="form" [inputs]="inputs"></app-form>
+  <app-btn-bar (click)="btnBarClick($event)"></app-btn-bar>
+</form>
+

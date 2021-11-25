@@ -1,0 +1,26 @@
+<div class="container mt-4">
+  <!-- <div class="container">
+    <h2>Veiculos list</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th *ngFor="let col of columns">{{col.label}}</th>
+          <th>
+
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row as any of list | async">
+          <td *ngFor="let col of columns; let i = index">{{ getValue(row, col) }}</td>
+          <td>
+            <app-btn (click)="excluir(row)" [btn]="btnExcluir"></app-btn>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div> -->
+
+  <app-table [displayedColumns]="columns" [dataSource]="dataSource" [nameColumns]="nameColumns" (clickEvent)="clickTableEvent($event)"></app-table>
+  <app-veiculos-edit></app-veiculos-edit>
+</div>
