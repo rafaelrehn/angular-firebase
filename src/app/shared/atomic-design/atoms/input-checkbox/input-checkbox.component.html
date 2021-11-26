@@ -1,0 +1,7 @@
+<div appearance="fill" [formGroup]="form">    
+    <mat-checkbox  [formGroup]="form"
+        class="example-margin"
+        id="{{input?.id}}"
+        name="{{input?.name}}"
+        [formControlName]="input.name">{{input?.label}}</mat-checkbox>
+</div>

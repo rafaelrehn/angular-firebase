@@ -3,9 +3,9 @@ import { AbstractControl, FormControl, FormGroup } from '@angular/forms';
 import { Veiculo } from 'src/app/modulos/veiculos/veiculo';
 import { AbstractFieldsService } from 'src/app/shared/base/abstract-fields.interface';
 import { AbstractService } from 'src/app/shared/base/abstract.service';
-import { FieldBuilder } from 'src/app/shared/base/field-buider';
+import { IFieldBuilder } from 'src/app/shared/base/field-buider';
 import { Entity } from 'src/app/shared/default.entity';
-import { InputInterface } from '../../atoms/input/input.interface';
+import { IInputInterface } from '../../atoms/input/input.interface';
 
 @Component({
   selector: 'app-abstract-crud-edit',
@@ -15,7 +15,7 @@ import { InputInterface } from '../../atoms/input/input.interface';
 export class AbstractCrudEditComponent implements OnInit {
 
   form: FormGroup;
-  inputs: InputInterface[]
+  inputs: IInputInterface[]
 
 
   constructor(
@@ -52,6 +52,7 @@ export class AbstractCrudEditComponent implements OnInit {
 
   onSubmit(){
     const formValue = this.form.getRawValue()
+    console.log({formValue})
     this.service.insert(formValue)
     this.resetFormValues()
   }

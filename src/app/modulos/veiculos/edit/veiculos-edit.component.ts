@@ -8,7 +8,7 @@ import { Veiculo } from '../veiculo';
   selector: 'app-veiculos-edit',
   templateUrl: './veiculos-edit.component.html',
   styleUrls: ['./veiculos-edit.component.scss'],
-  providers: [
+  providers: [ AbstractService,
     { provide: 'entityName', useValue: 'veiculos' },
     { provide: 'fieldsService', useClass: VeiculosFieldServiceService }
   ]

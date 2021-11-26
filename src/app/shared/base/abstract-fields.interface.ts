@@ -1,5 +1,5 @@
-import { InputInterface } from "../atomic-design/atoms/input/input.interface";
+import { IInputInterface } from "../atomic-design/atoms/input/input.interface";
 
 export interface AbstractFieldsService {
-  buildFields(): InputInterface[]
+  buildFields(): IInputInterface[]
 }

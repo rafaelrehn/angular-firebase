@@ -1,18 +1,19 @@
 import { Injectable } from "@angular/core";
-import { InputInterface } from "../atomic-design/atoms/input/input.interface";
+import { IInputInterface, IInputType, ISelectOptions } from "../atomic-design/atoms/input/input.interface";
 
 @Injectable()
-export class FieldBuilder{
+export class IFieldBuilder{
 
-  private input: InputInterface;
+  private input: IInputInterface;
 
 
-  build(name: string){
+  build(name: string, inputType?: IInputType){
     this.input ={
       name: name,
       id: name,
       label: name,
-      type: 'text'
+      type: 'text',
+      inputType: inputType || IInputType.INPUT
     }
     return this
   }
@@ -24,6 +25,14 @@ export class FieldBuilder{
 
   number(){
     this.input.type = 'number'
+    return this
+  }
+
+  select(options: ISelectOptions[]){
+    this.input.select ={
+      multiselect: this.input.inputType == IInputType.MULTISELECT,
+      options: options
+    }
     return this
   }
 

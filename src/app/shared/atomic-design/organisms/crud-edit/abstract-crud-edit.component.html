@@ -1,5 +1,7 @@
-<p>crud-edit works!</p>
-
+<button mat-fab color="primary" aria-label="Example icon button with a delete icon"
+    routerLink="../">
+    <mat-icon>arrow_left</mat-icon>
+  </button>
 <form [formGroup]="form" (ngSubmit)="onSubmit()" autocomplete="off">
   <app-form [form]="form" [inputs]="inputs"></app-form>
   <app-btn-bar (click)="btnBarClick($event)"></app-btn-bar>

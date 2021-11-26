@@ -1,0 +1,11 @@
+<!-- <p>input-select works!</p> -->
+<mat-form-field appearance="fill" *ngIf="input.select" [formGroup]="form">
+  <mat-label>{{input.label}} - {{input.select.multiselect}}</mat-label>
+  <mat-select [formControlName]="input.name" [multiple]="input.select.multiselect">
+    <mat-option  *ngFor="let option of input.select.options" [value]="option.value" >
+      {{option.label}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<!-- ngDefaultControl -->

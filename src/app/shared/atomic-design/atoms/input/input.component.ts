@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { InputInterface } from './input.interface';
+import { IInputInterface } from './input.interface';
 
 @Component({
   selector: 'app-input',
@@ -9,7 +9,7 @@ import { InputInterface } from './input.interface';
 })
 export class InputComponent implements OnInit {
 
-  @Input() input: InputInterface;
+  @Input() input: IInputInterface;
   @Input() form: FormGroup;
 
   constructor() { }

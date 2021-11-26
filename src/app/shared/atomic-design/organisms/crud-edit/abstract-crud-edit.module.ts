@@ -4,6 +4,9 @@ import { AbstractCrudEditComponent } from './abstract-crud-edit.component';
 import { FormModule } from '../../molecules/form/form.module';
 import { BtnBarModule } from '../../molecules/btn-bar/btn-bar.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { AppRoutingModule } from 'src/app/app-routing.module';
 
 
 
@@ -13,7 +16,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     FormModule,
     ReactiveFormsModule,
-    BtnBarModule
+    BtnBarModule,
+    MatButtonModule,
+    MatIconModule,
+    AppRoutingModule,
   ],
   exports: [AbstractCrudEditComponent]
 })

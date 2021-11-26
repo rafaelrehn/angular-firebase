@@ -1,6 +1,9 @@
 <div class="index flex">
-    <div class="menu flex-1">menu</div>
-    <div class="content flex-4">
+    <div class="menu flex-1 p-8 flex flex-column">
+        <button mat-raised-button routerLink="/dashboard">Dashboard</button>
+        <button mat-raised-button routerLink="/dashboard/veiculos" color="primary">veiculos</button>
+    </div>
+    <div class="content flex-4 p-8">
         <router-outlet></router-outlet>
     </div>
 </div>

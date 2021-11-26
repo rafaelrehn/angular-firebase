@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { FormComponent } from './form.component';
 import { InputModule } from '../../atoms/input/input.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { InputSelectModule } from '../../atoms/input-select/input-select.module';
+import { InputCheckboxModule } from '../../atoms/input-checkbox/input-checkbox.module';
 
 
 
@@ -11,8 +13,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     InputModule,
+    InputSelectModule, 
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    InputCheckboxModule,
   ],
   exports: [FormComponent]
 })

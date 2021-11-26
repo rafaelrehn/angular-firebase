@@ -6,7 +6,9 @@ import { FormsModule } from '@angular/forms';
 import { AtomicModules } from 'src/app/shared/atomic-design/atomic.modules';
 import { BtnModule } from 'src/app/shared/atomic-design/atoms/btn/btn.module';
 import { TableModule } from 'src/app/shared/atomic-design/molecules/table/table.module';
-
+import {MatIconModule} from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { AppRoutingModule } from 'src/app/app-routing.module';
 
 
 @NgModule({
@@ -16,7 +18,10 @@ import { TableModule } from 'src/app/shared/atomic-design/molecules/table/table.
     FormsModule,
     AtomicModules,
     BtnModule,
-    TableModule
+    TableModule,
+    MatIconModule,
+    MatButtonModule,
+    AppRoutingModule
   ]
 })
 export class VeiculosModule { }

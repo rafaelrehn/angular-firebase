@@ -6,7 +6,7 @@ import { VeiculosListComponent } from './modulos/veiculos/list/veiculos-list.com
 
 const routes: Routes = [
   { 
-    path: 'index',
+    path: 'dashboard',
     component: DashboardComponent ,
     children: [
       { path: 'veiculos', component: VeiculosListComponent },
@@ -15,7 +15,7 @@ const routes: Routes = [
   },
   { path: 'veiculos', component: VeiculosListComponent },
   { path: 'veiculos/edit', component: VeiculosEditComponent },
-  { path: '',   redirectTo: '/index', pathMatch: 'full' }, // redirect to `first-component`
+  { path: '',   redirectTo: '/dashboard', pathMatch: 'full' }, // redirect to `first-component`
   { path: '**', component: DashboardComponent },  // Wildcard route for a 404 page
 ];
 

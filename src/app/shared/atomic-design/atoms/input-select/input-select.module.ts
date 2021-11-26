@@ -1,14 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { InputComponent } from './input.component';
+import { InputSelectComponent } from './input-select.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { MatSelectModule} from '@angular/material/select';
+import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
 
+
+
 @NgModule({
-  declarations: [InputComponent],
+  declarations: [InputSelectComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -18,6 +20,8 @@ import { MatOptionModule } from '@angular/material/core';
     MatSelectModule,
     MatOptionModule
   ],
-  exports: [InputComponent]
+  exports: [
+    InputSelectComponent
+  ]
 })
-export class InputModule { }
+export class InputSelectModule { }
