@@ -1,2 +1,4 @@
-<!-- <button  [ngClass]="btn.class" class="btn" >{{btn.label}}</button> -->
-<button type="{{btn.type}}" mat-raised-button [color]="btn.color" (click)="clickEvent($event)">{{btn.label}}</button>
+<button class="btn" [ngClass]="btn.class" type="{{btn?.type}}" (click)="clickEvent($event)">
+  <mat-icon *ngIf="btn.icon">{{btn.icon}}</mat-icon>
+  {{btn?.label}}
+</button>

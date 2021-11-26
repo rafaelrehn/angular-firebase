@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IMenuBuilder, IMenuInterface } from 'src/app/shared/base/menu-builder';
+import { HeaderListInfo } from 'src/app/shared/atomic-design/molecules/list-header/list-header.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,22 +8,19 @@ import { IMenuBuilder, IMenuInterface } from 'src/app/shared/base/menu-builder';
 })
 export class DashboardComponent implements OnInit {
 
-  menuList: IMenuInterface[]
+  headerInfo: HeaderListInfo
 
   constructor() { }
 
   ngOnInit(): void {
-    this.buildMenu()
+    this.buildInfo()
   }
 
-  buildMenu(){
-    this.menuList = [
-      new IMenuBuilder().build('Dashboard', '/dashboard', 'home').get(),
-      new IMenuBuilder().build('Veiculos', '/dashboard/veiculos', 'home').get(),
-      new IMenuBuilder().build('Configurações', '/dashboard/configuracoes', 'home').get(),
-      new IMenuBuilder().build('Admin', '/dashboard/admin', 'home').get(),
-      new IMenuBuilder().build('Relatórios', '/dashboard/relatorios', 'home').get(),
-    ]
+  buildInfo(){
+    this.headerInfo = {
+      h2: 'Dashboard',
+      h4: 'Atualizações sobre a visualizações de veículos',
+    }
   }
 
 }

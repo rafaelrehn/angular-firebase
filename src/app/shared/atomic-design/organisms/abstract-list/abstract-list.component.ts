@@ -2,7 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AbstractFieldsService } from 'src/app/shared/base/abstract-fields.interface';
 import { AbstractService } from 'src/app/shared/base/abstract.service';
-import { BtnInterface } from '../../atoms/btn/btn.interface';
+import { IBtnInterface } from '../../atoms/btn/btn.interface';
 import { ClickTableEvent } from '../../molecules/table/table.component';
 
 @Component({
@@ -27,7 +27,7 @@ export class AbstractListComponent<T>{
   }
 
   buildColumns() {
-    this.columns = this.fieldsService.buildFields().filter(f=>f.columnShow).map(m=>m.label)
+    this.columns = this.fieldsService.buildFields().filter(f=>f.columnShow).map(m=>m.label as string)
     this.nameColumns = this.fieldsService.buildFields().filter(f=>f.columnShow).map(m=>m.name)
   }
 

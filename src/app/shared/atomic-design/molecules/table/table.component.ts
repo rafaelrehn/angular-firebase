@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Observable } from 'rxjs';
-import { BtnInterface } from '../../atoms/btn/btn.interface';
+import { IBtnInterface } from '../../atoms/btn/btn.interface';
+import { IInputInterface, IInputType } from '../../atoms/input/input.interface';
 
 export interface ClickTableEvent{
   eventName: 'excluir',
@@ -18,12 +19,16 @@ export class TableComponent<T> implements OnInit {
   @Input() nameColumns: string[] = [];
   @Input() dataSource: Observable<T[]>
 
+  inputsSelectTabel: IInputInterface = {
+    inputType: IInputType.CHECKBOX,
+    name: 'x'
+  }
+
   @Output() clickEvent = new EventEmitter<ClickTableEvent>()
 
-  btnExcluir: BtnInterface = {
+  btnExcluir: IBtnInterface = {
     label: 'Excluir',
     class: 'btn-danger',
-    color: 'warn'
   }
 
   constructor() { }

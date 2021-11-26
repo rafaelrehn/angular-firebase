@@ -41,6 +41,11 @@ export class IFieldBuilder{
     return this
   }
 
+  setClass(param: string){
+    this.input.class = param
+    return this
+  }
+
   get(){
     return this.input
   }

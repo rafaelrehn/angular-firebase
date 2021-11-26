@@ -1,10 +1,12 @@
 :root{
-  --primary: blue;
-  --acent: red;
-  --bg1: rgb(218, 218, 218);
-  --bg2: rgb(197, 197, 197);
-  --bg3: black;
-  --light-text: rgb(92, 92, 92);
+  --primary: rgb(6, 9, 49);
+  --accent: rgb(2, 202, 125);
+  --white: white;
+  --bg1: rgb(240, 240, 240);
+  --bg2: rgb(211, 211, 211);
+  --bg3: rgb(197, 197, 197);
+  --bg4: rgb(148, 148, 148);
+  --light-text: rgb(116, 116, 116);
   --hard-text: black;
 }
 
@@ -15,4 +17,10 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;  overflow: hidden;}
 
+h1, h2{
+  color: var(--hard-text)
+}
+h3,h4,p{
+  color: var(--light-text);
+}
 

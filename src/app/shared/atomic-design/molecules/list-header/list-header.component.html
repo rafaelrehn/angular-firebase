@@ -1,0 +1,10 @@
+<div class="flex">
+  <div class="flex-1">
+    <h2>{{headerInfo?.h2}}</h2>
+    <h4 *ngIf="headerInfo.h4">{{headerInfo.h4}}</h4>
+  </div>
+  <div>
+    <app-btn routerLink="./edit" [btn]="adicionarBtn" *ngIf="adicionarBtn"></app-btn>
+    <app-btn routerLink="../" [btn]="voltarBtn" *ngIf="voltarBtn"></app-btn>
+  </div>
+</div>

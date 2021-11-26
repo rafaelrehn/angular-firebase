@@ -15,9 +15,9 @@ export interface ISelectOptions{
 
 export interface IInputInterface{
   name: string;
-  label: string;
-  id: string;
-  type: string;
+  label?: string;
+  id?: string;
+  type?: string;
   inputType: IInputType;
   select?:{
     multiselect: boolean;
@@ -25,4 +25,5 @@ export interface IInputInterface{
 
   }
   columnShow?: boolean;
+  class?: string;
 }

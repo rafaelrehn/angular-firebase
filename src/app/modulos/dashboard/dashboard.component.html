@@ -1,31 +1,8 @@
-<div class="index flex">
-    <div class="menu flex-1 flex flex-column">
-      <div class="menu-logo-box">
-        <div class="logo">Wallet</div>
-      </div>
-        <div class="menu-item-box">
-          <div class="menu-item-list" *ngFor="let menu of menuList" routerLink="{{menu.routerLink}}" routerLinkActive="menu-active">
-            <div class="item-list">
-              <div class="item-icon">
-                <mat-icon>{{menu.icon}}</mat-icon>
-              </div>
-              <div class="item-label">
-                {{menu.label}}
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- <button mat-raised-button routerLink="/dashboard">Dashboard</button>
-        <button mat-raised-button routerLink="/dashboard/veiculos" color="primary">veiculos</button> -->
-    </div>
-    <div class="content flex-3 flex flex-column">
-      <div class="content-header">
-        aki em cima pesoar
-      </div>
-      <div class="content-router">
-        <router-outlet></router-outlet>
-      </div>
-
-    </div>
-</div>
+<app-list-header [headerInfo]="headerInfo"></app-list-header>
+<h2>TODO LIST</h2>
+<p>colocar input type toggle, textarea</p>
+<p>fazer edicao de registros</p>
+<p>colocar busca na tabela</p>
+<p>colcoar ordenacao na tabela</p>
+<P>criar breadcrumb</P>
+<p>crirar overview</p>

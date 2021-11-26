@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { BtnInterface } from '../../atoms/btn/btn.interface';
+import { IBtnInterface } from '../../atoms/btn/btn.interface';
 
 @Component({
   selector: 'app-btn-bar',
@@ -8,8 +8,8 @@ import { BtnInterface } from '../../atoms/btn/btn.interface';
 })
 export class BtnBarComponent implements OnInit {
 
-  submitBtn: BtnInterface
-  cancelBtn: BtnInterface
+  submitBtn: IBtnInterface
+  cancelBtn: IBtnInterface
 
   @Output() click = new EventEmitter<any>();
 
@@ -23,12 +23,11 @@ export class BtnBarComponent implements OnInit {
     this.submitBtn = {
       label: 'Submit',
       type: 'submit',
-      color: 'primary'
+      class: 'btn-accent'
     }
 
     this.cancelBtn = {
       label: 'Cancelar',
-      color: null
     }
   }
 

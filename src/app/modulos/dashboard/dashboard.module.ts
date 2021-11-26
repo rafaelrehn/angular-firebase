@@ -1,17 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AppRoutingModule } from 'src/app/app-routing.module';
 import { DashboardComponent } from './dashboard.component';
-import {MatButtonModule} from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
+import { ListHeaderModule } from 'src/app/shared/atomic-design/molecules/list-header/list-header.module';
+
+
 
 @NgModule({
   declarations: [DashboardComponent],
   imports: [
     CommonModule,
-    AppRoutingModule,
-    MatButtonModule,
-    MatIconModule
+    ListHeaderModule,
+  ],
+  exports:[
+    DashboardComponent
   ]
 })
 export class DashboardModule { }

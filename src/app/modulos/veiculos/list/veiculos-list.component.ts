@@ -3,8 +3,9 @@ import { Veiculo } from '../veiculo';
 import { Observable } from 'rxjs';
 import { AbstractService } from 'src/app/shared/base/abstract.service';
 import { VeiculosFieldServiceService } from '../services/veiculos-field-service.service';
-import { BtnInterface } from 'src/app/shared/atomic-design/atoms/btn/btn.interface';
+import { IBtnInterface } from 'src/app/shared/atomic-design/atoms/btn/btn.interface';
 import { AbstractListComponent } from 'src/app/shared/atomic-design/organisms/abstract-list/abstract-list.component';
+import { HeaderListInfo } from 'src/app/shared/atomic-design/molecules/list-header/list-header.component';
 @Component({
   selector: 'app-veiculos-list',
   templateUrl: './veiculos-list.component.html',
@@ -16,6 +17,20 @@ import { AbstractListComponent } from 'src/app/shared/atomic-design/organisms/ab
   ]
 })
 export class VeiculosListComponent extends AbstractListComponent<Veiculo> {
+
+  headerInfo: HeaderListInfo = {
+    h2: 'Veiculos',
+    h4: 'Cadastro de veiculos',
+    buttons: {
+      add: true
+    }
+  }
+
+  adicionarBtn: IBtnInterface = {
+    label: 'Novo registro',
+    class: 'btn-accent',
+    icon: 'note_add'
+  }
 
   constructor(
     protected service: AbstractService<Veiculo>,

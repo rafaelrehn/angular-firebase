@@ -9,6 +9,7 @@ import { TableModule } from 'src/app/shared/atomic-design/molecules/table/table.
 import {MatIconModule} from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { AppRoutingModule } from 'src/app/app-routing.module';
+import { ListHeaderModule } from 'src/app/shared/atomic-design/molecules/list-header/list-header.module';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
     TableModule,
     MatIconModule,
     MatButtonModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ListHeaderModule,
   ]
 })
 export class VeiculosModule { }

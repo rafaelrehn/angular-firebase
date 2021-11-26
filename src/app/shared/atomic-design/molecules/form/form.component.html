@@ -1,7 +1,11 @@
-<div class="flex flex-column" *ngFor="let input of inputs" [ngSwitch]="input.inputType">
+<div class="form-box">
+
+  <div class="form-builder" *ngFor="let input of inputs" [ngSwitch]="input.inputType">
     <app-input-select *ngSwitchCase="'select'" [form]="form" [input]="input"></app-input-select>
     <app-input-select *ngSwitchCase="'multiselect'" [form]="form" [input]="input"></app-input-select>
     <app-input-checkbox *ngSwitchCase="'checkbox'" [form]="form" [input]="input"></app-input-checkbox>
-    <app-input-radio *ngSwitchCase="'radio'" [form]="form" [input]="input"></app-input-radio>
+    <app-input-radio *ngSwitchCase="'radio'" [form]="form" [input]="input" class="mb-8"></app-input-radio>
     <app-input *ngSwitchDefault [form]="form" [input]="input"></app-input>
+  </div>
+
 </div>

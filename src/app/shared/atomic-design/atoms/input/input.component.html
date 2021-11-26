@@ -1,4 +1,4 @@
-<mat-form-field appearance="fill" [formGroup]="form">
+<mat-form-field appearance="fill" [formGroup]="form" [ngClass]="input.class">
   <mat-label>{{input?.label}}</mat-label>
   <input type="{{input.type}}" class="form-control" id="{{input?.id}}" name="{{input?.name}}" autocomplete="off"
   [formControlName]="input.name"

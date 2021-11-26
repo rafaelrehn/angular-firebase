@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { BtnInterface } from './btn.interface';
+import { IBtnInterface } from './btn.interface';
 
 @Component({
   selector: 'app-btn',
@@ -8,7 +8,7 @@ import { BtnInterface } from './btn.interface';
 })
 export class BtnComponent implements OnInit {
 
-  @Input() btn: BtnInterface;
+  @Input() btn: IBtnInterface;
   @Output() click = new EventEmitter<any>();
 
   constructor() { }
