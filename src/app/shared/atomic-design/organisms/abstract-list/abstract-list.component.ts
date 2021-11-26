@@ -27,8 +27,8 @@ export class AbstractListComponent<T>{
   }
 
   buildColumns() {
-    this.columns = this.fieldsService.buildFields().map(m=>m.label)
-    this.nameColumns = this.fieldsService.buildFields().map(m=>m.name)
+    this.columns = this.fieldsService.buildFields().filter(f=>f.columnShow).map(m=>m.label)
+    this.nameColumns = this.fieldsService.buildFields().filter(f=>f.columnShow).map(m=>m.name)
   }
 
   excluir(element: T){

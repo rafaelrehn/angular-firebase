@@ -46,18 +46,30 @@ export class VeiculosFieldServiceService implements AbstractFieldsService {
     }
   ]
 
+  cambioOptions: ISelectOptions[] = [
+    {
+      label: 'Manual',
+      value: 'manual',
+      selected: true
+    },
+    {
+      label: 'Automático',
+      value: 'automatico'
+    },
+  ]
 
   constructor() {
   }
 
   buildFields(): IInputInterface[]{
     return [
-      new IFieldBuilder().build('nome').label('Nome').get(),
-      new IFieldBuilder().build('marca').label('Marca').get(),
+      new IFieldBuilder().build('nome').label('Nome').columnShow().get(),
+      new IFieldBuilder().build('marca').label('Marca').columnShow().get(),
       new IFieldBuilder().build('anoFabricacao').label('Ano de fabricação').get(),
       new IFieldBuilder().build('anoModelo').label('Ano Modelo').get(),
-      new IFieldBuilder().build('valor').label('Valor').number().get(),
+      new IFieldBuilder().build('valor').columnShow().label('Valor').number().get(),
       new IFieldBuilder().build('combustivel', IInputType.SELECT).select(this.combustivelOptions).label('Combustível').get(),
+      new IFieldBuilder().build('cambio', IInputType.RADIO).select(this.cambioOptions).columnShow().label('Câmbio').get(),
       new IFieldBuilder().build('itemsAdicionais', IInputType.MULTISELECT).select(this.itensAdicionais).label('Items adicionais').get(),
       new IFieldBuilder().build('publicar', IInputType.CHECKBOX).label('Publicar').get(),
       new IFieldBuilder().build('vendido', IInputType.CHECKBOX).label('Vendido').get(),

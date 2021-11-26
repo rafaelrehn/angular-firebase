@@ -2,12 +2,15 @@ export enum IInputType{
   INPUT = 'input',
   SELECT = 'select',
   CHECKBOX = 'checkbox',
-  MULTISELECT = 'multiselect'
+  MULTISELECT = 'multiselect',
+  RADIO = 'radio'
 }
 
 export interface ISelectOptions{
   value: string | number | boolean;
   label: string;
+  selected?: boolean;
+  disabled?: boolean;
 }
 
 export interface IInputInterface{
@@ -21,4 +24,5 @@ export interface IInputInterface{
     options: ISelectOptions[]
 
   }
+  columnShow?: boolean;
 }

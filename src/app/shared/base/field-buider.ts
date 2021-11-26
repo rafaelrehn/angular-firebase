@@ -36,6 +36,11 @@ export class IFieldBuilder{
     return this
   }
 
+  columnShow(){
+    this.input.columnShow = true
+    return this
+  }
+
   get(){
     return this.input
   }

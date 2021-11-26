@@ -1,0 +1,8 @@
+<mat-form-field appearance="fill" [formGroup]="form">
+  <mat-radio-group aria-label="Select an option" [formControlName]="input.name">
+    <mat-radio-button
+      *ngFor="let option of input.select?.options"
+      [value]="option.value"
+      [disabled]="option.disabled">{{option.label}}</mat-radio-button>
+  </mat-radio-group>
+</mat-form-field>

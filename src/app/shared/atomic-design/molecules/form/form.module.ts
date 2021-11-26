@@ -5,6 +5,7 @@ import { InputModule } from '../../atoms/input/input.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InputSelectModule } from '../../atoms/input-select/input-select.module';
 import { InputCheckboxModule } from '../../atoms/input-checkbox/input-checkbox.module';
+import { InputRadioModule } from '../../atoms/input-radio/input-radio.module';
 
 
 
@@ -13,10 +14,11 @@ import { InputCheckboxModule } from '../../atoms/input-checkbox/input-checkbox.m
   imports: [
     CommonModule,
     InputModule,
-    InputSelectModule, 
+    InputSelectModule,
     FormsModule,
     ReactiveFormsModule,
     InputCheckboxModule,
+    InputRadioModule
   ],
   exports: [FormComponent]
 })
