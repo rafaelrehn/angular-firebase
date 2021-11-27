@@ -25,5 +25,5 @@ export interface IInputInterface{
 
   }
   columnShow?: boolean;
-  class?: string;
+  class?: string | string[] | Set<string> | { [klass: string]: any; };
 }
