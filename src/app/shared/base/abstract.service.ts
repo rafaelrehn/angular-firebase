@@ -8,6 +8,8 @@ import { map } from 'rxjs/operators'
 })
 export class AbstractService<Entity> {
 
+  dataSource!: Observable<Entity[]>;
+
   constructor(
     private db: AngularFireDatabase,
     @Inject('entityName') private entityName: string
@@ -49,5 +51,9 @@ export class AbstractService<Entity> {
       .catch(err => {
         console.error(err)
       })
+  }
+
+  initDataSource(){
+    this.dataSource = this.getAll()
   }
 }

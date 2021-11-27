@@ -13,7 +13,8 @@ export class IFieldBuilder{
       id: name,
       label: name,
       type: 'text',
-      inputType: inputType || IInputType.INPUT
+      inputType: inputType || IInputType.INPUT,
+      class: ''
     }
     return this
   }

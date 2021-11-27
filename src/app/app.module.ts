@@ -9,7 +9,7 @@ import { AngularFireAuthModule } from "@angular/fire/auth";
 import { AngularFireModule } from '@angular/fire';
 import { VeiculosModule } from './modulos/veiculos/veiculos.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { IndexModule } from './modulos/index/index.module';
+import { HomeModule } from './modulos/home/home.module';
 
 const FirebaseConfig = [
   AngularFireAuthModule,
@@ -25,7 +25,7 @@ const FirebaseConfig = [
     AppRoutingModule,
     FirebaseConfig,
     VeiculosModule,
-    IndexModule,
+    HomeModule,
     BrowserAnimationsModule,
   ],
   providers: [],

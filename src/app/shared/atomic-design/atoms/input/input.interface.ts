@@ -15,6 +15,7 @@ export interface ISelectOptions{
 
 export interface IInputInterface{
   name: string;
+  class: string | string[] | Set<string> | { [klass: string]: any; };
   label?: string;
   id?: string;
   type?: string;
@@ -25,5 +26,4 @@ export interface IInputInterface{
 
   }
   columnShow?: boolean;
-  class?: string | string[] | Set<string> | { [klass: string]: any; };
 }

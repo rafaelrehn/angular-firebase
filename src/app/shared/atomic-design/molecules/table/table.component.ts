@@ -21,7 +21,8 @@ export class TableComponent<T> implements OnInit {
 
   inputsSelectTabel: IInputInterface = {
     inputType: IInputType.CHECKBOX,
-    name: 'x'
+    name: 'x',
+    class: ''
   }
 
   @Output() clickEvent = new EventEmitter<ClickTableEvent>()

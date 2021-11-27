@@ -33,7 +33,7 @@ export class VeiculosListComponent extends AbstractListComponent<Veiculo> {
   }
 
   constructor(
-    protected service: AbstractService<Veiculo>,
+    public service: AbstractService<Veiculo>,
     protected fieldsService: VeiculosFieldServiceService
   ) {
     super(service,fieldsService)

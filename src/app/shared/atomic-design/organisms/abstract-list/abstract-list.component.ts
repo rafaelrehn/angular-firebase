@@ -12,17 +12,17 @@ import { ClickTableEvent } from '../../molecules/table/table.component';
 })
 export class AbstractListComponent<T>{
 
-  dataSource!: Observable<T[]>;
+  
   columns: string[]
   nameColumns: string[]
 
 
 
   constructor(
-    protected service: AbstractService<T>,
+    public service: AbstractService<T>,
     @Inject('fieldsService') protected fieldsService: AbstractFieldsService
   ) {
-    this.dataSource = this.service.getAll()
+    this.service.initDataSource()
     this.buildColumns()
   }
 
