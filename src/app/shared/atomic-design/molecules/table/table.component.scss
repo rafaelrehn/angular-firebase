@@ -17,3 +17,8 @@ table {
   tr:nth-child(even) {
     background-color: var(--white);
   }
+
+  tr:hover{
+    background-color: var(--accent);
+    cursor: pointer;
+  }

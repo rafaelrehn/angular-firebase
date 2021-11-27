@@ -11,7 +11,7 @@
     <!-- <td>
       <app-input-checkbox></app-input-checkbox>
     </td> -->
-    <td *ngFor="let col of displayedColumns ; let i = index">{{getValue(item,i)}}</td>
+    <td *ngFor="let col of displayedColumns ; let i = index" (click)="selectRow(item)">{{getValue(item,i)}}</td>
     <td>
       <div (click)="excluir(item)">Remover</div>
     </td>

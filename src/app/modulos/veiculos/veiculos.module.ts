@@ -10,10 +10,11 @@ import {MatIconModule} from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { ListHeaderModule } from 'src/app/shared/atomic-design/molecules/list-header/list-header.module';
+import { VeiculosViewComponent } from './view/veiculos-view.component';
 
 
 @NgModule({
-  declarations: [VeiculosListComponent, VeiculosEditComponent],
+  declarations: [VeiculosListComponent, VeiculosEditComponent, VeiculosViewComponent],
   imports: [
     CommonModule,
     FormsModule,

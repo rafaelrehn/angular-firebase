@@ -1,8 +1,9 @@
 <div class="flex">
   <div class="flex-1">
     <app-breadcrumb [breadcrumb]="breadcrumb"></app-breadcrumb>
-    <h2>{{headerInfo?.h2}}</h2>
-    <h4 *ngIf="headerInfo.h4">{{headerInfo.h4}}</h4>
+    <div class="header-name-box">
+      <h1>{{headerInfo?.h2}}</h1>
+    </div>
   </div>
   <div>
     <app-btn routerLink="./edit" [btn]="adicionarBtn" *ngIf="adicionarBtn"></app-btn>
