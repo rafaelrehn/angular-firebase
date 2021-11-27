@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { IBreadcrumb } from '../../atoms/breadcrumb/breadcrumb.interface';
 import { IBtnInterface } from '../../atoms/btn/btn.interface';
 
 export interface HeaderListInfo{
@@ -15,6 +16,8 @@ export interface HeaderListInfo{
   styleUrls: ['./list-header.component.scss']
 })
 export class ListHeaderComponent implements OnInit {
+
+  @Input() breadcrumb: IBreadcrumb[] = []
 
   @Input() headerInfo: HeaderListInfo
 

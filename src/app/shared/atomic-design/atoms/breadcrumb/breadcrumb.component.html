@@ -1,0 +1,6 @@
+<div class="breadcrumb-box">
+  <div class="bradcrumb-item" *ngFor="let bread of breadcrumb; let i = index" [ngClass]="bread?.active ? 'bradcrumb-active' : ''" [routerLink]="bread.route">
+    <div class="breadcrumb-label">{{bread.label}}</div>
+    <div class="breadcrumb-arrow" *ngIf="i < breadcrumb.length -1">></div>
+  </div>
+</div>

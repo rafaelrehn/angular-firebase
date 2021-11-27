@@ -1,0 +1,30 @@
+.breadcrumb-box{
+    display: flex;
+    gap: 8px;
+
+    .bradcrumb-item{
+        // color: var(--bg5);
+        opacity: 0.8;
+        display: flex;
+
+        .breadcrumb-arrow{
+            color: var(--accent);
+            margin-left: 8px;
+            text-decoration: none !important;
+        }
+
+        .breadcrumb-label:hover{
+            text-decoration: underline !important;
+        }
+
+        &:not(.bradcrumb-active){
+            cursor: pointer;
+        }
+    }
+
+    .bradcrumb-active{
+        font-weight: bolder;
+    }
+
+    
+}
