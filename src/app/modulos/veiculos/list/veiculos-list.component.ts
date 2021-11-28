@@ -8,6 +8,7 @@ import { AbstractListComponent } from 'src/app/shared/atomic-design/organisms/ab
 import { HeaderListInfo } from 'src/app/shared/atomic-design/molecules/list-header/list-header.component';
 import { BreadCrumbBuilder } from 'src/app/shared/atomic-design/atoms/breadcrumb/breadcrumb-builder';
 import { IBreadcrumb } from 'src/app/shared/atomic-design/atoms/breadcrumb/breadcrumb.interface';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-veiculos-list',
   templateUrl: './veiculos-list.component.html',
@@ -38,9 +39,10 @@ export class VeiculosListComponent extends AbstractListComponent<Veiculo> {
 
   constructor(
     public service: AbstractService<Veiculo>,
-    protected fieldsService: VeiculosFieldServiceService
+    protected fieldsService: VeiculosFieldServiceService,
+    protected route: Router
   ) {
-    super(service,fieldsService)
+    super(service,fieldsService,route)
 
     this.buildBreadCrumb()
   }

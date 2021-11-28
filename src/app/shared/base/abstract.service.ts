@@ -32,6 +32,10 @@ export class AbstractService<Entity> {
       })
   }
 
+  getOne(key: string): Observable<Entity>{
+    return this.db.object(`${this.entityName}/${key}`).valueChanges() as Observable<Entity>
+  }
+
   getAll(): Observable<Entity[]> {
     return this.db.list(this.entityName)
       .snapshotChanges()

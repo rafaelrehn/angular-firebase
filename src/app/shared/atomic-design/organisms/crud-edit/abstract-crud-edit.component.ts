@@ -4,7 +4,7 @@ import { Veiculo } from 'src/app/modulos/veiculos/veiculo';
 import { AbstractFieldsService } from 'src/app/shared/base/abstract-fields.interface';
 import { AbstractService } from 'src/app/shared/base/abstract.service';
 import { IFieldBuilder } from 'src/app/shared/base/field-buider';
-import { Entity } from 'src/app/shared/default.entity';
+import { DefaultEntity } from 'src/app/shared/default.entity';
 import { IInputInterface } from '../../atoms/input/input.interface';
 
 @Component({
@@ -19,7 +19,7 @@ export class AbstractCrudEditComponent implements OnInit {
 
 
   constructor(
-    protected service: AbstractService<Entity>,
+    protected service: AbstractService<DefaultEntity>,
     @Inject('fieldsService') protected fieldsService: AbstractFieldsService
     ) { }
 

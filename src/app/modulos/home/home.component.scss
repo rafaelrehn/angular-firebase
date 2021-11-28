@@ -31,7 +31,11 @@ $header: 90px;
 
         .item-list{
           color: var(--hard-text) !important;
+          .item-icon{
+            color: var(--accent) !important; 
+          }
         }
+        
       }
       .menu-item-list{
         width: 100%;
@@ -54,7 +58,7 @@ $header: 90px;
           letter-spacing: 1px;
           color: var(--light-text);
           .item-icon{
-            color: var(--primary) !important;
+            color: var(--primary);
           }
           .item-label{
             font-size: 13px;

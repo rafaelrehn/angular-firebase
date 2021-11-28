@@ -11,6 +11,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { ListHeaderModule } from 'src/app/shared/atomic-design/molecules/list-header/list-header.module';
 import { VeiculosViewComponent } from './view/veiculos-view.component';
+import { ViewFormModule } from 'src/app/shared/atomic-design/molecules/view-form/view-form.module';
+import { AbstractCrudViewModule } from 'src/app/shared/atomic-design/organisms/abstract-crud-view/abstract-crud-view.module';
+import { AbstractListModule } from 'src/app/shared/atomic-design/organisms/abstract-list/abstract-list.module';
 
 
 @NgModule({
@@ -25,6 +28,8 @@ import { VeiculosViewComponent } from './view/veiculos-view.component';
     MatButtonModule,
     AppRoutingModule,
     ListHeaderModule,
+    AbstractCrudViewModule,
+    AbstractListModule
   ]
 })
 export class VeiculosModule { }

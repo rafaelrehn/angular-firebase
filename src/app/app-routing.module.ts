@@ -4,6 +4,7 @@ import { DashboardComponent } from './modulos/dashboard/dashboard.component';
 import { HomeComponent } from './modulos/home/home.component';
 import { VeiculosEditComponent } from './modulos/veiculos/edit/veiculos-edit.component';
 import { VeiculosListComponent } from './modulos/veiculos/list/veiculos-list.component';
+import { VeiculosViewComponent } from './modulos/veiculos/view/veiculos-view.component';
 
 const routes: Routes = [
   {
@@ -17,7 +18,8 @@ const routes: Routes = [
         path: 'veiculos',
         component: VeiculosListComponent ,
       },
-      { path: 'veiculos/edit', component: VeiculosEditComponent }
+      { path: 'veiculos/edit', component: VeiculosEditComponent },
+      { path: 'veiculos/view/:key', component: VeiculosViewComponent }
     ]
   },
   { path: '',   redirectTo: '/home', pathMatch: 'full' }, // redirect to `first-component`
