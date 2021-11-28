@@ -1,10 +1,11 @@
 import { Component, Inject, OnInit } from "@angular/core"
 import { ActivatedRoute, Router } from "@angular/router"
 import { IBreadcrumb } from "../atomic-design/atoms/breadcrumb/breadcrumb.interface"
-import { IInputInterface } from "../atomic-design/atoms/input/input.interface"
+import { IInputInterface, IInputType } from "../atomic-design/atoms/input/input.interface"
 import { IViewForm } from "../atomic-design/molecules/view-form/view-form.interface"
 import { AbstractFieldsService } from "../base/abstract-fields.interface"
 import { AbstractService } from "../base/abstract.service"
+import { getInputValue } from "../base/utils"
 import { DefaultEntity } from "../default.entity"
 
 export abstract class AbstractViewClass<T>{
@@ -29,20 +30,20 @@ export abstract class AbstractViewClass<T>{
         let key = this.activatedRoute.snapshot.paramMap.get('key') as string;
         this.service.getOne(key).subscribe(res=>{
             this.model = res as T
+            console.log({res})
             Object.assign(this.model, {key: key})
             this.inputs.forEach(input=>{
-                const _model = this.model as any
-                const value = _model[input.name]
+                
                 this.arrayViewForm.push({
                     label: input.label as string,
-                    value: value,
-                    mask: input.inputType
+                    value: getInputValue(input, this.model),
+                    mask: input.inputType,
                 })        
             })    
             this.loadDefaultActions()
         
         })
-    }
+    }    
 
     headerActionEvent(event: string){
         if(event=='edit'){
