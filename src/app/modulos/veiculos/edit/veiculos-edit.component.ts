@@ -22,9 +22,7 @@ export class VeiculosEditComponent extends AbstractCrudEditComponent {
   headerInfo: HeaderListInfo = {
     t1: 'Veiculos',
     t2: 'Cadastro de veiculos',
-    buttons: {
-      add: true
-    }
+    backBtn: {active: true}
   }
 
   veiculo: Veiculo;

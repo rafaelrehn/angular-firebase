@@ -24,9 +24,7 @@ export class VeiculosListComponent extends AbstractListComponent<Veiculo> {
   headerInfo: HeaderListInfo = {
     t1: 'Veiculos',
     t2: 'Lista de veiculos',
-    buttons: {
-      add: true
-    }
+    addBtn: {active: true}
   }
 
   adicionarBtn: IBtnInterface = {

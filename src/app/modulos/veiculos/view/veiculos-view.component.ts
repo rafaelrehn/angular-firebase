@@ -55,9 +55,8 @@ export class VeiculosViewComponent extends AbstractViewClass<Veiculo> implements
     this.headerInfo = {
       t1: 'Veiculo',
       t2: this.model.nome,
-      buttons: {
-        add: true
-      }
+      editBtn: {active: true},
+      backBtn: {active: true, levels: 2}
     }
   }
 
