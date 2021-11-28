@@ -48,6 +48,8 @@ export class ListHeaderComponent implements OnInit {
     const key = this.route.snapshot.paramMap.get('key') as string    
     if(this.headerInfo.backBtn?.levels == 1  && !key){
       this.router.navigate(['..'], { relativeTo: this.route })
+    }else if (key){
+      this.router.navigate(['../../'], { relativeTo: this.route })
     }else if(this.headerInfo.backBtn?.levels == 2){
       this.router.navigate(['../../'], { relativeTo: this.route })
     }else{

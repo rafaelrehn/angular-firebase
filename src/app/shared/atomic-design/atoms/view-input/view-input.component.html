@@ -1,24 +1,16 @@
 <div class="view-input-box">
     <div class="view-input-label">{{viewInput.label}}</div>
     <div class="view-input-value" [ngSwitch]="viewInput.mask">
-        <div *ngSwitchCase="'checkbox'">
+        <div *ngSwitchCase="'checkbox'" style="margin-left: auto;">
             <mat-icon *ngIf="viewInput.value">checked</mat-icon>
         </div>
         <div *ngSwitchCase="'currency'" style="margin-left: auto;">{{viewInput.value | currency:'BRL'}}</div>
+        <div *ngSwitchCase="'integer'" style="margin-left: auto;">{{viewInput.value}}</div>
+        <div *ngSwitchCase="'radio'">
+            {{viewInput.value}}
+        </div>
 
         
         <div *ngSwitchDefault>{{viewInput.value}}</div>        
     </div>
 </div>
-<!-- label: string;
-value: string;
-mask: IInputType; -->
-
-<!--
-
-    INPUT = 'input',
-    SELECT = 'select',
-    CHECKBOX = 'checkbox',
-    MULTISELECT = 'multiselect',
-    RADIO = 'radio'
- -->

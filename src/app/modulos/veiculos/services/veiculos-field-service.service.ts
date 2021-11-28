@@ -2,61 +2,14 @@ import { Injectable } from '@angular/core';
 import { IInputInterface, IInputType, ISelectOptions } from 'src/app/shared/atomic-design/atoms/input/input.interface';
 import { AbstractFieldsService } from 'src/app/shared/base/abstract-fields.interface';
 import { IFieldBuilder } from 'src/app/shared/base/field-buider';
+import { CAMBIO_OPTIONS, COMBUSTIVEL_OPTIONS, COR_OPTIONS, ITENS_ADICIONAIS_OPTIONS } from './veiculos-fields.options';
 
 @Injectable({
   providedIn: 'root'
 })
 export class VeiculosFieldServiceService implements AbstractFieldsService {
 
-  combustivelOptions: ISelectOptions[] = [
-    {
-      label: 'Gasolina',
-      value: 'gasolina'
-    },
-    {
-      label: 'Alcool',
-      value: 'alcool'
-    },
-    {
-      label: 'Flex',
-      value: 'flex'
-    },
-    {
-      label: 'Diesel',
-      value: 'disel'
-    }
-  ]
-
-  itensAdicionais: ISelectOptions[] = [
-    {
-      label: 'Trava elétrica',
-      value: 'travaEletrica'
-    },
-    {
-      label: 'Direção hidráulica',
-      value: 'direcaoHidraulica'
-    },
-    {
-      label: 'Alarme',
-      value: 'alarme'
-    },
-    {
-      label: 'Rodas de liga leve',
-      value: 'rodaLigaLeve'
-    }
-  ]
-
-  cambioOptions: ISelectOptions[] = [
-    {
-      label: 'Manual',
-      value: 'manual',
-      selected: true
-    },
-    {
-      label: 'Automático',
-      value: 'automatico'
-    },
-  ]
+  
 
   constructor() {
   }
@@ -68,9 +21,10 @@ export class VeiculosFieldServiceService implements AbstractFieldsService {
       new IFieldBuilder().build('anoFabricacao').label('Ano de fabricação').setClass('w-140').get(),
       new IFieldBuilder().build('anoModelo').label('Ano Modelo').setClass('w-140').get(),
       new IFieldBuilder().build('valor', IInputType.CURRENCY).columnShow().label('Valor').number().setClass('w-140').get(),
-      new IFieldBuilder().build('combustivel', IInputType.RADIO).select(this.combustivelOptions).label('Combustível').get(),
-      new IFieldBuilder().build('cambio', IInputType.RADIO).select(this.cambioOptions).columnShow().label('Câmbio').get(),
-      new IFieldBuilder().build('itemsAdicionais', IInputType.MULTISELECT).select(this.itensAdicionais).label('Items adicionais').get(),
+      new IFieldBuilder().build('combustivel', IInputType.RADIO).select(COMBUSTIVEL_OPTIONS).label('Combustível').get(),
+      new IFieldBuilder().build('cambio', IInputType.RADIO).select(CAMBIO_OPTIONS).columnShow().label('Câmbio').get(),
+      new IFieldBuilder().build('cor', IInputType.SELECT).select(COR_OPTIONS).columnShow().label('Cor principal').get(),
+      new IFieldBuilder().build('itemsAdicionais', IInputType.MULTISELECT).select(ITENS_ADICIONAIS_OPTIONS).label('Items adicionais').get(),
       new IFieldBuilder().build('publicar', IInputType.CHECKBOX).label('Publicar').get(),
       new IFieldBuilder().build('vendido', IInputType.CHECKBOX).label('Vendido').get(),
     ]

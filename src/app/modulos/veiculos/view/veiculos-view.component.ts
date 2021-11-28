@@ -20,8 +20,6 @@ import { Veiculo } from '../veiculo';
 export class VeiculosViewComponent extends AbstractViewClass<Veiculo> implements OnInit {
 
   headerInfo: HeaderListInfo;
-
-
   voltarBtn: IBtnInterface = {
     label: 'Voltar',
     class: 'btn-accent',

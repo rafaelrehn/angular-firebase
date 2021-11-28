@@ -1,4 +1,4 @@
-import { IInputType } from "../../atoms/input/input.interface";
+import { IInputType, ISelectOptions } from "../../atoms/input/input.interface";
 
 export interface IViewForm{
     label: string;
