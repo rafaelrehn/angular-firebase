@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BreadCrumbBuilder } from 'src/app/shared/atomic-design/atoms/breadcrumb/breadcrumb-builder';
 import { IBtnInterface } from 'src/app/shared/atomic-design/atoms/btn/btn.interface';
 import { HeaderListInfo } from 'src/app/shared/atomic-design/molecules/list-header/list-header.component';
 import { AbstractCrudEditComponent } from 'src/app/shared/atomic-design/organisms/crud-edit/abstract-crud-edit.component';
@@ -16,11 +17,11 @@ import { Veiculo } from '../veiculo';
   ]
 
 })
-export class VeiculosEditComponent extends AbstractCrudEditComponent implements OnInit {
+export class VeiculosEditComponent extends AbstractCrudEditComponent {
 
   headerInfo: HeaderListInfo = {
-    h2: 'Veiculos',
-    h4: 'Cadastro de veiculos',
+    t1: 'Veiculos',
+    t2: 'Cadastro de veiculos',
     buttons: {
       add: true
     }
@@ -45,7 +46,12 @@ export class VeiculosEditComponent extends AbstractCrudEditComponent implements 
     )
   }
 
-  ngOnInit(): void {
+  buildBreadCrumb(){
+    this.breadcrumb = [
+      new BreadCrumbBuilder().build('Home', '/home').get(),
+      new BreadCrumbBuilder().build('Veiculos', '/home/veiculos').get(),
+      new BreadCrumbBuilder().build(`Novo registro`, '/home/veiculos/').active().get(),
+    ]
   }
 
 }

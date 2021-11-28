@@ -63,12 +63,11 @@ export class VeiculosFieldServiceService implements AbstractFieldsService {
 
   buildFields(): IInputInterface[]{
     return [
-      new IFieldBuilder().build('emprestado', IInputType.CHECKBOX).label('Emprestado').columnShow().get(),
       new IFieldBuilder().build('nome').label('Nome').columnShow().get(),
       new IFieldBuilder().build('marca').label('Marca').columnShow().get(),
       new IFieldBuilder().build('anoFabricacao').label('Ano de fabricação').setClass('w-140').get(),
       new IFieldBuilder().build('anoModelo').label('Ano Modelo').setClass('w-140').get(),
-      new IFieldBuilder().build('valor').columnShow().label('Valor').number().setClass('w-140').get(),
+      new IFieldBuilder().build('valor', IInputType.CURRENCY).columnShow().label('Valor').number().setClass('w-140').get(),
       new IFieldBuilder().build('combustivel', IInputType.RADIO).select(this.combustivelOptions).label('Combustível').get(),
       new IFieldBuilder().build('cambio', IInputType.RADIO).select(this.cambioOptions).columnShow().label('Câmbio').get(),
       new IFieldBuilder().build('itemsAdicionais', IInputType.MULTISELECT).select(this.itensAdicionais).label('Items adicionais').get(),

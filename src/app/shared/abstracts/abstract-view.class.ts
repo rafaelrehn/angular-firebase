@@ -38,9 +38,17 @@ export abstract class AbstractViewClass<T>{
                 mask: input.inputType
             })        
         })    
-        this.buildBreadCrumb()  
+        this.loadDefaultActions()
+        
         })
     }
+
+    loadDefaultActions(){
+        this.buildBreadCrumb()  
+        this.afterContentLoaded()
+    }
+
+    afterContentLoaded(): void {}
 
     abstract buildBreadCrumb(): void
 }

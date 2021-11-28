@@ -3,8 +3,8 @@ import { IBreadcrumb } from '../../atoms/breadcrumb/breadcrumb.interface';
 import { IBtnInterface } from '../../atoms/btn/btn.interface';
 
 export interface HeaderListInfo{
-  h2: string
-  h4?: string
+  t1: string
+  t2?: string
   buttons?: {
     add: boolean
   }

@@ -15,6 +15,7 @@
 
         .breadcrumb-label:hover:not(.breadcrumb-box .bradcrumb-active .breadcrumb-label){
             text-decoration: underline;
+            text-decoration-color: var(--accent);
             cursor: pointer;
         }
     }

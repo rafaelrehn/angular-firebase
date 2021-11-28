@@ -5,13 +5,13 @@ $header: 90px;
 }
 
 .menu{
-    background: var(--bg2);
+    background: var(--bg1);
     max-width: 240px;
     .menu-logo-box{
       height: $header;
       display: flex;
       align-items: center;
-      border-bottom: 1px solid var(--bg3);
+      border-bottom: 1px solid var(--white);
       // justify-content: center;
       padding-left: 32px;
       margin-bottom: 4px;
@@ -27,7 +27,8 @@ $header: 90px;
     .menu-item-box{
       margin-top: 30%;
       .menu-active{
-        background-color: var(--bg3);
+        background-color: var(--bg2);
+        cursor: initial !important;
 
         .item-list{
           color: var(--hard-text) !important;
@@ -46,8 +47,11 @@ $header: 90px;
 
         font-weight: 400;
         cursor: pointer;
-        &:hover{
-          background-color: var(--bg3);
+        &:hover:not(.menu-active){
+          background-color: var(--accent);          
+          .item-list{
+            color: var(--primary) !important;
+          }
         }
 
         .item-list{
@@ -72,7 +76,7 @@ $header: 90px;
 }
 
 .content{
-  background-color: var(--bg1);
+  background-color: var(--white);
   .content-header{
     height: $header;
     border-bottom: 1px solid var(--bg2);

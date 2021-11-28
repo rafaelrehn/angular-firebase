@@ -1,9 +1,21 @@
 .view-input-box{
-    background-color: var(--bg2);
-    padding: 8px;
+    background-color: var(--bg1);
+    padding: 4px;
     margin-bottom: 8px;
-    border-bottom: 2px solid var(--accent);
-    h2{
-        min-height: 32px;
+    
+    padding-left: 8px;
+    padding-right: 8px;
+    border-bottom: 1px solid var(--accent);
+    max-width: 400px;
+    .view-input-label{
+        color: var(--light-text);
+        font-size: 11px;
+    }
+    .view-input-value{
+        display: flex;
+        align-items: ce;
+        font-size: 16px;
+        min-height: 24px;
+        color: var(--hard-text);
     }
 }

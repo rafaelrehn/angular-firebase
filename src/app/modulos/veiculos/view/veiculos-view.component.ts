@@ -19,13 +19,7 @@ import { Veiculo } from '../veiculo';
 })
 export class VeiculosViewComponent extends AbstractViewClass<Veiculo> implements OnInit {
 
-  headerInfo: HeaderListInfo = {
-    h2: 'Veiculos',
-    h4: 'Cadastro de veiculos',
-    buttons: {
-      add: true
-    }
-  }
+  headerInfo: HeaderListInfo;
 
 
   voltarBtn: IBtnInterface = {
@@ -51,8 +45,20 @@ export class VeiculosViewComponent extends AbstractViewClass<Veiculo> implements
     this.breadcrumb = [
       new BreadCrumbBuilder().build('Home', '/home').get(),
       new BreadCrumbBuilder().build('Veiculos', '/home/veiculos').get(),
-      new BreadCrumbBuilder().build(`${this.model.nome}`, '/home/veiculos/').active().get(),
+      new BreadCrumbBuilder().build(
+        `${this.model.nome} - ${this.model.anoFabricacao} / ${this.model.anoModelo} - ${this.model.valor}`,
+         '/home/veiculos/').active().get(),
     ]
+  }
+
+  afterContentLoaded(){
+    this.headerInfo = {
+      t1: 'Veiculo',
+      t2: this.model.nome,
+      buttons: {
+        add: true
+      }
+    }
   }
 
 }

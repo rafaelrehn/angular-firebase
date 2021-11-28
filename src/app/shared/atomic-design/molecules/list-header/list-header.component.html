@@ -1,13 +1,15 @@
 <div class="flex">
   <div class="flex-1">
-    <app-breadcrumb [breadcrumb]="breadcrumb"></app-breadcrumb>
-    <div class="header-name-box">
-      <h1>{{headerInfo?.h2}}</h1>
-    </div>
+    <app-breadcrumb [breadcrumb]="breadcrumb"></app-breadcrumb>    
   </div>
   <div>
     <app-btn routerLink="./edit" [btn]="adicionarBtn" *ngIf="adicionarBtn"></app-btn>
     <app-btn routerLink="../" [btn]="voltarBtn" *ngIf="voltarBtn && voltarBtn.backUrlLevels!=2"></app-btn>
     <app-btn routerLink="../../" [btn]="voltarBtn" *ngIf="voltarBtn && voltarBtn.backUrlLevels==2"></app-btn>
   </div>
+</div>
+
+<div class="header-name-box">
+  <div class="header-t1">{{headerInfo?.t1}}</div>
+  <div class="header-t2">{{headerInfo?.t2}}</div>
 </div>

@@ -3,7 +3,8 @@ export enum IInputType{
   SELECT = 'select',
   CHECKBOX = 'checkbox',
   MULTISELECT = 'multiselect',
-  RADIO = 'radio'
+  RADIO = 'radio',
+  CURRENCY = 'currency'
 }
 
 export interface ISelectOptions{

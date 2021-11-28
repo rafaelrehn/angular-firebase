@@ -22,8 +22,8 @@ import { Router } from '@angular/router';
 export class VeiculosListComponent extends AbstractListComponent<Veiculo> {
 
   headerInfo: HeaderListInfo = {
-    h2: 'Veiculos',
-    h4: 'Cadastro de veiculos',
+    t1: 'Veiculos',
+    t2: 'Lista de veiculos',
     buttons: {
       add: true
     }

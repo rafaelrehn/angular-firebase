@@ -18,8 +18,8 @@ export class DashboardComponent implements OnInit {
 
   buildInfo(){
     this.headerInfo = {
-      h2: 'Dashboard',
-      h4: 'Atualizações sobre a visualizações de veículos',
+      t1: 'Dashboard',
+      t2: 'Atualizações sobre a visualizações de veículos',
     }
   }
 

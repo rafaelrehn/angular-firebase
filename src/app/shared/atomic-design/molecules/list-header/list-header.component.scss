@@ -1,7 +1,14 @@
 .header-name-box{
-    margin-top: 12px;
-    h1{
+    display: flex;
+    font-size: 22px;
+    margin: 12px 0px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--bg1);
+    .header-t1{
         font-weight: bolder;
         letter-spacing: 1px;
+    }
+    .header-t2{
+        margin-left: 12px;
     }
 }
