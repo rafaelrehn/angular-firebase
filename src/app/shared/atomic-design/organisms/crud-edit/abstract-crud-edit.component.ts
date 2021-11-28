@@ -5,6 +5,7 @@ import { AbstractFieldsService } from 'src/app/shared/base/abstract-fields.inter
 import { AbstractService } from 'src/app/shared/base/abstract.service';
 import { IFieldBuilder } from 'src/app/shared/base/field-buider';
 import { DefaultEntity } from 'src/app/shared/default.entity';
+import { IBreadcrumb } from '../../atoms/breadcrumb/breadcrumb.interface';
 import { IInputInterface } from '../../atoms/input/input.interface';
 
 @Component({
@@ -16,6 +17,7 @@ export class AbstractCrudEditComponent implements OnInit {
 
   form: FormGroup;
   inputs: IInputInterface[]
+  breadcrumb: IBreadcrumb[]
 
 
   constructor(
@@ -26,6 +28,7 @@ export class AbstractCrudEditComponent implements OnInit {
   ngOnInit(): void {
     this.buildInputs()
     this.buildForm()
+    this.buildBreadCrumb()
   }
 
   buildForm(){
@@ -60,5 +63,7 @@ export class AbstractCrudEditComponent implements OnInit {
   resetFormValues(){
     this.form.reset()
   }
+
+  buildBreadCrumb(){}
 
 }

@@ -7,6 +7,7 @@
   </div>
   <div>
     <app-btn routerLink="./edit" [btn]="adicionarBtn" *ngIf="adicionarBtn"></app-btn>
-    <app-btn routerLink="../" [btn]="voltarBtn" *ngIf="voltarBtn"></app-btn>
+    <app-btn routerLink="../" [btn]="voltarBtn" *ngIf="voltarBtn && voltarBtn.backUrlLevels!=2"></app-btn>
+    <app-btn routerLink="../../" [btn]="voltarBtn" *ngIf="voltarBtn && voltarBtn.backUrlLevels==2"></app-btn>
   </div>
 </div>
