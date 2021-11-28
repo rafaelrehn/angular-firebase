@@ -4,7 +4,7 @@
         <div *ngSwitchCase="'checkbox'">
             <mat-icon *ngIf="viewInput.value">checked</mat-icon>
         </div>
-        <div *ngSwitchCase="'currency'" style="margin-left: auto;">{{viewInput.value}}</div>
+        <div *ngSwitchCase="'currency'" style="margin-left: auto;">{{viewInput.value | currency:'BRL'}}</div>
 
         
         <div *ngSwitchDefault>{{viewInput.value}}</div>        

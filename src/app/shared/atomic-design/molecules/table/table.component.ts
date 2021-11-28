@@ -8,6 +8,12 @@ export interface ClickTableEvent{
   data: any;
 }
 
+export interface IDisplayedColumns{
+  label: string;
+  name: string;
+  mask: IInputType;
+}
+
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
@@ -15,8 +21,7 @@ export interface ClickTableEvent{
 })
 export class TableComponent<T> implements OnInit {
 
-  @Input() displayedColumns: string[] = [];
-  @Input() nameColumns: string[] = [];
+  @Input() displayedColumns: IDisplayedColumns[] = [];
   @Input() dataSource: Observable<T[]>
 
   inputsSelectTabel: IInputInterface = {
@@ -39,7 +44,7 @@ export class TableComponent<T> implements OnInit {
 
   getValue(row: T, idx: number): string {
     let r = row as any
-    return r[this.nameColumns[idx]]
+    return r[this.displayedColumns[idx].name]
   }
 
   excluir(row: T){

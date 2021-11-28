@@ -1,17 +1,21 @@
 <table>
   <tr>
-    <th></th>
-    <th *ngFor="let col of displayedColumns ; let i = index">{{col}}</th>
-    <th></th>
+    <th class="w-16"></th>
+    <th *ngFor="let col of displayedColumns ; let i = index" 
+      [ngClass]="col.mask == 'currency' ? 'w-200' : ''">{{col.label}}</th>
+    <th class="w-100"></th>
   </tr>
   <tr *ngFor="let item of dataSource | async">
     <td>
       <app-input-checkbox></app-input-checkbox>
     </td>
-    <!-- <td>
-      <app-input-checkbox></app-input-checkbox>
-    </td> -->
-    <td *ngFor="let col of displayedColumns ; let i = index" (click)="selectRow(item)">{{getValue(item,i)}}</td>
+    <td *ngFor="let col of displayedColumns ; let i = index" (click)="selectRow(item)" 
+      [ngClass]="col.mask == 'currency' ? 'w-200' : ''">
+      <span [ngSwitch]="col.mask">
+        <span *ngSwitchCase="'currency'">{{getValue(item,i) | currency:'BRL'}}</span>
+        <span *ngSwitchDefault>{{getValue(item,i)}}</span>
+      </span>
+    </td>
     <td>
       <div (click)="excluir(item)">Remover</div>
     </td>

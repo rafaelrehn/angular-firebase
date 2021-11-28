@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { AbstractFieldsService } from 'src/app/shared/base/abstract-fields.interface';
 import { AbstractService } from 'src/app/shared/base/abstract.service';
 import { DefaultEntity } from 'src/app/shared/default.entity';
-import { ClickTableEvent } from '../../molecules/table/table.component';
+import { ClickTableEvent, IDisplayedColumns } from '../../molecules/table/table.component';
 
 @Component({
   selector: 'app-abstract-list',
@@ -14,8 +14,8 @@ import { ClickTableEvent } from '../../molecules/table/table.component';
 export class AbstractListComponent<Entity extends DefaultEntity>{
 
   
-  columns: string[]
-  nameColumns: string[]
+  columns: IDisplayedColumns[]
+  // nameColumns: IDisplayedColumns[]
 
 
 
@@ -29,8 +29,20 @@ export class AbstractListComponent<Entity extends DefaultEntity>{
   }
 
   buildColumns() {
-    this.columns = this.fieldsService.buildFields().filter(f=>f.columnShow).map(m=>m.label as string)
-    this.nameColumns = this.fieldsService.buildFields().filter(f=>f.columnShow).map(m=>m.name)
+    this.columns = this.fieldsService.buildFields().filter(f=>f.columnShow).map(m=>{
+      return { 
+        label: m.label as string,
+        name: m.name,
+        mask: m.inputType
+      }
+    })
+    // this.nameColumns = this.fieldsService.buildFields().filter(f=>f.columnShow).map(m=>{
+    //   return { 
+    //     label: m.label as string,
+    //     name: m.name,
+    //     mask: m.inputType
+    //   }
+    // })
   }
 
   excluir(element: Entity){
