@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoadingService } from 'src/app/shared/base/loading.service';
 import { IMenuBuilder, IMenuInterface } from 'src/app/shared/base/menu-builder';
 
 @Component({
@@ -10,7 +11,9 @@ export class HomeComponent implements OnInit {
 
   menuList: IMenuInterface[]
 
-  constructor() { }
+  constructor(
+    public loadingService: LoadingService
+  ) { }
 
   ngOnInit(): void {
     this.buildMenu()

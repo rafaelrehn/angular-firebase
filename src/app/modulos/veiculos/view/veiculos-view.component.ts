@@ -32,10 +32,10 @@ export class VeiculosViewComponent extends AbstractViewClass<Veiculo> implements
   constructor(
     protected service: AbstractService<Veiculo>,
     protected fieldsService: VeiculosFieldServiceService,
-    protected route: Router,
+    protected router: Router,
     protected activatedRoute: ActivatedRoute
   ) {
-    super(service, fieldsService, route, activatedRoute)
+    super(service, fieldsService, router, activatedRoute)
    }
 
   ngOnInit(): void {

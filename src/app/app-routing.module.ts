@@ -19,6 +19,7 @@ const routes: Routes = [
         component: VeiculosListComponent ,
       },
       { path: 'veiculos/edit', component: VeiculosEditComponent },
+      { path: 'veiculos/edit/:key', component: VeiculosEditComponent },
       { path: 'veiculos/view/:key', component: VeiculosViewComponent }
     ]
   },

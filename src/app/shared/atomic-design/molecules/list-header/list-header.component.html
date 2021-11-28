@@ -5,9 +5,9 @@
 </div>
 
 <div class="header-name-box">
-  <div class="header-btn header-btn-back" (click)="routerBack()" *ngIf="headerInfo.backBtn"><mat-icon>keyboard_backspace</mat-icon></div>  
+  <div class="header-btn header-btn-back" (click)="routerBack()" *ngIf="headerInfo?.backBtn"><mat-icon>keyboard_backspace</mat-icon></div>  
   <div class="header-t1">{{headerInfo?.t1}}</div>
   <div class="header-t2">{{headerInfo?.t2}}</div>
-  <div class="header-btn header-btn-edit" *ngIf="headerInfo.editBtn"><mat-icon>edit</mat-icon></div>  
-  <div class="header-btn header-btn-edit" *ngIf="headerInfo.addBtn" routerLink="./edit"><mat-icon>add</mat-icon></div>
+  <div class="header-btn header-btn-edit" *ngIf="headerInfo?.editBtn" (click)="routerEdit()"><mat-icon>edit</mat-icon></div>  
+  <div class="header-btn header-btn-edit" *ngIf="headerInfo?.addBtn" routerLink="./edit"><mat-icon>add</mat-icon></div>
 </div>

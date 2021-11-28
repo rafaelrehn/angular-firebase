@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BreadCrumbBuilder } from 'src/app/shared/atomic-design/atoms/breadcrumb/breadcrumb-builder';
 import { IBtnInterface } from 'src/app/shared/atomic-design/atoms/btn/btn.interface';
 import { HeaderListInfo } from 'src/app/shared/atomic-design/molecules/list-header/list-header.component';
 import { AbstractCrudEditComponent } from 'src/app/shared/atomic-design/organisms/crud-edit/abstract-crud-edit.component';
 import { AbstractService } from 'src/app/shared/base/abstract.service';
+import { LoadingService } from 'src/app/shared/base/loading.service';
 import { VeiculosFieldServiceService } from '../services/veiculos-field-service.service';
 import { Veiculo } from '../veiculo';
 
@@ -17,7 +19,7 @@ import { Veiculo } from '../veiculo';
   ]
 
 })
-export class VeiculosEditComponent extends AbstractCrudEditComponent {
+export class VeiculosEditComponent extends AbstractCrudEditComponent<Veiculo> {
 
   headerInfo: HeaderListInfo = {
     t1: 'Veiculos',
@@ -36,11 +38,15 @@ export class VeiculosEditComponent extends AbstractCrudEditComponent {
 
   constructor(
     protected service: AbstractService<Veiculo>,
-    protected fieldsService: VeiculosFieldServiceService
+    protected fieldsService: VeiculosFieldServiceService,
+    protected router: Router,
+    protected activatedRoute: ActivatedRoute,
   ) {
     super(
       service,
-      fieldsService
+      fieldsService,
+      router,
+      activatedRoute
     )
   }
 

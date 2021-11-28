@@ -18,8 +18,8 @@ export abstract class AbstractViewClass<T>{
     constructor(
         protected service: AbstractService<DefaultEntity>,
         @Inject('fieldsService') protected fieldsService: AbstractFieldsService,
-        protected route: Router,
-        protected activatedRoute: ActivatedRoute
+        protected router: Router,
+        protected activatedRoute: ActivatedRoute,
     ) { 
         this.inputs = this.fieldsService.buildFields()
         this.getModel()
@@ -28,19 +28,27 @@ export abstract class AbstractViewClass<T>{
     getModel(){
         let key = this.activatedRoute.snapshot.paramMap.get('key') as string;
         this.service.getOne(key).subscribe(res=>{
-        this.model = res as T
-        this.inputs.forEach(input=>{
-            const _model = this.model as any
-            const value = _model[input.name]
-            this.arrayViewForm.push({
-                label: input.label as string,
-                value: value,
-                mask: input.inputType
-            })        
-        })    
-        this.loadDefaultActions()
+            this.model = res as T
+            Object.assign(this.model, {key: key})
+            this.inputs.forEach(input=>{
+                const _model = this.model as any
+                const value = _model[input.name]
+                this.arrayViewForm.push({
+                    label: input.label as string,
+                    value: value,
+                    mask: input.inputType
+                })        
+            })    
+            this.loadDefaultActions()
         
         })
+    }
+
+    headerActionEvent(event: string){
+        if(event=='edit'){
+            const model = this.model as any
+            this.router.navigate([`../../edit/${model.key}`], { relativeTo: this.activatedRoute })
+        }
     }
 
     loadDefaultActions(){

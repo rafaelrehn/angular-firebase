@@ -51,7 +51,6 @@ export class AbstractListComponent<Entity extends DefaultEntity>{
   }
 
   selectRow(data: Entity){
-    this.route.url
     this.route.navigate([this.route.url +'/view/'+data.key])
   }
 
