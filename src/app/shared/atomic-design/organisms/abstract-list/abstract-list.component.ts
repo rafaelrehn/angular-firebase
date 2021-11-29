@@ -15,7 +15,6 @@ export class AbstractListComponent<Entity extends DefaultEntity>{
 
   
   columns: IDisplayedColumns[]
-  // nameColumns: IDisplayedColumns[]
 
 
 
@@ -33,16 +32,10 @@ export class AbstractListComponent<Entity extends DefaultEntity>{
       return { 
         label: m.label as string,
         name: m.name,
-        mask: m.inputType
+        mask: m.inputType,
+        select: m.select
       }
     })
-    // this.nameColumns = this.fieldsService.buildFields().filter(f=>f.columnShow).map(m=>{
-    //   return { 
-    //     label: m.label as string,
-    //     name: m.name,
-    //     mask: m.inputType
-    //   }
-    // })
   }
 
   excluir(element: Entity){

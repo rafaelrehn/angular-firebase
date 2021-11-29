@@ -15,6 +15,12 @@ export interface ISelectOptions{
   disabled?: boolean;
 }
 
+export interface ISelect{
+  multiselect: boolean;
+  options: ISelectOptions[]
+
+}
+
 export interface IInputInterface{
   name: string;
   class: string | string[] | Set<string> | { [klass: string]: any; };
@@ -22,10 +28,6 @@ export interface IInputInterface{
   id?: string;
   type?: string;
   inputType: IInputType;
-  select?:{
-    multiselect: boolean;
-    options: ISelectOptions[]
-
-  }
+  select?: ISelect;
   columnShow?: boolean;
 }

@@ -1,7 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Observable } from 'rxjs';
+import { getInputValue } from 'src/app/shared/base/utils';
 import { IBtnInterface } from '../../atoms/btn/btn.interface';
-import { IInputInterface, IInputType } from '../../atoms/input/input.interface';
+import { IInputInterface, IInputType, ISelect, ISelectOptions } from '../../atoms/input/input.interface';
 
 export interface ClickTableEvent{
   eventName: 'excluir' | 'selectRow',
@@ -12,6 +13,7 @@ export interface IDisplayedColumns{
   label: string;
   name: string;
   mask: IInputType;
+  select?: ISelect;
 }
 
 @Component({
@@ -44,7 +46,14 @@ export class TableComponent<T> implements OnInit {
 
   getValue(row: T, idx: number): string {
     let r = row as any
-    return r[this.displayedColumns[idx].name]
+    // const value = r[this.displayedColumns[idx].name]
+    const IInputInterface: IInputInterface = {
+      class: '',
+      inputType: this.displayedColumns[idx].mask,
+      name: this.displayedColumns[idx].name,
+      select: this.displayedColumns[idx].select
+    }
+    return getInputValue(IInputInterface, r)
   }
 
   excluir(row: T){

@@ -23,7 +23,7 @@ export class VeiculosEditComponent extends AbstractCrudEditComponent<Veiculo> {
 
   headerInfo: HeaderListInfo = {
     t1: 'Veiculos',
-    t2: 'Cadastro de veiculos',
+    t2: 'Editar veículo',
     backBtn: {active: true}
   }
 
@@ -51,11 +51,21 @@ export class VeiculosEditComponent extends AbstractCrudEditComponent<Veiculo> {
   }
 
   buildBreadCrumb(){
-    this.breadcrumb = [
-      new BreadCrumbBuilder().build('Home', '/home').get(),
-      new BreadCrumbBuilder().build('Veiculos', '/home/veiculos').get(),
-      new BreadCrumbBuilder().build(`Novo registro`, '/home/veiculos/').active().get(),
-    ]
+    if(this.isEdit){
+      this.breadcrumb = [
+        new BreadCrumbBuilder().build('Home', '/home').get(),
+        new BreadCrumbBuilder().build('Veiculos', '/home/veiculos').get(),
+        new BreadCrumbBuilder().build(
+          `${this.model.nome} - ${this.model.anoFabricacao} / ${this.model.anoModelo} - ${this.model.valor}`,
+           '/home/veiculos/').active().get(),
+      ]
+    }else{
+      this.breadcrumb = [
+        new BreadCrumbBuilder().build('Home', '/home').get(),
+        new BreadCrumbBuilder().build('Veiculos', '/home/veiculos').get(),
+        new BreadCrumbBuilder().build(`Novo registro`, '/home/veiculos/').active().get(),
+      ]
+    }    
   }
 
 }

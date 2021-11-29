@@ -11,7 +11,7 @@ export function getInputValue(input: IInputInterface, model: any): string{
         }            
     }else if(input.inputType == IInputType.MULTISELECT){
         const values: string[] = _model[input.name]
-        if(values.length > 0){
+        if(values && values.length > 0){
             let res = ''
             values.forEach((val, i)=>{
                 const idxLabel = input.select?.options.map(m=>m.value).indexOf(val) as number

@@ -32,23 +32,25 @@ export class AbstractCrudEditComponent<T extends DefaultEntity> implements OnIni
     protected activatedRoute: ActivatedRoute,
     ) { }
 
-  ngOnInit(): void {
+  async ngOnInit() {
     this.buildForm()    
-    this.buildInputs()    
-    this.buildBreadCrumb()
+    this.buildInputs()
     const key = this.activatedRoute.snapshot.paramMap.get('key') as string
     if(key){
-      this.getData(key)
+      await this.getData(key)
       this.isEdit = true
     }
+    this.buildBreadCrumb()
   }
 
-  getData(key: string){
-    
-    this.service.getOne(key).subscribe(res=>{
-      this.model = res as any
-      Object.assign(this.model, {key: key})
-      this.setValuesForm(res as any)      
+  getData(key: string):Promise<void>{
+    return new Promise(resolve=>{
+      this.service.getOne(key).subscribe(res=>{
+        this.model = res as any
+        Object.assign(this.model, {key: key})
+        this.setValuesForm(res as any)      
+        resolve()
+      })
     })
   }
 
@@ -84,15 +86,16 @@ export class AbstractCrudEditComponent<T extends DefaultEntity> implements OnIni
     }
   }
 
-  onSubmit(){
+  async onSubmit(){
     const formValue = this.form.getRawValue()
     console.log({formValue})
     if(this.isEdit){
       this.service.update(formValue, this.model.key as string)
       this.router.navigate([`../../view/${this.model.key}`], { relativeTo: this.activatedRoute })
     }else{
-      this.service.insert(formValue)
-      this.resetFormValues()
+      const key = await this.service.insert(formValue)
+      this.router.navigate([`../view/${key}`], { relativeTo: this.activatedRoute })
+      // this.resetFormValues()
     }    
   }
 
@@ -101,5 +104,4 @@ export class AbstractCrudEditComponent<T extends DefaultEntity> implements OnIni
   }
 
   buildBreadCrumb(){}
-
 }
