@@ -15,14 +15,17 @@ export class AbstractService<Entity> {
     @Inject('entityName') private entityName: string
     ) { }
 
-  insert(veiculo: Entity) {
+  insert(veiculo: Entity): Promise<string> {
+    return new Promise((resolve,reject)=>{
     this.db.list(this.entityName).push(veiculo)
       .then(result => {
-        console.log(result)
+        console.log(result.key)
+        resolve(result.key as string)
       })
       .catch(err => {
-        console.error(err)
+        reject(err)
       })
+    })
   }
 
   update(veiculo: Entity, key: string) {
