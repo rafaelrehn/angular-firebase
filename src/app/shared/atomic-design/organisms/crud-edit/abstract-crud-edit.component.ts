@@ -8,6 +8,7 @@ import { IFieldBuilder } from 'src/app/shared/base/field-buider';
 import { LoadingService } from 'src/app/shared/base/loading.service';
 import { DefaultEntity } from 'src/app/shared/default.entity';
 import { IBreadcrumb } from '../../atoms/breadcrumb/breadcrumb.interface';
+import { IBtnInterface } from '../../atoms/btn/btn.interface';
 import { IInputInterface } from '../../atoms/input/input.interface';
 
 @Component({
@@ -24,6 +25,18 @@ export class AbstractCrudEditComponent<T extends DefaultEntity> implements OnIni
   model: T
 
   isEdit = false
+
+  submitBtn: IBtnInterface = {
+    label: 'Submit',
+    type: 'submit',
+    class: 'btn-accent',
+    icon: 'check'
+  }
+
+  cancelBtn: IBtnInterface = {
+    label: 'Cancelar',
+    icon: 'close'
+  }
 
   constructor(
     protected service: AbstractService<DefaultEntity>,
@@ -89,18 +102,27 @@ export class AbstractCrudEditComponent<T extends DefaultEntity> implements OnIni
   async onSubmit(){
     const formValue = this.form.getRawValue()
     console.log({formValue})
+    let key: string = ''
     if(this.isEdit){
       this.service.update(formValue, this.model.key as string)
-      this.router.navigate([`../../view/${this.model.key}`], { relativeTo: this.activatedRoute })
     }else{
-      const key = await this.service.insert(formValue)
+      key = await this.service.insert(formValue)
+    } 
+    this.redirect(key)   
+  }
+
+  redirect(key?: string){
+    if(this.isEdit){
+      this.router.navigate([`../../view/${this.model.key}`], { relativeTo: this.activatedRoute })
+    }else if(key){
       this.router.navigate([`../view/${key}`], { relativeTo: this.activatedRoute })
-      // this.resetFormValues()
-    }    
+    }else{
+      this.router.navigate([`../`], { relativeTo: this.activatedRoute })
+    }
   }
 
   resetFormValues(){
-    this.form.reset()
+    this.redirect()
   }
 
   buildBreadCrumb(){}

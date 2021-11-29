@@ -8,7 +8,7 @@ table {
   td, th {
     border-bottom: 1px solid var(--bg1);
     text-align: left;
-    padding: 8px;
+    padding: 0px 8px;
   }
 
   th{
@@ -18,10 +18,14 @@ table {
   tr:nth-child(even) {
     background-color: var(--white);
   }
+  
+  tr{
+    height: 28px !important;
+  }
 
   tr:hover{
     td:not(tr td:nth-child(1)):not(tr td:last-child){
-      background-color: var(--accent);
+      background-color: var(--accent-light);
       cursor: pointer;
     }    
     

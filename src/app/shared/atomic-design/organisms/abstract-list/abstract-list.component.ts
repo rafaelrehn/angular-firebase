@@ -47,6 +47,10 @@ export class AbstractListComponent<Entity extends DefaultEntity>{
     this.route.navigate([this.route.url +'/view/'+data.key])
   }
 
+  editRow(data: Entity){
+    this.route.navigate([this.route.url +'/edit/'+data.key])
+  }
+
 
   clickTableEvent(event: ClickTableEvent){
     switch (event.eventName) {
@@ -55,6 +59,10 @@ export class AbstractListComponent<Entity extends DefaultEntity>{
         break;
 
       case 'selectRow':
+          this.selectRow(event.data)
+        break;
+
+      case 'editRow':
           this.selectRow(event.data)
         break;
 

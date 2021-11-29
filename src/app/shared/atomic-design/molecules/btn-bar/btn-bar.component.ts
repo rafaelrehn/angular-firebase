@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { IBtnInterface } from '../../atoms/btn/btn.interface';
 
 @Component({
@@ -8,29 +8,23 @@ import { IBtnInterface } from '../../atoms/btn/btn.interface';
 })
 export class BtnBarComponent implements OnInit {
 
-  submitBtn: IBtnInterface
-  cancelBtn: IBtnInterface
+  @Input() submitBtn: IBtnInterface = {
+    label: 'Submit',
+    type: 'submit',
+    class: 'btn-accent',
+    icon: 'send'
+  }
+
+  @Input() cancelBtn: IBtnInterface = {
+    label: 'Cancelar',
+  }
 
   @Output() click = new EventEmitter<any>();
 
   constructor() { }
 
   ngOnInit(): void {
-    this.buildBtn()
   }
-
-  buildBtn(){
-    this.submitBtn = {
-      label: 'Submit',
-      type: 'submit',
-      class: 'btn-accent'
-    }
-
-    this.cancelBtn = {
-      label: 'Cancelar',
-    }
-  }
-
 
   clickEvent(event: 'cancelar' | 'submit'){
     this.click.emit(event)

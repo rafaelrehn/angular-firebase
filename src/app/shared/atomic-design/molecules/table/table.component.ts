@@ -5,7 +5,7 @@ import { IBtnInterface } from '../../atoms/btn/btn.interface';
 import { IInputInterface, IInputType, ISelect, ISelectOptions } from '../../atoms/input/input.interface';
 
 export interface ClickTableEvent{
-  eventName: 'excluir' | 'selectRow',
+  eventName: 'excluir' | 'selectRow' | 'editRow',
   data: any;
 }
 
@@ -60,6 +60,13 @@ export class TableComponent<T> implements OnInit {
     this.clickEvent.emit({
       eventName: 'excluir',
       data: row
+    })
+  }
+
+  editRow(item: T){
+    this.clickEvent.emit({
+      eventName: 'editRow',
+      data: item
     })
   }
 

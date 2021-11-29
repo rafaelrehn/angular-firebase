@@ -5,6 +5,7 @@ import { BtnModule } from '../../atoms/btn/btn.module';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { BreadcrumbModule } from '../../atoms/breadcrumb/breadcrumb.module';
 import { MatIconModule } from '@angular/material/icon';
+import { IconButtonModule } from '../../atoms/icon-button/icon-button.module';
 
 @NgModule({
   declarations: [ListHeaderComponent],
@@ -17,7 +18,8 @@ import { MatIconModule } from '@angular/material/icon';
     AppRoutingModule,
     BreadcrumbModule,
     MatIconModule,
-    AppRoutingModule
+    AppRoutingModule,
+    IconButtonModule
   ]
 })
 export class ListHeaderModule { }

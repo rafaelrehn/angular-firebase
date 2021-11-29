@@ -17,7 +17,10 @@
       </span>
     </td>
     <td>
-      <div (click)="excluir(item)">Remover</div>
+      <div class="flex">
+        <app-icon-button (clickEvent)="editRow(item)" [iconName]="'edit'"></app-icon-button> 
+        <app-icon-button (clickEvent)="excluir(item)" [iconName]="'delete'"></app-icon-button> 
+      </div>
     </td>
   </tr>
 </table>
