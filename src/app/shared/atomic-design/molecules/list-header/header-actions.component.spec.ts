@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { HeaderActionsComponent } from './header-actions.component';
 
-import { HeaderActionsComponent } from './list-header.component';
 
 describe('ListHeaderComponent', () => {
   let component: HeaderActionsComponent;

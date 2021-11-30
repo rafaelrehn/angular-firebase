@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './dashboard.component';
-import { HeaderActionsModule } from 'src/app/shared/atomic-design/molecules/header-actions/header-actions.module';
+import { HeaderActionsModule } from 'src/app/shared/atomic-design/molecules/list-header/header-actions.module';
 
 
 

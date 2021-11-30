@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BreadCrumbBuilder } from 'src/app/shared/atomic-design/atoms/breadcrumb/breadcrumb-builder';
 import { IBtnInterface } from 'src/app/shared/atomic-design/atoms/btn/btn.interface';
-import { HeaderListInfo } from 'src/app/shared/atomic-design/molecules/header-actions/header-actions.component';
+import { HeaderListInfo } from 'src/app/shared/atomic-design/molecules/list-header/header-actions.component';
 import { AbstractCrudEditComponent } from 'src/app/shared/atomic-design/organisms/crud-edit/abstract-crud-edit.component';
 import { AbstractService } from 'src/app/shared/base/abstract.service';
 import { LoadingService } from 'src/app/shared/base/loading.service';

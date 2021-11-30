@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HeaderListInfo } from 'src/app/shared/atomic-design/molecules/header-actions/header-actions.component';
+import { HeaderListInfo } from 'src/app/shared/atomic-design/molecules/list-header/header-actions.component';
 
 @Component({
   selector: 'app-dashboard',

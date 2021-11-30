@@ -8,7 +8,7 @@ import { AbstractListComponent } from 'src/app/shared/atomic-design/organisms/ab
 import { BreadCrumbBuilder } from 'src/app/shared/atomic-design/atoms/breadcrumb/breadcrumb-builder';
 import { IBreadcrumb } from 'src/app/shared/atomic-design/atoms/breadcrumb/breadcrumb.interface';
 import { Router } from '@angular/router';
-import { HeaderListInfo } from 'src/app/shared/atomic-design/molecules/header-actions/header-actions.component';
+import { HeaderListInfo } from 'src/app/shared/atomic-design/molecules/list-header/header-actions.component';
 @Component({
   selector: 'app-veiculos-list',
   templateUrl: './veiculos-list.component.html',

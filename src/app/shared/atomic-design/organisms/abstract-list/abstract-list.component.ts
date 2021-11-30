@@ -6,17 +6,9 @@ import { AbstractService } from 'src/app/shared/base/abstract.service';
 import { DefaultEntity } from 'src/app/shared/default.entity';
 import { ClickTableEvent, IDisplayedColumns } from '../../molecules/table/table.component';
 
-@Component({
-  selector: 'app-abstract-list',
-  templateUrl: './abstract-list.component.html',
-  styleUrls: ['./abstract-list.component.scss']
-})
 export class AbstractListComponent<Entity extends DefaultEntity>{
 
-
   columns: IDisplayedColumns[]
-
-
 
   constructor(
     public service: AbstractService<Entity>,
@@ -28,7 +20,7 @@ export class AbstractListComponent<Entity extends DefaultEntity>{
   }
 
   buildColumns() {
-    this.columns = this.fieldsService.buildFields().filter(f=>f.columnShow).map(m=>{
+    this.columns = this.fieldsService.buildFields().filter(f => f.columnShow).map(m => {
       return {
         label: m.label as string,
         name: m.name,
@@ -38,38 +30,36 @@ export class AbstractListComponent<Entity extends DefaultEntity>{
     })
   }
 
-  excluir(element: Entity){
+  excluir(element: Entity) {
     const { key } = element as any
     this.service.delete(key)
   }
 
-  selectRow(data: Entity){
-    this.route.navigate([this.route.url +'/'+data.key + '/view'])
+  selectRow(data: Entity) {
+    this.route.navigate([this.route.url + '/' + data.key + '/view'])
   }
 
-  editRow(data: Entity){
-    this.route.navigate([this.route.url +'/edit/'+data.key])
+  editRow(data: Entity) {
+    this.route.navigate([this.route.url + '/edit/' + data.key])
   }
 
 
-  clickTableEvent(event: ClickTableEvent){
+  clickTableEvent(event: ClickTableEvent) {
     switch (event.eventName) {
       case 'excluir':
-          this.excluir(event.data)
+        this.excluir(event.data)
         break;
 
       case 'selectRow':
-          this.selectRow(event.data)
+        this.selectRow(event.data)
         break;
 
       case 'editRow':
-          this.selectRow(event.data)
+        this.selectRow(event.data)
         break;
 
       default:
         break;
     }
   }
-
-
 }
