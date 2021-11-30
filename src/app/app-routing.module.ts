@@ -12,6 +12,9 @@ import { VeiculosEditComponent } from './modulos/veiculos/edit/veiculos-edit.com
 import { VeiculosListComponent } from './modulos/veiculos/list/veiculos-list.component';
 import { ViewDetailsComponent } from './modulos/veiculos/view/view-details/view-details.component';
 import { VeiculosViewComponent } from './modulos/veiculos/view/veiculos-view.component';
+import { UtilitariosListComponent } from './modulos/utilitarios/list/utilitarios-list.component';
+import { UtilitariosEditComponent } from './modulos/utilitarios/edit/utilitarios-edit.component';
+import { UtilitariosViewComponent } from './modulos/utilitarios/view/utilitarios-view.component';
 
 const ROUTES: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -32,6 +35,9 @@ const ROUTES: Routes = [
       {
         path: 'dashboard', component: DashboardComponent
       },
+
+
+
       {
         path: 'veiculos',
         component: VeiculosListComponent,
@@ -40,6 +46,23 @@ const ROUTES: Routes = [
       { path: 'veiculos/edit/:key', component: VeiculosEditComponent },
       {
         path: 'veiculos/:key', component: VeiculosViewComponent,
+        children: [
+          { path: 'view', component: ViewDetailsComponent },
+          { path: 'imagens', component: ImagensVeiuclosComponent },
+          { path: '',   redirectTo: 'view', pathMatch: 'prefix' },
+        ]
+      },
+      { path: 'profile', component: ProfileComponent },
+
+
+      {
+        path: 'utilitarios',
+        component: UtilitariosListComponent,
+      },
+      { path: 'utilitarios/create', component: UtilitariosEditComponent },
+      { path: 'utilitarios/edit/:key', component: UtilitariosEditComponent },
+      {
+        path: 'utilitarios/:key', component: UtilitariosViewComponent,
         children: [
           { path: 'view', component: ViewDetailsComponent },
           { path: 'imagens', component: ImagensVeiuclosComponent },

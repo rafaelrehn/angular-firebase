@@ -12,11 +12,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeModule } from './modulos/home/home.module';
 import { AuthModule } from './modulos/auth/auth.module';
 import { ProfileModule } from './modulos/profile/profile.module';
+import { UtilitariosModule } from './modulos/utilitarios/utilitarios.module';
 
 const FirebaseConfig = [
   AngularFireAuthModule,
   AngularFireModule.initializeApp(environment.firebase) // Your config
 ];
+
+const Modulos = [
+  VeiculosModule,
+  UtilitariosModule,
+]
 
 @NgModule({
   declarations: [
@@ -26,11 +32,11 @@ const FirebaseConfig = [
     BrowserModule,
     AppRoutingModule,
     FirebaseConfig,
-    VeiculosModule,
     HomeModule,
     BrowserAnimationsModule,
     AuthModule,
-    ProfileModule
+    ProfileModule,
+    ...Modulos
   ],
   providers: [],
   bootstrap: [AppComponent]
