@@ -4,5 +4,6 @@ export interface IBtnInterface{
   type?: string;
   icon?: string;
   backUrlLevels?: number;
+  disabled?: boolean
   // color: 'primary' | 'accent' | 'warn' | null
 }

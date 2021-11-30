@@ -5,10 +5,10 @@ import { AbstractService } from 'src/app/shared/base/abstract.service';
 import { VeiculosFieldServiceService } from '../services/veiculos-field-service.service';
 import { IBtnInterface } from 'src/app/shared/atomic-design/atoms/btn/btn.interface';
 import { AbstractListComponent } from 'src/app/shared/atomic-design/organisms/abstract-list/abstract-list.component';
-import { HeaderListInfo } from 'src/app/shared/atomic-design/molecules/list-header/list-header.component';
 import { BreadCrumbBuilder } from 'src/app/shared/atomic-design/atoms/breadcrumb/breadcrumb-builder';
 import { IBreadcrumb } from 'src/app/shared/atomic-design/atoms/breadcrumb/breadcrumb.interface';
 import { Router } from '@angular/router';
+import { HeaderListInfo } from 'src/app/shared/atomic-design/molecules/header-actions/header-actions.component';
 @Component({
   selector: 'app-veiculos-list',
   templateUrl: './veiculos-list.component.html',
@@ -30,7 +30,7 @@ export class VeiculosListComponent extends AbstractListComponent<Veiculo> {
   adicionarBtn: IBtnInterface = {
     label: 'Novo registro',
     class: 'btn-accent',
-    icon: 'note_add'
+    icon: 'note_add',
   }
 
   breadcrumb: IBreadcrumb[]

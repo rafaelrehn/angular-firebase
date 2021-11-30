@@ -1,0 +1,21 @@
+<div style="min-height: 78px;">
+  <div class="flex">
+    <div class="flex-1">
+      <app-breadcrumb [breadcrumb]="breadcrumb"></app-breadcrumb>
+    </div>
+  </div>
+
+  <div class="header-name-box">
+    <app-icon-button *ngIf="headerInfo?.backBtn" class="mr-12" (clickEvent)="routerBack()"
+      [iconName]="'keyboard_backspace'"></app-icon-button>
+    <div class="header-t1">{{headerInfo?.t1}}</div>
+    <div class="header-t2">{{headerInfo?.t2}}</div>
+    <app-icon-button *ngIf="headerInfo?.editBtn" class="ml-12" (clickEvent)="routerEdit()" [iconName]="'edit'">
+    </app-icon-button>
+    <app-icon-button *ngIf="headerInfo?.addBtn"
+       class="ml-12" (clickEvent)="navigateToCreate()"  [iconName]="'add'"
+      [disabled]="adicionarBtn.disabled">
+    </app-icon-button>
+  </div>
+
+</div>

@@ -1,4 +1,3 @@
-<div class="container flex flex-column">
-  <app-list-header [headerInfo]="headerInfo" [adicionarBtn]="adicionarBtn" [breadcrumb]="breadcrumb"></app-list-header>
-  <app-table class="mt-8" [displayedColumns]="columns" [dataSource]="service.dataSource" (clickEvent)="clickTableEvent($event)"></app-table>
-</div>
+<app-header-actions [headerInfo]="headerInfo" [adicionarBtn]="adicionarBtn" [breadcrumb]="breadcrumb"></app-header-actions>
+<app-table class="mt-8" [displayedColumns]="columns" [dataSource]="service.dataSource" (clickEvent)="clickTableEvent($event)"></app-table>
+

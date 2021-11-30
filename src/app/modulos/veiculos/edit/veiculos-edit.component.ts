@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BreadCrumbBuilder } from 'src/app/shared/atomic-design/atoms/breadcrumb/breadcrumb-builder';
 import { IBtnInterface } from 'src/app/shared/atomic-design/atoms/btn/btn.interface';
-import { HeaderListInfo } from 'src/app/shared/atomic-design/molecules/list-header/list-header.component';
+import { HeaderListInfo } from 'src/app/shared/atomic-design/molecules/header-actions/header-actions.component';
 import { AbstractCrudEditComponent } from 'src/app/shared/atomic-design/organisms/crud-edit/abstract-crud-edit.component';
 import { AbstractService } from 'src/app/shared/base/abstract.service';
 import { LoadingService } from 'src/app/shared/base/loading.service';
@@ -65,7 +65,7 @@ export class VeiculosEditComponent extends AbstractCrudEditComponent<Veiculo> {
         new BreadCrumbBuilder().build('Veiculos', '/home/veiculos').get(),
         new BreadCrumbBuilder().build(`Novo registro`, '/home/veiculos/').active().get(),
       ]
-    }    
+    }
   }
 
 }

@@ -9,12 +9,12 @@ import { TableModule } from 'src/app/shared/atomic-design/molecules/table/table.
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { AppRoutingModule } from 'src/app/app-routing.module';
-import { ListHeaderModule } from 'src/app/shared/atomic-design/molecules/list-header/list-header.module';
 import { VeiculosViewComponent } from './view/veiculos-view.component';
 import { AbstractListModule } from 'src/app/shared/atomic-design/organisms/abstract-list/abstract-list.module';
 import { ViewFormModule } from 'src/app/shared/atomic-design/molecules/view-form/view-form.module';
 import { ViewChildModule } from 'src/app/shared/atomic-design/organisms/view-child/view-child.module';
 import { ViewDetailsComponent } from './view/view-details/view-details.component';
+import { HeaderActionsModule } from 'src/app/shared/atomic-design/molecules/header-actions/header-actions.module';
 
 
 @NgModule({
@@ -28,7 +28,7 @@ import { ViewDetailsComponent } from './view/view-details/view-details.component
     MatIconModule,
     MatButtonModule,
     AppRoutingModule,
-    ListHeaderModule,
+    HeaderActionsModule,
     AbstractListModule,
     ViewFormModule,
     ViewChildModule

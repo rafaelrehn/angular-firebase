@@ -22,11 +22,11 @@ export interface HeaderListInfo{
 }
 
 @Component({
-  selector: 'app-list-header',
-  templateUrl: './list-header.component.html',
-  styleUrls: ['./list-header.component.scss']
+  selector: 'app-header-actions',
+  templateUrl: './header-actions.component.html',
+  styleUrls: ['./header-actions.component.scss']
 })
-export class ListHeaderComponent implements OnInit {
+export class HeaderActionsComponent implements OnInit {
 
   @Input() breadcrumb: IBreadcrumb[] = []
 
@@ -45,13 +45,14 @@ export class ListHeaderComponent implements OnInit {
   }
 
   routerBack(){
-    const key = this.activatedRoute.snapshot.paramMap.get('key') as string || this.activatedRoute.parent?.snapshot.params['key'];
-
-    if(this.headerInfo.backBtn?.levels == 1  && !key){
+    const key = this.activatedRoute.snapshot.paramMap.get('key') as string;
+    const parentKey = this.activatedRoute.parent?.snapshot.params['key']
+    const isView = this.router.url.substr(this.router.url.length - 4) == 'view'
+    if(isView){
       this.router.navigate(['..'], { relativeTo: this.activatedRoute })
-    }else if (key){
-      this.router.navigate(['../'], { relativeTo: this.activatedRoute })
-    }else if(this.headerInfo.backBtn?.levels == 2){
+    }else if(key){
+      this.router.navigate([`../../${key}/view`], { relativeTo: this.activatedRoute })
+    }else if(parentKey){
       this.router.navigate(['../../'], { relativeTo: this.activatedRoute })
     }else{
       this.router.navigate(['..'], { relativeTo: this.activatedRoute })
@@ -60,6 +61,12 @@ export class ListHeaderComponent implements OnInit {
 
   routerEdit(){
     this.headerActionEvent.emit('edit')
+    // this.router.navigate(['./edit'], { relativeTo: this.activatedRoute })
+  }
+
+
+  navigateToCreate(){
+    this.router.navigate(['./create'], { relativeTo: this.activatedRoute })
   }
 
 }

@@ -3,15 +3,21 @@
     color: var(--accent);
     width: 36px;
     height: 36px;
-    
+
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     border-radius: 100px;
-    cursor: pointer;
+
     // box-shadow: var(--light-shadow);
-    &:hover{
+    &:hover:not(.icon-disabled) {
+      cursor: pointer;
         background-color: var(--bg1) !important;
-    }        
+    }
+}
+
+.icon-disabled{
+  color: var(--bg2) !important;
+  cursor: not-allowed;
 }

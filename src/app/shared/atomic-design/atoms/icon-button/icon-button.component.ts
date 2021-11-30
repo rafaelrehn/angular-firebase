@@ -9,6 +9,7 @@ export class IconButtonComponent implements OnInit {
 
   @Output() clickEvent = new EventEmitter()
   @Input() iconName: string
+  @Input() disabled: boolean | undefined
 
   constructor() { }
 
@@ -16,6 +17,7 @@ export class IconButtonComponent implements OnInit {
   }
 
   clickFunction(){
+    if(this.disabled){return}
     this.clickEvent.emit()
   }
 

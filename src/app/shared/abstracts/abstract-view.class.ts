@@ -58,7 +58,7 @@ export abstract class AbstractViewClass<T>{
     headerActionEvent(event: string){
         if(event=='edit'){
             const model = this.model as any
-            this.router.navigate([`../../edit/${model.key}`], { relativeTo: this.activatedRoute })
+            this.router.navigate([`../edit/${model.key}`], { relativeTo: this.activatedRoute })
         }
     }
 

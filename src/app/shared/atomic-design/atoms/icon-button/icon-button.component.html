@@ -1,6 +1,5 @@
-<div class="icon-btn" (click)="clickFunction()">
+<div class="icon-btn" [ngClass]="disabled ? 'icon-disabled' : ''" (click)="clickFunction()">
     <mat-icon>
-        <!-- keyboard_backspace -->
         {{iconName}}
     </mat-icon>
-</div>  
+</div>
