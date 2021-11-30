@@ -75,11 +75,39 @@ $header: 84px;
 
 }
 
+// <div class="content-header">
+//   <div>aqui vou botar uma barra de pesquisa</div>
+//   <div class="user-info">
+//     <div class="user-photo"></div>
+//     <div class="user-name"></div>
+//   </div>
+// </div>
+
 .content{
   background-color: var(--white);
+  
   .content-header{
+    display: flex;
+    align-items: center;
     height: $header;
     border-bottom: 1px solid var(--bg2);
+    .user-info{
+      margin-right: 24px;
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      .user-photo{
+        width: 48px;
+        height: 48px;
+        background-color: grey;
+        border-radius: 100px;
+        background-size: contain;
+      }
+      .user-name{
+        margin-right: 12px;
+        color: var(--light-text);
+      }
+    }
   }
   .content-router{
     padding: 24px;

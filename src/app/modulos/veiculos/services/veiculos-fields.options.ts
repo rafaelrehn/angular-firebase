@@ -35,6 +35,25 @@ export const ITENS_ADICIONAIS_OPTIONS: ISelectOptions[] = [
     {
       label: 'Rodas de liga leve',
       value: 'rodaLigaLeve'
+    },
+    {
+      label: 'Rodas de liga leve',
+      value: 'rodaLigaLeve'
+    },
+    {
+      label: 'Rodas de liga leve',
+      value: 'rodaLigaLeve'
+    },
+    {
+      label: 'Rodas de liga leve',
+      value: 'rodaLigaLeve'
+    },{
+      label: 'Rodas de liga leve',
+      value: 'rodaLigaLeve'
+    },
+    {
+      label: 'Rodas de liga leve',
+      value: 'rodaLigaLeve'
     }
   ]
 

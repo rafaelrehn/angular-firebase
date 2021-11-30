@@ -1,5 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { EmailComponent } from './modulos/auth/email/email.component';
+import { LoginComponent } from './modulos/auth/login/login.component';
+import { ProfileComponent } from './modulos/auth/profile/profile.component';
+import { SignupComponent } from './modulos/auth/signup/signup.component';
 import { DashboardComponent } from './modulos/dashboard/dashboard.component';
 import { HomeComponent } from './modulos/home/home.component';
 import { VeiculosEditComponent } from './modulos/veiculos/edit/veiculos-edit.component';
@@ -7,6 +11,11 @@ import { VeiculosListComponent } from './modulos/veiculos/list/veiculos-list.com
 import { VeiculosViewComponent } from './modulos/veiculos/view/veiculos-view.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+  { path: 'email-login', component: EmailComponent },
+  { path: 'signup', component: SignupComponent },
+  { path: 'profile', component: ProfileComponent },
   {
     path: 'home',
     component: HomeComponent ,
@@ -20,11 +29,13 @@ const routes: Routes = [
       },
       { path: 'veiculos/edit', component: VeiculosEditComponent },
       { path: 'veiculos/edit/:key', component: VeiculosEditComponent },
-      { path: 'veiculos/view/:key', component: VeiculosViewComponent }
+      { path: 'veiculos/view/:key', component: VeiculosViewComponent },
+      // { path: '',   redirectTo: '/home', pathMatch: 'full' },
+      // { path: '**', component: HomeComponent }, 
     ]
   },
-  { path: '',   redirectTo: '/home', pathMatch: 'full' }, // redirect to `first-component`
-  { path: '**', component: HomeComponent },  // Wildcard route for a 404 page
+  { path: '',   redirectTo: '/login', pathMatch: 'full' },
+  { path: '**', component: SignupComponent }, 
 ];
 
 @NgModule({

@@ -17,9 +17,13 @@
         </div>
     </div>
     <div class="content flex-3 flex flex-column">
-      <!-- <div class="content-header">
-        aki em cima pesoar
-      </div> -->
+      <div class="content-header">
+        <div class="ml-24">aqui vou botar uma barra de pesquisa</div>
+        <div class="user-info">
+          <div class="user-name">Rafael Luiz Rehn</div>
+          <div class="user-photo" [style.background-image]="'url(' + authService?.user?.photoURL + ')'"></div>
+        </div>
+      </div>
       <div class="content-router">
         <router-outlet></router-outlet>
       </div>

@@ -1,7 +1,9 @@
 import { Inject, Injectable } from '@angular/core';
-import { AngularFireDatabase, SnapshotAction } from '@angular/fire/database';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFireDatabase, QueryFn, SnapshotAction } from '@angular/fire/database';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators'
+import { AuthService } from 'src/app/modulos/auth/auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,12 +14,15 @@ export class AbstractService<Entity> {
 
   constructor(
     private db: AngularFireDatabase,
-    @Inject('entityName') private entityName: string
+    @Inject('entityName') private entityName: string,
+    private authService: AuthService
     ) { }
 
-  insert(veiculo: Entity): Promise<string> {
+  insert(entity: Entity): Promise<string> {
     return new Promise((resolve,reject)=>{
-    this.db.list(this.entityName).push(veiculo)
+      if(this.authService.user && this.authService.user.uid){
+        const _entity = Object.assign(entity, {uid: this.authService.user.uid})
+        this.db.list(this.entityName).push(_entity)
       .then(result => {
         console.log(result.key)
         resolve(result.key as string)
@@ -25,14 +30,22 @@ export class AbstractService<Entity> {
       .catch(err => {
         reject(err)
       })
+      }else{
+        reject("Usuario nao autenticado")
+      }    
     })
   }
 
-  update(veiculo: Entity, key: string) {
-    this.db.list(this.entityName).update(key, veiculo)
-      .catch(err => {
-        console.error(err)
-      })
+  update(entity: Entity, key: string) {
+    if(this.authService.user && this.authService.user.uid){
+      const _entity = Object.assign(entity, {uid: this.authService.user.uid})
+      this.db.list(this.entityName).update(key, _entity)
+        .catch(err => {
+          console.error(err)
+        })
+    }else{
+      throw new Error("Usuario nao autenticado");        
+    }
   }
 
   getOne(key: string): Observable<Entity>{
@@ -40,7 +53,10 @@ export class AbstractService<Entity> {
   }
 
   getAll(): Observable<Entity[]> {
-    return this.db.list(this.entityName)
+    const uid = this.authService.user?.uid as any
+    console.log({uid})
+    const query = (ref: any)=>ref.orderByChild('uid').equalTo(uid)
+    return this.db.list(this.entityName, query)
       .snapshotChanges()
       .pipe(
         map(changes => {
