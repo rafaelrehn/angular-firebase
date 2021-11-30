@@ -8,17 +8,6 @@ import { IBtnInterface } from '../../atoms/btn/btn.interface';
 })
 export class BtnBarComponent implements OnInit {
 
-  @Input() submitBtn: IBtnInterface = {
-    label: 'Submit',
-    type: 'submit',
-    class: 'btn-accent',
-    icon: 'send'
-  }
-
-  @Input() cancelBtn: IBtnInterface = {
-    label: 'Cancelar',
-  }
-
   @Output() click = new EventEmitter<any>();
 
   constructor() { }

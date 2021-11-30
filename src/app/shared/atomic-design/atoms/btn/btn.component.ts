@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { IBtnInterface } from './btn.interface';
 
 @Component({
@@ -8,15 +8,13 @@ import { IBtnInterface } from './btn.interface';
 })
 export class BtnComponent implements OnInit {
 
-  @Input() btn: IBtnInterface;
-  @Output() click = new EventEmitter<any>();
+  @Input() label: string;
+  @Input() icon: string;
+  @Input() clazz: string | string[];
+  @Input() type: string;
 
   constructor() { }
 
   ngOnInit(): void {
-  }
-
-  clickEvent(event: Event){
-    this.click.emit('click')
   }
 }

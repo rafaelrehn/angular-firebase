@@ -69,21 +69,23 @@ export class AuthService {
 
   async checkUserIsAuthenticated(){
     if(!this.user){
-      await this.authState()
+      return await this.authState()
+    }else{
+      return true
     }
   }
 
-  authState(): Promise<void> {
+  authState(): Promise<boolean> {
     return new Promise(resolve=>{
       this.afAuth.authState.subscribe(authState=>{
-        console.log(authState)
+        console.log({authState})
         if(authState){
           this.user = authState.providerData[0]
-          // this.goHome()
+          resolve(true)
         }else{
+          resolve(false)
           this.logout()
         }
-        resolve()
       })
     })
   }

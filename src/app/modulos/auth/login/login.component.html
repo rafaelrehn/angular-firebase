@@ -1,4 +1,13 @@
-<app-btn (click)="loginGoogle()" [btn]="btnGoogle"></app-btn>
-<app-btn routerLink="../email-login" [btn]="btnEmail"></app-btn>
+<app-btn (click)="loginGoogle()" [label]="'Login or Signup With Google'" [clazz]="'btn-accent'"></app-btn>
+<app-btn routerLink="../email-login" [label]="'email'"></app-btn>
 <a routerLink="../signup" routerLinkActive="active" class="create-account-txt">Ainda não é registrado?
   <strong>Registrar</strong></a>
+
+
+  <!-- btnGoogle: IBtnInterface = {
+    label: 'Login or Signup With Google',
+    class: 'btn-accent'
+  }
+  btnEmail: IBtnInterface = {
+    label: 'Email'
+  } -->

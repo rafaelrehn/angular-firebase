@@ -12,6 +12,8 @@ export class HomeComponent implements OnInit {
 
   menuList: IMenuInterface[]
 
+  authChecked: boolean = false
+
   constructor(
     public loadingService: LoadingService,
     public authService: AuthService
@@ -21,7 +23,9 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.buildMenu()
-    // await this.authService.checkUserIsAuthenticated()
+    this.authService.checkUserIsAuthenticated().then(res=>{
+      this.authChecked = res
+    })
   }
 
   buildMenu(){

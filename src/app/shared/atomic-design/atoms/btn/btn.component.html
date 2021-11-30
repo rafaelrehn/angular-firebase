@@ -1,4 +1,4 @@
-<button class="btn" [ngClass]="btn.class" type="{{btn?.type}}" (click)="clickEvent($event)">
-  <mat-icon *ngIf="btn.icon">{{btn.icon}}</mat-icon>
-  {{btn?.label}}
+<button class="btn" [ngClass]="clazz" type="{{type}}">
+  <mat-icon *ngIf="icon">{{icon}}</mat-icon>
+  {{label}}
 </button>
