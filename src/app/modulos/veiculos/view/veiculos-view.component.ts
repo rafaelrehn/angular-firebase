@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AbstractViewClass } from 'src/app/shared/abstracts/abstract-view.class';
 import { BreadCrumbBuilder } from 'src/app/shared/atomic-design/atoms/breadcrumb/breadcrumb-builder';
 import { IBtnInterface } from 'src/app/shared/atomic-design/atoms/btn/btn.interface';
 import { ISideMenuItens } from 'src/app/shared/atomic-design/atoms/side-menu/side-menu.component';
 import { HeaderListInfo } from 'src/app/shared/atomic-design/molecules/list-header/header-actions.component';
+import { AbstractViewClass } from 'src/app/shared/atomic-design/organisms/abstract-view/abstract-view.class';
 import { AbstractService } from 'src/app/shared/base/abstract.service';
 import { VeiculosFieldServiceService } from '../services/veiculos-field-service.service';
 import { Veiculo } from '../veiculo';

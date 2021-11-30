@@ -43,10 +43,10 @@ const ROUTES: Routes = [
         children: [
           { path: 'view', component: ViewDetailsComponent },
           { path: 'imagens', component: ImagensVeiuclosComponent },
+          { path: '',   redirectTo: 'view', pathMatch: 'prefix' },
         ]
       },
       { path: 'profile', component: ProfileComponent },
-      // { path: '',   redirectTo: '/home', pathMatch: 'full' },
 
     ]
   },

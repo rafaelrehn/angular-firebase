@@ -1,12 +1,12 @@
 import { Component, Directive, Inject, OnInit } from "@angular/core"
 import { ActivatedRoute, Router } from "@angular/router"
-import { IBreadcrumb } from "../atomic-design/atoms/breadcrumb/breadcrumb.interface"
-import { IInputInterface, IInputType } from "../atomic-design/atoms/input/input.interface"
-import { IViewForm } from "../atomic-design/molecules/view-form/view-form.interface"
-import { AbstractFieldsService } from "../base/abstract-fields.interface"
-import { AbstractService } from "../base/abstract.service"
-import { getInputValue } from "../base/utils"
-import { DefaultEntity } from "../default.entity"
+import { IBreadcrumb } from "../../atoms/breadcrumb/breadcrumb.interface"
+import { IInputInterface, IInputType } from "../../atoms/input/input.interface"
+import { IViewForm } from "../../molecules/view-form/view-form.interface"
+import { AbstractFieldsService } from "../../../base/abstract-fields.interface"
+import { AbstractService } from "../../../base/abstract.service"
+import { getInputValue } from "../../../base/utils"
+import { DefaultEntity } from "../../../default.entity"
 
 export abstract class AbstractViewClass<T>{
     model: T
