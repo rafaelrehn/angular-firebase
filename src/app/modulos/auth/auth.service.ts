@@ -89,7 +89,7 @@ export class AuthService {
   }
 
   checkToken(){
-    
+
   }
 
   private goHome(){

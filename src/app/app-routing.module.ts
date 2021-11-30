@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthComponent } from './modulos/auth/auth/auth.component';
 import { EmailComponent } from './modulos/auth/email/email.component';
 import { LoginComponent } from './modulos/auth/login/login.component';
 import { ProfileComponent } from './modulos/auth/profile/profile.component';
@@ -12,30 +13,37 @@ import { VeiculosViewComponent } from './modulos/veiculos/view/veiculos-view.com
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: 'login', component: LoginComponent },
-  { path: 'email-login', component: EmailComponent },
-  { path: 'signup', component: SignupComponent },
-  { path: 'profile', component: ProfileComponent },
+  {
+    path: 'auth', component: AuthComponent,
+    children: [
+      { path: 'login', component: LoginComponent },
+      { path: 'email-login', component: EmailComponent },
+      { path: 'signup', component: SignupComponent },
+      { path: 'profile', component: ProfileComponent },
+      { path: '', redirectTo: 'login', pathMatch: 'full' },
+      { path: '**', redirectTo: 'login' },
+    ]
+  },
   {
     path: 'home',
-    component: HomeComponent ,
+    component: HomeComponent,
     children: [
       {
         path: 'dashboard', component: DashboardComponent
       },
       {
         path: 'veiculos',
-        component: VeiculosListComponent ,
+        component: VeiculosListComponent,
       },
       { path: 'veiculos/edit', component: VeiculosEditComponent },
       { path: 'veiculos/edit/:key', component: VeiculosEditComponent },
       { path: 'veiculos/view/:key', component: VeiculosViewComponent },
       // { path: '',   redirectTo: '/home', pathMatch: 'full' },
-      // { path: '**', component: HomeComponent }, 
+      // { path: '**', component: HomeComponent },
     ]
   },
-  { path: '',   redirectTo: '/login', pathMatch: 'full' },
-  { path: '**', component: SignupComponent }, 
+  { path: '', redirectTo: '/auth/login', pathMatch: 'full' },
+  { path: '**', redirectTo: '/auth/login' },
 ];
 
 @NgModule({
