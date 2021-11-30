@@ -38,22 +38,23 @@ export class ListHeaderComponent implements OnInit {
   @Output() headerActionEvent = new EventEmitter()
 
   constructor(
-    private router: Router, private route: ActivatedRoute
+    private router: Router, private activatedRoute: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
   }
 
   routerBack(){
-    const key = this.route.snapshot.paramMap.get('key') as string    
+    const key = this.activatedRoute.snapshot.paramMap.get('key') as string || this.activatedRoute.parent?.snapshot.params['key'];
+
     if(this.headerInfo.backBtn?.levels == 1  && !key){
-      this.router.navigate(['..'], { relativeTo: this.route })
+      this.router.navigate(['..'], { relativeTo: this.activatedRoute })
     }else if (key){
-      this.router.navigate(['../../'], { relativeTo: this.route })
+      this.router.navigate(['../'], { relativeTo: this.activatedRoute })
     }else if(this.headerInfo.backBtn?.levels == 2){
-      this.router.navigate(['../../'], { relativeTo: this.route })
+      this.router.navigate(['../../'], { relativeTo: this.activatedRoute })
     }else{
-      this.router.navigate(['..'], { relativeTo: this.route })
+      this.router.navigate(['..'], { relativeTo: this.activatedRoute })
     }
   }
 

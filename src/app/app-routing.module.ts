@@ -36,12 +36,12 @@ const ROUTES: Routes = [
         path: 'veiculos',
         component: VeiculosListComponent,
       },
-      { path: 'veiculos/edit', component: VeiculosEditComponent },
-      { path: 'veiculos/edit/:key', component: VeiculosEditComponent },
+      { path: 'veiculos/create', component: VeiculosEditComponent },
+
       {
         path: 'veiculos/:key', component: VeiculosViewComponent,
         children: [
-
+          { path: 'edit', component: VeiculosEditComponent },
           { path: 'view', component: ViewDetailsComponent },
           { path: 'imagens', component: ImagensVeiuclosComponent },
         ]
