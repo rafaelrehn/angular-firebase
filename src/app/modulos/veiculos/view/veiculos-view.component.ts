@@ -28,10 +28,6 @@ export class VeiculosViewComponent extends AbstractViewClass<Veiculo> implements
     {
       label: 'Imagens',
       route: 'imagens'
-    },
-    {
-      label: 'Metadados',
-      route: 'metadados'
     }
   ]
 

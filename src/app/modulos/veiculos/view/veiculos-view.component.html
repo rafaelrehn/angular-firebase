@@ -1,5 +1,3 @@
-<div class="flex flex-column">
-  <app-header-actions [breadcrumb]="breadcrumb" [headerInfo]="headerInfo" [voltarBtn]="voltarBtn"
-    (headerActionEvent)="headerActionEvent($event)"></app-header-actions>
-  <app-view-child [arrayViewForm]="arrayViewForm" [sideMenuIntens]="sideMenuIntens"></app-view-child>
-</div>
+<app-header-actions [breadcrumb]="breadcrumb" [headerInfo]="headerInfo" [voltarBtn]="voltarBtn"
+  (headerActionEvent)="headerActionEvent($event)"></app-header-actions>
+<app-view-child [arrayViewForm]="arrayViewForm" [sideMenuIntens]="sideMenuIntens"></app-view-child>
