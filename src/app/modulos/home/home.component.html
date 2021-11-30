@@ -4,7 +4,7 @@
         <app-logo routerLink="/home"></app-logo>
       </div>
         <div class="menu-item-box">
-          <div class="menu-item-list" *ngFor="let menu of menuList" routerLink="{{menu.routerLink}}" routerLinkActive="menu-active">
+          <div class="menu-item-list" *ngFor="let menu of menuList" routerLink="{{menu.routerLink}}" routerLinkActive="menu-active" [ngClass]="menu.clazz">
             <div class="item-list">
               <div class="item-icon">
                 <mat-icon>{{menu.icon}}</mat-icon>
@@ -18,7 +18,7 @@
     </div>
     <div class="content flex-3 flex flex-column">
       <div class="content-header">
-        <div class="ml-24" style="font-size: 9px;">{{authService?.user | json}}</div>
+        <div class="ml-24" style="font-size: 9px;"></div>
         <div class="user-info" *ngIf="authService?.user">
           <div class="user-name">{{authService?.user?.displayName}}</div>
           <div class="user-photo"  [style.background-image]="getProfileImage()" routerLink="/auth/profile"></div>

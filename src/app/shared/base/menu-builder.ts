@@ -4,6 +4,7 @@ export interface IMenuInterface {
   label: string;
   routerLink: string;
   icon: string;
+  clazz?: any
 }
 
 @Injectable()
@@ -17,6 +18,11 @@ export class IMenuBuilder{
       routerLink: routerLink,
       icon: icon
     }
+    return this
+  }
+
+  clazz(clazz: any){
+    this.menu.clazz = clazz
     return this
   }
 

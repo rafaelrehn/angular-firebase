@@ -11,7 +11,7 @@ $header: 84px;
       height: $header;
       display: flex;
       align-items: center;
-      border-bottom: 1px solid var(--white);
+      // border-bottom: 1px solid var(--white);
       // justify-content: center;
       padding-left: 32px;
       margin-bottom: 4px;
@@ -21,6 +21,9 @@ $header: 84px;
 
     .menu-item-box{
       margin-top: 30%;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
       .menu-active{
         background-color: var(--bg2);
         cursor: initial !important;
@@ -85,7 +88,7 @@ $header: 84px;
     display: flex;
     align-items: center;
     height: $header;
-    border-bottom: 1px solid var(--bg2);
+    // border-bottom: 1px solid var(--accent);
     .user-info{
       margin-right: 24px;
       margin-left: auto;
