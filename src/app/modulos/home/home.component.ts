@@ -39,7 +39,7 @@ export class HomeComponent implements OnInit {
 
   getProfileImage(){
     let x = 'url(' + this.authService?.user?.photoURL + ')'
-    console.log('profile image', x)
+    // console.log('profile image', x)s
     return x
   }
 

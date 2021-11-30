@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, Injector, OnInit } from '@angular/core';
+import { ActivatedRoute, Router, ROUTES } from '@angular/router';
 import { AbstractViewClass } from 'src/app/shared/abstracts/abstract-view.class';
 import { AbstractService } from 'src/app/shared/base/abstract.service';
 import { VeiculosFieldServiceService } from '../../services/veiculos-field-service.service';
@@ -20,12 +20,17 @@ export class ViewDetailsComponent extends AbstractViewClass<Veiculo> {
     protected service: AbstractService<Veiculo>,
     protected fieldsService: VeiculosFieldServiceService,
     protected router: Router,
-    protected activatedRoute: ActivatedRoute
+    protected activatedRoute: ActivatedRoute,
   ) {
     super(service, fieldsService, router, activatedRoute)
    }
 
   ngOnInit(): void {
+  }
+
+
+  setEntityKey(){
+    this.entityKey = this.activatedRoute.parent?.snapshot.params['key'];
   }
 
 }

@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from "@angular/core"
+import { Component, Directive, Inject, OnInit } from "@angular/core"
 import { ActivatedRoute, Router } from "@angular/router"
 import { IBreadcrumb } from "../atomic-design/atoms/breadcrumb/breadcrumb.interface"
 import { IInputInterface, IInputType } from "../atomic-design/atoms/input/input.interface"
@@ -16,22 +16,32 @@ export abstract class AbstractViewClass<T>{
 
     breadcrumb: IBreadcrumb[]
 
+    entityKey: string
+
     constructor(
         protected service: AbstractService<DefaultEntity>,
         @Inject('fieldsService') protected fieldsService: AbstractFieldsService,
         protected router: Router,
         protected activatedRoute: ActivatedRoute,
     ) {
-        this.inputs = this.fieldsService.buildFields()
-        this.getModel()
+      this.inputs = this.fieldsService.buildFields()
+      this.setEntityKey()
+      this.getModel()
+    }
+
+
+
+    setEntityKey(){
+      this.entityKey = this.activatedRoute.snapshot.paramMap.get('key') as string;
     }
 
     getModel(){
-        let key = this.activatedRoute.snapshot.paramMap.get('key') as string;
-        this.service.getOne(key).subscribe(res=>{
+        // let key = this.activatedRoute.snapshot.paramMap.get('key') as string;
+        // let key = '-MpiW3yDY2KIobLPNN6F'
+        this.service.getOne(this.entityKey).subscribe(res=>{
             this.model = res as T
             console.log({res})
-            Object.assign(this.model, {key: key})
+            Object.assign(this.model, {key: this.entityKey})
             this.inputs.forEach(input=>{
 
                 this.arrayViewForm.push({

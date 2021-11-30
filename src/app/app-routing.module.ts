@@ -13,7 +13,7 @@ import { VeiculosListComponent } from './modulos/veiculos/list/veiculos-list.com
 import { ViewDetailsComponent } from './modulos/veiculos/view/view-details/view-details.component';
 import { VeiculosViewComponent } from './modulos/veiculos/view/veiculos-view.component';
 
-const routes: Routes = [
+const ROUTES: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   {
     path: 'auth', component: AuthComponent,
@@ -39,24 +39,24 @@ const routes: Routes = [
       { path: 'veiculos/edit', component: VeiculosEditComponent },
       { path: 'veiculos/edit/:key', component: VeiculosEditComponent },
       {
-        path: 'veiculos/view/:key', component: VeiculosViewComponent,
+        path: 'veiculos/:key', component: VeiculosViewComponent,
         children: [
 
-          { path: '', component: ViewDetailsComponent },
+          { path: 'view', component: ViewDetailsComponent },
           { path: 'imagens', component: ImagensVeiuclosComponent },
         ]
       },
       { path: 'profile', component: ProfileComponent },
-      { path: '',   redirectTo: '/home', pathMatch: 'full' },
+      // { path: '',   redirectTo: '/home', pathMatch: 'full' },
 
     ]
   },
-  { path: '', redirectTo: '/auth/login', pathMatch: 'full' },
-  { path: '**', redirectTo: '/auth/login' },
+  // { path: '', redirectTo: '/auth/login', pathMatch: 'full' },
+  // { path: '**', redirectTo: '/auth/login' },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(ROUTES)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

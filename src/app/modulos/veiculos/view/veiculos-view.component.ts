@@ -23,7 +23,7 @@ export class VeiculosViewComponent extends AbstractViewClass<Veiculo> implements
   sideMenuIntens: ISideMenuItens[] = [
     {
       label: 'Resumo',
-      route: '/home/veiculos/view/-MpiW3yDY2KIobLPNN6F'
+      route: 'view'
     },
     {
       label: 'Imagens',

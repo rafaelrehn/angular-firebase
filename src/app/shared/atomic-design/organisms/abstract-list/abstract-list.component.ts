@@ -13,7 +13,7 @@ import { ClickTableEvent, IDisplayedColumns } from '../../molecules/table/table.
 })
 export class AbstractListComponent<Entity extends DefaultEntity>{
 
-  
+
   columns: IDisplayedColumns[]
 
 
@@ -29,7 +29,7 @@ export class AbstractListComponent<Entity extends DefaultEntity>{
 
   buildColumns() {
     this.columns = this.fieldsService.buildFields().filter(f=>f.columnShow).map(m=>{
-      return { 
+      return {
         label: m.label as string,
         name: m.name,
         mask: m.inputType,
@@ -44,7 +44,7 @@ export class AbstractListComponent<Entity extends DefaultEntity>{
   }
 
   selectRow(data: Entity){
-    this.route.navigate([this.route.url +'/view/'+data.key])
+    this.route.navigate([this.route.url +'/'+data.key + '/view'])
   }
 
   editRow(data: Entity){
