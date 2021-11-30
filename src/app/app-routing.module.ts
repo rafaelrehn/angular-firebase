@@ -21,7 +21,7 @@ const routes: Routes = [
       { path: 'signup', component: SignupComponent },
       { path: 'profile', component: ProfileComponent },
       { path: '', redirectTo: 'login', pathMatch: 'full' },
-      { path: '**', redirectTo: 'login' },
+      // { path: '**', redirectTo: 'login' },
     ]
   },
   {
@@ -38,7 +38,7 @@ const routes: Routes = [
       { path: 'veiculos/edit', component: VeiculosEditComponent },
       { path: 'veiculos/edit/:key', component: VeiculosEditComponent },
       { path: 'veiculos/view/:key', component: VeiculosViewComponent },
-      // { path: '',   redirectTo: '/home', pathMatch: 'full' },
+      { path: '',   redirectTo: '/home', pathMatch: 'full' },
       // { path: '**', component: HomeComponent },
     ]
   },

@@ -79,7 +79,7 @@ export class AuthService {
         console.log(authState)
         if(authState){
           this.user = authState.providerData[0]
-          this.goHome()
+          // this.goHome()
         }else{
           this.logout()
         }

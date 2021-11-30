@@ -1,7 +1,4 @@
-<div class="content">
-    <div class="login-form">
-      <app-btn (click)="loginGoogle()" [btn]="btnGoogle"></app-btn>
-      <app-btn routerLink="../email-login" [btn]="btnEmail"></app-btn>
-      <a routerLink="../signup" routerLinkActive="active" class="create-account-txt">Ainda não é registrado? <strong>Registrar</strong></a>
-    </div>
-</div>
+<app-btn (click)="loginGoogle()" [btn]="btnGoogle"></app-btn>
+<app-btn routerLink="../email-login" [btn]="btnEmail"></app-btn>
+<a routerLink="../signup" routerLinkActive="active" class="create-account-txt">Ainda não é registrado?
+  <strong>Registrar</strong></a>

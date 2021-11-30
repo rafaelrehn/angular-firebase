@@ -15,12 +15,7 @@ $header: 84px;
       // justify-content: center;
       padding-left: 32px;
       margin-bottom: 4px;
-      .logo{
-        color: var(--accent);
-        font-size: 28px;
-        font-weight: bolder;
-        letter-spacing: 1.4px;
-      }
+
 
     }
 
@@ -33,10 +28,10 @@ $header: 84px;
         .item-list{
           color: var(--hard-text) !important;
           .item-icon{
-            color: var(--accent) !important; 
+            color: var(--accent) !important;
           }
         }
-        
+
       }
       .menu-item-list{
         width: 100%;
@@ -48,7 +43,7 @@ $header: 84px;
         font-weight: 400;
         cursor: pointer;
         &:hover:not(.menu-active){
-          background-color: var(--accent);          
+          background-color: var(--accent);
           .item-list{
             color: var(--primary) !important;
           }
@@ -85,7 +80,7 @@ $header: 84px;
 
 .content{
   background-color: var(--white);
-  
+
   .content-header{
     display: flex;
     align-items: center;

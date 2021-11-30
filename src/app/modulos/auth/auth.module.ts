@@ -8,6 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { BtnModule } from 'src/app/shared/atomic-design/atoms/btn/btn.module';
 import { AuthComponent } from './auth/auth.component';
+import { LogoModule } from 'src/app/shared/atomic-design/atoms/logo/logo.module';
 
 
 
@@ -18,7 +19,8 @@ import { AuthComponent } from './auth/auth.component';
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    BtnModule
+    BtnModule,
+    LogoModule
   ]
 })
 export class AuthModule { }

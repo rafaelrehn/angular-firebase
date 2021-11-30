@@ -1,7 +1,7 @@
 <div class="home flex">
     <div class="menu flex-1 flex flex-column">
       <div class="menu-logo-box">
-        <div class="logo" routerLink="/home">Motorweb</div>
+        <app-logo routerLink="/home"></app-logo>
       </div>
         <div class="menu-item-box">
           <div class="menu-item-list" *ngFor="let menu of menuList" routerLink="{{menu.routerLink}}" routerLinkActive="menu-active">
@@ -18,7 +18,7 @@
     </div>
     <div class="content flex-3 flex flex-column">
       <div class="content-header">
-        <div class="ml-24">aqui vou botar uma barra de pesquisa</div>
+        <div class="ml-24"></div>
         <div class="user-info">
           <div class="user-name">Rafael Luiz Rehn</div>
           <div class="user-photo" [style.background-image]="'url(' + authService?.user?.photoURL + ')'"></div>

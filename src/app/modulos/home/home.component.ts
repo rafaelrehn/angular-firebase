@@ -16,12 +16,12 @@ export class HomeComponent implements OnInit {
     public loadingService: LoadingService,
     public authService: AuthService
   ) {
-    
+
    }
 
-  async ngOnInit() {
+  ngOnInit() {
     this.buildMenu()
-    await this.authService.checkUserIsAuthenticated()
+    // await this.authService.checkUserIsAuthenticated()
   }
 
   buildMenu(){

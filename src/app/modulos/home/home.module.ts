@@ -5,6 +5,7 @@ import { HomeComponent } from './home.component';
 import {MatButtonModule} from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { DashboardModule } from '../dashboard/dashboard.module';
+import { LogoModule } from 'src/app/shared/atomic-design/atoms/logo/logo.module';
 
 @NgModule({
   declarations: [HomeComponent],
@@ -13,7 +14,8 @@ import { DashboardModule } from '../dashboard/dashboard.module';
     AppRoutingModule,
     MatButtonModule,
     MatIconModule,
-    DashboardModule
+    DashboardModule,
+    LogoModule
   ]
 })
 export class HomeModule { }
