@@ -1,0 +1,21 @@
+.entity-side-menu{
+  width: 180px;
+  .side-menu{
+    background-color: var(--bg1);
+    height: 48px;
+    display: flex;
+    align-items: center;
+    padding: 0px 16px;
+    margin-bottom: 8px;
+    border-left: 2px solid transparent;
+    color: var(--light-text);
+    &:hover:not(.side-menu-active){
+      cursor: pointer;
+      color: var(--hard-text);
+    }
+  }
+  .side-menu-active{
+    color: var(--hard-text);
+    border-left: 2px solid var(--accent);
+  }
+}

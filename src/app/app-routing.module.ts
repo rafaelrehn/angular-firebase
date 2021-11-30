@@ -7,8 +7,10 @@ import { SignupComponent } from './modulos/auth/signup/signup.component';
 import { DashboardComponent } from './modulos/dashboard/dashboard.component';
 import { HomeComponent } from './modulos/home/home.component';
 import { ProfileComponent } from './modulos/profile/profile.component';
+import { ImagensVeiuclosComponent } from './modulos/veiculos/children/imagens-veiuclos/imagens-veiuclos.component';
 import { VeiculosEditComponent } from './modulos/veiculos/edit/veiculos-edit.component';
 import { VeiculosListComponent } from './modulos/veiculos/list/veiculos-list.component';
+import { ViewDetailsComponent } from './modulos/veiculos/view/view-details/view-details.component';
 import { VeiculosViewComponent } from './modulos/veiculos/view/veiculos-view.component';
 
 const routes: Routes = [
@@ -21,7 +23,6 @@ const routes: Routes = [
       { path: 'signup', component: SignupComponent },
 
       { path: '', redirectTo: 'login', pathMatch: 'full' },
-      // { path: '**', redirectTo: 'login' },
     ]
   },
   {
@@ -37,11 +38,17 @@ const routes: Routes = [
       },
       { path: 'veiculos/edit', component: VeiculosEditComponent },
       { path: 'veiculos/edit/:key', component: VeiculosEditComponent },
-      { path: 'veiculos/view/:key', component: VeiculosViewComponent },
+      {
+        path: 'veiculos/view/:key', component: VeiculosViewComponent,
+        children: [
+
+          { path: '', component: ViewDetailsComponent },
+          { path: 'imagens', component: ImagensVeiuclosComponent },
+        ]
+      },
       { path: 'profile', component: ProfileComponent },
       { path: '',   redirectTo: '/home', pathMatch: 'full' },
 
-      // { path: '**', component: HomeComponent },
     ]
   },
   { path: '', redirectTo: '/auth/login', pathMatch: 'full' },

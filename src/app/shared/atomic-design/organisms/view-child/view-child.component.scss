@@ -1,0 +1,11 @@
+.entity-container{
+  display: flex;
+  margin-top: 16px;
+  gap: 16px;
+
+  .line{
+    background-color: var(--accent);
+    min-width: 1px;
+    min-height: 100%;
+  }
+}

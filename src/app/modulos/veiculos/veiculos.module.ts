@@ -6,17 +6,19 @@ import { FormsModule } from '@angular/forms';
 import { AtomicModules } from 'src/app/shared/atomic-design/atomic.modules';
 import { BtnModule } from 'src/app/shared/atomic-design/atoms/btn/btn.module';
 import { TableModule } from 'src/app/shared/atomic-design/molecules/table/table.module';
-import {MatIconModule} from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { ListHeaderModule } from 'src/app/shared/atomic-design/molecules/list-header/list-header.module';
 import { VeiculosViewComponent } from './view/veiculos-view.component';
 import { AbstractListModule } from 'src/app/shared/atomic-design/organisms/abstract-list/abstract-list.module';
 import { ViewFormModule } from 'src/app/shared/atomic-design/molecules/view-form/view-form.module';
+import { ViewChildModule } from 'src/app/shared/atomic-design/organisms/view-child/view-child.module';
+import { ViewDetailsComponent } from './view/view-details/view-details.component';
 
 
 @NgModule({
-  declarations: [VeiculosListComponent, VeiculosEditComponent, VeiculosViewComponent],
+  declarations: [VeiculosListComponent, VeiculosEditComponent, VeiculosViewComponent, ViewDetailsComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -29,7 +31,7 @@ import { ViewFormModule } from 'src/app/shared/atomic-design/molecules/view-form
     ListHeaderModule,
     AbstractListModule,
     ViewFormModule,
-    
+    ViewChildModule
   ]
 })
 export class VeiculosModule { }

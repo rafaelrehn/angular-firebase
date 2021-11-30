@@ -21,7 +21,7 @@ export abstract class AbstractViewClass<T>{
         @Inject('fieldsService') protected fieldsService: AbstractFieldsService,
         protected router: Router,
         protected activatedRoute: ActivatedRoute,
-    ) { 
+    ) {
         this.inputs = this.fieldsService.buildFields()
         this.getModel()
     }
@@ -33,17 +33,17 @@ export abstract class AbstractViewClass<T>{
             console.log({res})
             Object.assign(this.model, {key: key})
             this.inputs.forEach(input=>{
-                
+
                 this.arrayViewForm.push({
                     label: input.label as string,
                     value: getInputValue(input, this.model),
                     mask: input.inputType,
-                })        
-            })    
+                })
+            })
             this.loadDefaultActions()
-        
+
         })
-    }    
+    }
 
     headerActionEvent(event: string){
         if(event=='edit'){
@@ -53,11 +53,11 @@ export abstract class AbstractViewClass<T>{
     }
 
     loadDefaultActions(){
-        this.buildBreadCrumb()  
+        this.buildBreadCrumb()
         this.afterContentLoaded()
     }
 
     afterContentLoaded(): void {}
 
-    abstract buildBreadCrumb(): void
+    buildBreadCrumb(): void {}
 }
