@@ -20,8 +20,8 @@
       <div class="content-header">
         <div class="ml-24" style="font-size: 9px;">{{authService?.user | json}}</div>
         <div class="user-info" *ngIf="authService?.user">
-          <div class="user-name">Rafael Luiz Rehn</div>
-          <div class="user-photo"  [style.background-image]="'url(' + authService?.user?.photoURL + ')'" routerLink="/auth/profile"></div>
+          <div class="user-name">{{authService?.user?.displayName}}</div>
+          <div class="user-photo"  [style.background-image]="getProfileImage()" routerLink="/auth/profile"></div>
         </div>
       </div>
       <div class="content-router">
@@ -30,4 +30,6 @@
     </div>
 </div>
 
-<mat-spinner *ngIf="!authChecked"></mat-spinner>
+<div class="loading">
+  <mat-spinner *ngIf="!authChecked"></mat-spinner>
+</div>

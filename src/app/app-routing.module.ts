@@ -3,10 +3,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthComponent } from './modulos/auth/auth/auth.component';
 import { EmailComponent } from './modulos/auth/email/email.component';
 import { LoginComponent } from './modulos/auth/login/login.component';
-import { ProfileComponent } from './modulos/auth/profile/profile.component';
 import { SignupComponent } from './modulos/auth/signup/signup.component';
 import { DashboardComponent } from './modulos/dashboard/dashboard.component';
 import { HomeComponent } from './modulos/home/home.component';
+import { ProfileComponent } from './modulos/profile/profile.component';
 import { VeiculosEditComponent } from './modulos/veiculos/edit/veiculos-edit.component';
 import { VeiculosListComponent } from './modulos/veiculos/list/veiculos-list.component';
 import { VeiculosViewComponent } from './modulos/veiculos/view/veiculos-view.component';
@@ -19,7 +19,7 @@ const routes: Routes = [
       { path: 'login', component: LoginComponent },
       { path: 'email-login', component: EmailComponent },
       { path: 'signup', component: SignupComponent },
-      { path: 'profile', component: ProfileComponent },
+
       { path: '', redirectTo: 'login', pathMatch: 'full' },
       // { path: '**', redirectTo: 'login' },
     ]
@@ -38,7 +38,9 @@ const routes: Routes = [
       { path: 'veiculos/edit', component: VeiculosEditComponent },
       { path: 'veiculos/edit/:key', component: VeiculosEditComponent },
       { path: 'veiculos/view/:key', component: VeiculosViewComponent },
+      { path: 'profile', component: ProfileComponent },
       { path: '',   redirectTo: '/home', pathMatch: 'full' },
+
       // { path: '**', component: HomeComponent },
     ]
   },

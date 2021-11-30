@@ -11,6 +11,7 @@ import { VeiculosModule } from './modulos/veiculos/veiculos.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeModule } from './modulos/home/home.module';
 import { AuthModule } from './modulos/auth/auth.module';
+import { ProfileModule } from './modulos/profile/profile.module';
 
 const FirebaseConfig = [
   AngularFireAuthModule,
@@ -28,7 +29,8 @@ const FirebaseConfig = [
     VeiculosModule,
     HomeModule,
     BrowserAnimationsModule,
-    AuthModule
+    AuthModule,
+    ProfileModule
   ],
   providers: [],
   bootstrap: [AppComponent]

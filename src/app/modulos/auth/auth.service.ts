@@ -68,6 +68,7 @@ export class AuthService {
   }
 
   async checkUserIsAuthenticated(){
+    console.log('checkUserIsAuthenticated()' ,this.user)
     if(!this.user){
       return await this.authState()
     }else{
