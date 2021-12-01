@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { FileUpload } from './model/file-upload.model';
 import { FileUploadService } from './service/file-upload.service';
@@ -16,14 +16,18 @@ export class FileUploadComponent implements OnInit {
 
   fileUploads?: any[];
 
+  @Input() entityKey: string
+
   constructor(private uploadService: FileUploadService) { }
 
   ngOnInit(): void {
-    this.getListFiles()
+    setTimeout(()=>{
+      this.getListFiles()
+    }, 500)
   } 
 
   getListFiles(){
-    this.uploadService.getFiles(6).snapshotChanges().pipe(
+    this.uploadService.getFiles(this.entityKey).snapshotChanges().pipe(
       map(changes =>
         // store the key
         changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
@@ -44,6 +48,7 @@ export class FileUploadComponent implements OnInit {
 
       if (file) {
         this.currentFileUpload = new FileUpload(file);
+        this.currentFileUpload.entityKey = this.entityKey
         this.uploadService.pushFileToStorage(this.currentFileUpload).subscribe(
           percentage => {
             this.percentage = Math.round(percentage ? percentage : 0);

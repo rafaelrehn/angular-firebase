@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-imagens-veiuclos',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ImagensVeiuclosComponent implements OnInit {
 
-  constructor() { }
+  entityKey: string;
+
+  constructor(protected activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.entityKey = this.activatedRoute.parent?.snapshot.paramMap.get('key') as string;
   }
 
 }
