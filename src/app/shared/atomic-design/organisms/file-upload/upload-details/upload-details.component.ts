@@ -20,4 +20,10 @@ export class UploadDetailsComponent implements OnInit {
     this.uploadService.deleteFile(fileUpload);
   }
 
+  getImageSample(fileUpload: FileUpload){
+    let x = 'url(' + fileUpload.url + ')'
+    // console.log('profile image', x)s
+    return x
+  }
+
 }

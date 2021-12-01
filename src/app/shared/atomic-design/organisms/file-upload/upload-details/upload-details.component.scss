@@ -1,0 +1,20 @@
+.upload-item{
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    width: 500px;
+    .file-sample{
+        $size: 100px;
+        width: $size + 60px;
+        min-width: $size + 60px;
+        height: $size;
+        min-height: $size;
+        background-color: var(--bg1);
+        background-size: cover;
+        background-position: center;
+    }
+    button{
+        margin-left: auto;
+    }
+}
+
