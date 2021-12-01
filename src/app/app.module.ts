@@ -13,6 +13,8 @@ import { HomeModule } from './modulos/home/home.module';
 import { AuthModule } from './modulos/auth/auth.module';
 import { ProfileModule } from './modulos/profile/profile.module';
 import { UtilitariosModule } from './modulos/utilitarios/utilitarios.module';
+import { ImagensVeiuclosModule } from './modulos/veiculos/children/imagens-veiuclos/imagens-veiuclos.module';
+import { ImageUploadModule } from './shared/atomic-design/organisms/image-upload/image-upload.module';
 
 const FirebaseConfig = [
   AngularFireAuthModule,
@@ -22,6 +24,7 @@ const FirebaseConfig = [
 const Modulos = [
   VeiculosModule,
   UtilitariosModule,
+  ImagensVeiuclosModule
 ]
 
 @NgModule({
@@ -36,7 +39,7 @@ const Modulos = [
     BrowserAnimationsModule,
     AuthModule,
     ProfileModule,
-    ...Modulos
+    ...Modulos,
   ],
   providers: [],
   bootstrap: [AppComponent]
