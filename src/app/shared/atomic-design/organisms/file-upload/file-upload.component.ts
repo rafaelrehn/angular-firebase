@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { FileUpload } from './model/file-upload.model';
 import { FileUploadService } from './service/file-upload.service';
@@ -10,8 +10,10 @@ import { FileUploadService } from './service/file-upload.service';
 })
 export class FileUploadComponent implements OnInit {
 
+  @ViewChild('inputFile') inputFile: ElementRef;
+
   selectedFiles?: FileList;
-  currentFileUpload?: FileUpload;
+  currentFileUpload: FileUpload[] = [];
   percentage = 0;
 
   fileUploads?: any[];
@@ -24,7 +26,7 @@ export class FileUploadComponent implements OnInit {
     setTimeout(()=>{
       this.getListFiles()
     }, 500)
-  } 
+  }
 
   getListFiles(){
     this.uploadService.getFiles(this.entityKey).snapshotChanges().pipe(
@@ -42,26 +44,49 @@ export class FileUploadComponent implements OnInit {
   }
 
   upload(): void {
-    if (this.selectedFiles) {
-      const file: File | null = this.selectedFiles.item(0);
-      this.selectedFiles = undefined;
+    if (this.selectedFiles && this.selectedFiles.length > 0) {
+      const fileListLength = this.selectedFiles.length
 
-      if (file) {
-        this.currentFileUpload = new FileUpload(file);
-        this.currentFileUpload.entityKey = this.entityKey
-        this.uploadService.pushFileToStorage(this.currentFileUpload).subscribe(
-          percentage => {
-            this.percentage = Math.round(percentage ? percentage : 0);
+      for (let index = 0; index < fileListLength; index++) {
+        // const element = this.selectedFiles.item(index);
+        if(this.selectedFiles){
+          const file: File | null = this.selectedFiles.item(index);
 
-              // aqui escrever a regra a key dos arquivos
+          if (file) {
+            const fileUpload = new FileUpload(file)
+            fileUpload.entityKey = this.entityKey
+            this.currentFileUpload.push(fileUpload)
+            this.uploadService.pushFileToStorage(fileUpload).subscribe(
+              percentage => {
+                fileUpload.percentage = Math.round(percentage ? percentage : 0);
+                if(percentage == 100){
+                  const i = this.currentFileUpload.map(i=>i.file.name).indexOf(fileUpload.file.name)
+                  if(i>-1){
+                    this.currentFileUpload.splice(i, 1)
+                    if(this.currentFileUpload.length == 0){
+                      this.resetInput()
+                    }
+                  }
+                }
 
-          },
-          error => {
-            console.log(error);
+              },
+              error => {
+                this.resetInput()
+                this.selectedFiles = undefined;
+                this.currentFileUpload = []
+                console.log(error);
+              }
+            );
           }
-        );
+        }
       }
-    }
+      this.selectedFiles = undefined;
+      // this.currentFileUpload = []
 
+    }
+  }
+
+  resetInput() {
+    this.inputFile.nativeElement.value = "";
   }
 }
