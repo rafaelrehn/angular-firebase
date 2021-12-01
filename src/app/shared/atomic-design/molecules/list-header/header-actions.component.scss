@@ -2,9 +2,10 @@
     display: flex;
     font-size: 22px;
     margin: 12px 0px;
-    padding-bottom: 8px;
+    margin-bottom: 16px;
     border-bottom: 1px solid var(--accent);
     align-items: center;
+    height: 45px;
     .header-t1{
         font-weight: bolder;
         letter-spacing: 1px;

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BreadCrumbBuilder } from 'src/app/shared/atomic-design/atoms/breadcrumb/breadcrumb-builder';
+import { IBreadcrumb } from 'src/app/shared/atomic-design/atoms/breadcrumb/breadcrumb.interface';
 import { HeaderListInfo } from 'src/app/shared/atomic-design/molecules/list-header/header-actions.component';
 
 @Component({
@@ -9,11 +11,13 @@ import { HeaderListInfo } from 'src/app/shared/atomic-design/molecules/list-head
 export class DashboardComponent implements OnInit {
 
   headerInfo: HeaderListInfo
+  breadcrumb: IBreadcrumb[]
 
   constructor() { }
 
   ngOnInit(): void {
     this.buildInfo()
+    this.buildBreadcrumb()
   }
 
   buildInfo(){
@@ -21,6 +25,13 @@ export class DashboardComponent implements OnInit {
       t1: 'Dashboard',
       t2: 'Atualizações gerais sobre a aplicação',
     }
+  }
+
+  buildBreadcrumb(){
+    this.breadcrumb = [
+      new BreadCrumbBuilder().build('Home', '/home').get(),
+      new BreadCrumbBuilder().build('Dashboard', '/home/dashboard').active().get(),
+    ]
   }
 
 }
