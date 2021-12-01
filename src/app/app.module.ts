@@ -14,7 +14,6 @@ import { AuthModule } from './modulos/auth/auth.module';
 import { ProfileModule } from './modulos/profile/profile.module';
 import { UtilitariosModule } from './modulos/utilitarios/utilitarios.module';
 import { ImagensVeiuclosModule } from './modulos/veiculos/children/imagens-veiuclos/imagens-veiuclos.module';
-import { ImageUploadModule } from './shared/atomic-design/organisms/image-upload/image-upload.module';
 
 const FirebaseConfig = [
   AngularFireAuthModule,
