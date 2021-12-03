@@ -9,7 +9,7 @@ import { CAMBIO_OPTIONS, COMBUSTIVEL_OPTIONS, COR_OPTIONS, ITENS_ADICIONAIS_OPTI
 })
 export class VeiculosFieldServiceService implements AbstractFieldsService {
 
-  
+
 
   constructor() {
   }

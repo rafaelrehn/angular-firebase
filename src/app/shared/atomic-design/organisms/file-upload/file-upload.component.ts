@@ -77,6 +77,11 @@ export class FileUploadComponent implements OnInit {
 
   selectFile(event: any): void {
     this.selectedFiles = event.target.files;
+    this.upload()
+  }
+
+  clickEvent(event: MouseEvent){
+    event.preventDefault()
   }
 
   upload(): void {
@@ -120,6 +125,10 @@ export class FileUploadComponent implements OnInit {
       // this.currentFileUpload = []
 
     }
+  }
+
+  dropFileHandler(evt: any){
+    const fileList = evt.target.files as FileList
   }
 
   resetInput() {

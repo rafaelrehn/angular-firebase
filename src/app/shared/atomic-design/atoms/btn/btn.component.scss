@@ -1,6 +1,6 @@
 .btn{
   min-width: 140px;
-  padding: 16px;
+  padding: 0px 16px;
   height: 32px;
   border: 0px solid;
   color: var(--primary);
@@ -14,17 +14,23 @@
   // color: var(--bg3);
   transition: all .15;
   box-shadow: 1px 1px 4px 1px rgba(0,0,0,0.2);
-  &:hover{
+  font-weight: 600;
+  &:hover:not(:disabled){
     box-shadow: 1px 1px 8px 2px rgba(0,0,0,0.2);
   }
   &:disabled{
     background-color: var(--bg1);
     color: var(--bg3);
+    cursor: initial !important;
+  }
+  input[type="file"] {
+    display: none;
   }
 }
 .btn mat-icon{
   margin-right: 8px;
 }
+
 .btn-accent{
   background-color: var(--accent);
   &:disabled{

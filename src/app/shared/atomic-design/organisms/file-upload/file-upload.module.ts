@@ -4,6 +4,7 @@ import { FileUploadComponent } from './file-upload.component';
 import { UploadDetailsComponent } from './upload-details/upload-details.component';
 import { BtnModule } from '../../atoms/btn/btn.module';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
   imports: [
     CommonModule,
     BtnModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatIconModule
   ],
   exports:[
     FileUploadComponent

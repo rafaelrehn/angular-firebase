@@ -84,7 +84,11 @@ $header: 84px;
 .content{
   background-color: var(--white);
   overflow: hidden;
+  position: relative;
   .content-header{
+    top: 0px;
+    right: 0px;
+    position: absolute;
     display: flex;
     align-items: center;
     height: $header;

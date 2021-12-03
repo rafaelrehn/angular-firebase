@@ -1,7 +1,12 @@
 .upload-item{
     display: flex;
+    flex-direction: column;
     gap: 16px;
     align-items: center;
+    .item-label{
+      font-size: 11px;
+      color: var(--light-text);
+    }
     // width: 500px;
     .file-sample{
         $size: 120px;
