@@ -83,7 +83,7 @@ $header: 84px;
 
 .content{
   background-color: var(--white);
-
+  overflow: hidden;
   .content-header{
     display: flex;
     align-items: center;
@@ -110,7 +110,10 @@ $header: 84px;
   }
   .content-router{
     padding: 24px;
-
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
   }
 }
 

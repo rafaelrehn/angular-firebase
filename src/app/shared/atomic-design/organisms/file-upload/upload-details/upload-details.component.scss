@@ -2,19 +2,28 @@
     display: flex;
     gap: 16px;
     align-items: center;
-    width: 500px;
+    // width: 500px;
     .file-sample{
-        $size: 100px;
+        $size: 120px;
         width: $size + 60px;
         min-width: $size + 60px;
         height: $size;
         min-height: $size;
         background-color: var(--bg1);
-        background-size: cover;
+        background-size: 100%;
         background-position: center;
+        border: 3px solid transparent;
+        box-shadow: var(--light-shadow);
+        border-radius: 4px;
+        transition: all .2s;
     }
     button{
         margin-left: auto;
+    }
+    .file-selected{
+      border: 3px solid var(--accent) !important;
+      background-size: 120%;
+      box-shadow: var(--hard-shadow);
     }
 }
 

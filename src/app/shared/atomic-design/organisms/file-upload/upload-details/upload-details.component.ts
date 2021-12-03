@@ -16,9 +16,7 @@ export class UploadDetailsComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  deleteFileUpload(fileUpload: FileUpload): void {
-    this.uploadService.deleteFile(fileUpload);
-  }
+
 
   getImageSample(fileUpload: FileUpload){
     let x = 'url(' + fileUpload.url + ')'

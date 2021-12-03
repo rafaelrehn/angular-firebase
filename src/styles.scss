@@ -1,6 +1,7 @@
 :root{
   --primary: rgb(6, 9, 49);
   --accent: rgb(2, 202, 125);
+  --accent-light: rgb(2, 202, 125);
   --accent-light: rgb(230, 248, 241);
   --white: white;
   --bg1: rgb(240, 240, 240);
@@ -35,3 +36,5 @@ h1,h2,h3,h4,p{
 .entity-children-container{
   display: flex;
 }
+
+

@@ -1,47 +1,35 @@
 <div>entityKey: {{entityKey}}</div>
 
-<label>
-    <input
-      #inputFile
-      type="file"
-      class="text-nowrap text-truncate"
-      multiple
-      (change)="selectFile($event)"
-    />
+<div class="input-upload-box">
+  <label>
+    <input #inputFile type="file" class="text-nowrap text-truncate" multiple (change)="selectFile($event)" />
   </label>
 
-  <button
-    class="btn btn-success btn-sm"
-    [disabled]="!selectedFiles"
-    (click)="upload()"
-  >
+  <button class="btn btn-success btn-sm" [disabled]="!selectedFiles" (click)="upload()">
     Upload
   </button>
 
   <div *ngFor="let file of currentFileUpload" class="progress mt-2">
-    <div
-      class="progress-bar progress-bar-info"
-      role="progressbar"
-      attr.aria-valuenow="{{ file.percentage }}"
-      aria-valuemin="0"
-      aria-valuemax="100"
-      [ngStyle]="{ width: file.percentage + '%' }"
-    >
+    <div class="progress-bar progress-bar-info" role="progressbar" attr.aria-valuenow="{{ file.percentage }}"
+      aria-valuemin="0" aria-valuemax="100" [ngStyle]="{ width: file.percentage + '%' }">
       {{ file.percentage }}%
     </div>
   </div>
+</div>
 
 
-  <!-- //////////////////// -->
 
-  <div class="card">
-    <div class="card-header">List of Files</div>
-    <div
-      class="list-group list-group-flush"
-      *ngFor="let file of fileUploads"
-    >
-      <div class="list-group-item">
-        <app-upload-details [fileUpload]='file'></app-upload-details>
-      </div>
-    </div>
+<div class="card-box">
+  <div class="card-content">
+    <app-upload-details *ngFor="let file of fileUploads" [fileUpload]="file" (click)="file.selected = !file.selected">
+      <!-- <pre>{{file|json}}</pre> -->
+    </app-upload-details>
   </div>
+</div>
+
+<div class="file-upload-btn-bar">
+  <mat-checkbox (change)="selecioanarTodos($event)" #checkboxTodos [disabled]="fileUploads.length == 0">Selecioanr todos</mat-checkbox>
+  <app-btn [label]="'Remover selecionados'" [clazz]="'btn-accent'" [disabled]="checkRemoverIsDisabled()"
+   (click)="removerArquivosSelecionados()"></app-btn>
+  <app-btn [label]="'Cancelar'" [disabled]="checkRemoverIsDisabled()" (click)="limparSelecao()"></app-btn>
+</div>

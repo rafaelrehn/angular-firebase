@@ -1,4 +1,5 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { MatCheckbox, MatCheckboxChange } from '@angular/material/checkbox';
 import { map } from 'rxjs/operators';
 import { FileUpload } from './model/file-upload.model';
 import { FileUploadService } from './service/file-upload.service';
@@ -11,12 +12,14 @@ import { FileUploadService } from './service/file-upload.service';
 export class FileUploadComponent implements OnInit {
 
   @ViewChild('inputFile') inputFile: ElementRef;
+  @ViewChild('checkboxTodos') checkboxTodos: MatCheckbox;
+
 
   selectedFiles?: FileList;
   currentFileUpload: FileUpload[] = [];
   percentage = 0;
 
-  fileUploads?: any[];
+  fileUploads: FileUpload[] = [];
 
   @Input() entityKey: string
 
@@ -35,7 +38,40 @@ export class FileUploadComponent implements OnInit {
         changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
       )
     ).subscribe(fileUploads => {
-      this.fileUploads = fileUploads;
+      this.fileUploads = fileUploads as FileUpload[];
+      this.limparSelecao()
+    });
+  }
+
+  checkRemoverIsDisabled(): boolean {
+     return this.fileUploads.map(m=>m.selected).filter(f=>f).length == 0
+  }
+
+  removerArquivosSelecionados(){
+    this.fileUploads.forEach(el=>{
+      if(el.selected){
+        this.deleteFileUpload(el)
+      }
+    })
+  }
+
+  deleteFileUpload(fileUpload: FileUpload): void {
+    this.uploadService.deleteFile(fileUpload);
+  }
+
+
+  limparSelecao(){
+    this.fileUploads.forEach(el => {
+      el.selected = false
+    });
+    if(this.checkboxTodos){
+      this.checkboxTodos.checked = false
+    }
+  }
+
+  selecioanarTodos(evt: MatCheckboxChange){
+    this.fileUploads.forEach(el => {
+      el.selected = evt.checked
     });
   }
 

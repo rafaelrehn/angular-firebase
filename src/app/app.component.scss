@@ -1,0 +1,13 @@
+:host{
+  ::ng-deep{
+    app-view-child,
+    app-veiculos-view,
+    app-file-upload,
+    app-imagens-veiuclos{
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      overflow: hidden;
+    }
+  }
+}

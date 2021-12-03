@@ -9,6 +9,7 @@ import { IBtnInterface } from './btn.interface';
 export class BtnComponent implements OnInit {
 
   @Input() label: string;
+  @Input() disabled: boolean = false
   @Input() icon: string;
   @Input() clazz: string | string[];
   @Input() type: string;

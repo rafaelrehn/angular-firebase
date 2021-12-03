@@ -2,8 +2,26 @@
     height: 30px;
   }
 
-  .card{
+  .card-box{
+    height: 100%;
+    overflow: hidden;
+    margin-top: 16px;
+    .card-content{
+      display: flex;
+      // flex-direction: column;
+      flex-wrap: wrap;
+      gap: 16px;
+      height: 100%;
+      overflow: auto;
+    }
+  }
+
+  .input-upload-box{
     display: flex;
-    flex-direction: column;
-    gap: 8px;
+  }
+
+  .file-upload-btn-bar{
+    margin: 16px 0px;
+    display: flex;
+    gap: 16px;
   }

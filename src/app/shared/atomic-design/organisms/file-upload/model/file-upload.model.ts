@@ -5,6 +5,7 @@ export class FileUpload {
     file: File;
     entityKey: string;
     percentage?: number;
+    selected?: boolean;
 
     constructor(file: File) {
       this.file = file
