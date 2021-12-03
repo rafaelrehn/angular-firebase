@@ -14,6 +14,8 @@ export class FileUploadComponent implements OnInit {
   @ViewChild('inputFile') inputFile: ElementRef;
   @ViewChild('checkboxTodos') checkboxTodos: MatCheckbox;
 
+  loading = true;
+
 
   selectedFiles?: FileList;
   currentFileUpload: FileUpload[] = [];
@@ -38,6 +40,7 @@ export class FileUploadComponent implements OnInit {
         changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
       )
     ).subscribe(fileUploads => {
+      this.loading = false
       this.fileUploads = fileUploads as FileUpload[];
       this.limparSelecao()
     });

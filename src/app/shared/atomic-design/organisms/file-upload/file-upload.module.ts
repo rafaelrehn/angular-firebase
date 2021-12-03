@@ -5,6 +5,8 @@ import { UploadDetailsComponent } from './upload-details/upload-details.componen
 import { BtnModule } from '../../atoms/btn/btn.module';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { LoaderModule } from '../../atoms/loader/loader.module';
 
 
 @NgModule({
@@ -13,7 +15,8 @@ import { MatIconModule } from '@angular/material/icon';
     CommonModule,
     BtnModule,
     MatCheckboxModule,
-    MatIconModule
+    MatIconModule,
+    LoaderModule
   ],
   exports:[
     FileUploadComponent

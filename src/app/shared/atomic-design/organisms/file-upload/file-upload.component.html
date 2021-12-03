@@ -1,44 +1,37 @@
-<!-- <div>entityKey: {{entityKey}}</div> -->
+<div class="file-upload-content" *ngIf="!loading">
+  <div class="input-upload-box">
+    <label class="btn btn-accent">
+      <input #inputFile type="file" class="text-nowrap text-truncate" multiple (change)="selectFile($event)" />
+      <mat-icon>cloud_upload</mat-icon>
+      Selecionar arquivos
+    </label>
 
-<div class="input-upload-box">
-  <label class="btn btn-accent">
-    <input #inputFile type="file" class="text-nowrap text-truncate" multiple (change)="selectFile($event)" />
-    <mat-icon>cloud_upload</mat-icon>
-    Selecionar arquivos
-  </label>
-
-  <!-- <app-btn class="ml-16" [icon]="'cloud_upload'" [label]="'Enviar'" [clazz]="'btn-accent'" [disabled]="!selectedFiles"
-   (click)="upload()"></app-btn> -->
-
-
-  <!-- <div *ngIf="selectedFiles && selectedFiles.length > 0" class="ml-16">{{selectedFiles?.length}} Arquivos selecionados</div> -->
-
-  <div *ngFor="let file of currentFileUpload" class="progress ml-16">
-    <div class="progress-bar progress-bar-info" role="progressbar" attr.aria-valuenow="{{ file.percentage }}"
-      aria-valuemin="0" aria-valuemax="100" [ngStyle]="{ width: file.percentage + '%' }">
-      {{ file.percentage }}%
+    <div *ngFor="let file of currentFileUpload" class="progress ml-16">
+      <div class="progress-bar progress-bar-info" role="progressbar" attr.aria-valuenow="{{ file.percentage }}"
+        aria-valuemin="0" aria-valuemax="100" [ngStyle]="{ width: file.percentage + '%' }">
+        {{ file.percentage }}%
+      </div>
     </div>
   </div>
-</div>
 
-
-
-
-
-<div class="card-box">
-  <div class="no-file-found-icon" *ngIf="fileUploads.length ==0">Selecione um arquivo ou arraste eles aqui...</div>
-  <div class="card-content">
-    <app-upload-details *ngFor="let file of fileUploads" [fileUpload]="file" (click)="file.selected = !file.selected">
-    </app-upload-details>
+  <div class="card-box">
+    <div class="no-file-found-icon" *ngIf="fileUploads.length ==0">Selecione um arquivo ou arraste eles aqui...</div>
+    <div class="card-content">
+      <app-upload-details *ngFor="let file of fileUploads" [fileUpload]="file" (click)="file.selected = !file.selected">
+      </app-upload-details>
+    </div>
+    <div class="dropzone" *ngIf="fileUploads.length ==0">
+      <input type="file" #fileDropRef multiple (change)="selectFile($event)" (click)="clickEvent($event)">
+    </div>
   </div>
-  <div class="dropzone" *ngIf="fileUploads.length ==0">
-    <input type="file" #fileDropRef multiple (change)="selectFile($event)" (click)="clickEvent($event)">
+
+  <div class="file-upload-btn-bar">
+    <mat-checkbox (change)="selecioanarTodos($event)" #checkboxTodos [disabled]="fileUploads.length == 0">Selecioanr todos
+    </mat-checkbox>
+    <app-btn [icon]="'delete'" [label]="'Remover selecionados'" [clazz]="'btn-accent'"
+      [disabled]="checkRemoverIsDisabled()" (click)="removerArquivosSelecionados()"></app-btn>
+    <app-btn [label]="'Cancelar'" [disabled]="checkRemoverIsDisabled()" (click)="limparSelecao()"></app-btn>
   </div>
 </div>
 
-<div class="file-upload-btn-bar">
-  <mat-checkbox (change)="selecioanarTodos($event)" #checkboxTodos [disabled]="fileUploads.length == 0">Selecioanr todos</mat-checkbox>
-  <app-btn [icon]="'delete'" [label]="'Remover selecionados'" [clazz]="'btn-accent'" [disabled]="checkRemoverIsDisabled()"
-   (click)="removerArquivosSelecionados()"></app-btn>
-  <app-btn [label]="'Cancelar'" [disabled]="checkRemoverIsDisabled()" (click)="limparSelecao()"></app-btn>
-</div>
+<app-loader [loading]="loading"></app-loader>
