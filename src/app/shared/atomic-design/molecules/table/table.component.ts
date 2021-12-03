@@ -77,4 +77,12 @@ export class TableComponent<T> implements OnInit {
       data: item
     })
   }
+
+  // getColumnClass(col: IDisplayedColumns){
+  //   if(col.mask == IInputType.CURRENCY || col.mask == IInputType.CHECKBOX){
+  //     return 'w-100'
+  //   }else{
+  //     return ''
+  //   }
+  // }
 }

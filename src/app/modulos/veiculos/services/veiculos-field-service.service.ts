@@ -21,12 +21,12 @@ export class VeiculosFieldServiceService implements AbstractFieldsService {
       new IFieldBuilder().build('anoFabricacao').label('Ano de fabricação').setClass('w-140').get(),
       new IFieldBuilder().build('anoModelo').label('Ano Modelo').setClass('w-140').get(),
       new IFieldBuilder().build('valor', IInputType.CURRENCY).columnShow().label('Valor').number().setClass('w-140').get(),
-      new IFieldBuilder().build('combustivel', IInputType.RADIO).select(COMBUSTIVEL_OPTIONS).label('Combustível').get(),
+      new IFieldBuilder().build('combustivel', IInputType.RADIO).select(COMBUSTIVEL_OPTIONS).columnShow().label('Combustível').get(),
       new IFieldBuilder().build('cambio', IInputType.RADIO).select(CAMBIO_OPTIONS).columnShow().label('Câmbio').get(),
       new IFieldBuilder().build('cor', IInputType.SELECT).select(COR_OPTIONS).columnShow().label('Cor principal').get(),
       new IFieldBuilder().build('itemsAdicionais', IInputType.MULTISELECT).select(ITENS_ADICIONAIS_OPTIONS).label('Items adicionais').get(),
-      new IFieldBuilder().build('publicar', IInputType.CHECKBOX).label('Publicar').get(),
-      new IFieldBuilder().build('vendido', IInputType.CHECKBOX).label('Vendido').get(),
+      new IFieldBuilder().build('publicar', IInputType.CHECKBOX).label('Publicar').columnShow().get(),
+      new IFieldBuilder().build('vendido', IInputType.CHECKBOX).label('Vendido').columnShow().get(),
     ]
   }
 }

@@ -6,6 +6,7 @@ import {CdkTableModule} from '@angular/cdk/table';
 import { BtnModule } from '../../atoms/btn/btn.module';
 import { InputCheckboxModule } from '../../atoms/input-checkbox/input-checkbox.module';
 import { IconButtonModule } from '../../atoms/icon-button/icon-button.module';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [TableComponent],
@@ -15,7 +16,8 @@ import { IconButtonModule } from '../../atoms/icon-button/icon-button.module';
     CdkTableModule,
     BtnModule,
     InputCheckboxModule,
-    IconButtonModule
+    IconButtonModule,
+    MatIconModule
   ],
   exports: [
     TableComponent
