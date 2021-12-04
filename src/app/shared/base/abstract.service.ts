@@ -11,7 +11,7 @@ import { AuthService } from 'src/app/modulos/auth/auth.service';
 })
 export class AbstractService<Entity> {
 
-  dataSource!: Observable<Entity[]>;
+  dataSource!: Entity[];
 
   constructor(
     private db: AngularFireDatabase,
@@ -61,7 +61,7 @@ export class AbstractService<Entity> {
       query = (ref: DatabaseReference)=>ref
     }
 
-    this.dataSource = this.db.list(`${this.entityName}/${this.authService.getUid()}`, query)
+    this.db.list(`${this.entityName}/${this.authService.getUid()}`, query)
       .snapshotChanges()
       .pipe(
         map(changes => {
@@ -71,7 +71,9 @@ export class AbstractService<Entity> {
             return res as Entity
           });
         })
-      )
+      ).subscribe(res=>{
+        this.dataSource = res
+      })
   }
 
   delete(key: string) {

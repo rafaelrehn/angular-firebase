@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 
@@ -10,31 +10,21 @@ import { debounceTime } from 'rxjs/operators';
 export class SearchBarComponent implements OnInit {
 
   searchWord = ''
-  $keydownSubject = new Subject()
-  @Output() search = new EventEmitter
+  @Output() keydownEvent = new EventEmitter
 
   constructor() { }
 
   ngOnInit(): void {
-    this.$keydownSubject.pipe(debounceTime(300)).subscribe(()=>{
-      this.sendWord()
-
-    })
   }
 
-  keydownEvent(){
-    this.$keydownSubject.next()
+  sendKeyEvent(){
+    this.keydownEvent.emit(this.searchWord)
   }
 
   clear(){
     if(this.searchWord != ''){
       this.searchWord = ''
-      this.sendWord()
+      this.keydownEvent.emit(this.searchWord)
     }
-  }
-
-  sendWord(){
-    console.log('sending', this.searchWord)
-    this.search.emit(this.searchWord)
   }
 }

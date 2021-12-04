@@ -4,12 +4,12 @@ import { getInputValue } from 'src/app/shared/base/utils';
 import { IBtnInterface } from '../../atoms/btn/btn.interface';
 import { IInputInterface, IInputType, ISelect, ISelectOptions } from '../../atoms/input/input.interface';
 
-export interface ClickTableEvent{
+export interface ClickTableEvent {
   eventName: 'excluir' | 'selectRow' | 'editRow',
   data: any;
 }
 
-export interface IDisplayedColumns{
+export interface IDisplayedColumns {
   label: string;
   name: string;
   mask: IInputType;
@@ -24,7 +24,12 @@ export interface IDisplayedColumns{
 export class TableComponent<T> implements OnInit {
 
   @Input() displayedColumns: IDisplayedColumns[] = [];
-  @Input() dataSource: Observable<T[]>
+  @Input() dataSource: T[]
+
+  filterTable: any = {
+    // $or:[]
+  }
+  filterWord: string;
 
   inputsSelectTabel: IInputInterface = {
     inputType: IInputType.CHECKBOX,
@@ -44,6 +49,35 @@ export class TableComponent<T> implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    // this.buildFilter()
+    setTimeout(() => {
+      console.log(this.dataSource)
+    }, 1000)
+  }
+
+
+
+  search(evt: string) {
+    const $or: any = []
+    this.displayedColumns.forEach(el => {
+      if (el.mask == IInputType.INPUT ||
+         el.mask == IInputType.CURRENCY ||
+          el.mask == IInputType.INTEGER ||
+           el.mask == IInputType.RADIO ||
+            el.mask == IInputType.SELECT)
+        $or.push({ [el.name]: evt })
+      //
+    })
+    this.filterTable = {
+      $or: $or
+    }
+
+    // this.filterTable = {
+    //   $or:[
+    //     {nome: evt},
+    //     {marca: evt}
+    //   ]
+    // }
   }
 
   getValue(row: T, idx: number): string {
@@ -58,14 +92,14 @@ export class TableComponent<T> implements OnInit {
     return getInputValue(IInputInterface, r)
   }
 
-  excluir(row: T){
+  excluir(row: T) {
     this.clickEvent.emit({
       eventName: 'excluir',
       data: row
     })
   }
 
-  editRow(item: T){
+  editRow(item: T) {
     this.clickEvent.emit({
       eventName: 'editRow',
       data: item
@@ -73,22 +107,10 @@ export class TableComponent<T> implements OnInit {
   }
 
 
-  selectRow(item: T){
+  selectRow(item: T) {
     this.clickEvent.emit({
       eventName: 'selectRow',
       data: item
     })
   }
-
-  search(evt: string){
-    this.searchEvent.emit(evt)
-  }
-
-  // getColumnClass(col: IDisplayedColumns){
-  //   if(col.mask == IInputType.CURRENCY || col.mask == IInputType.CHECKBOX){
-  //     return 'w-100'
-  //   }else{
-  //     return ''
-  //   }
-  // }
 }

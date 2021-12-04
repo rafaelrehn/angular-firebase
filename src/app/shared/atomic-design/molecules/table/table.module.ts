@@ -8,6 +8,8 @@ import { InputCheckboxModule } from '../../atoms/input-checkbox/input-checkbox.m
 import { IconButtonModule } from '../../atoms/icon-button/icon-button.module';
 import { MatIconModule } from '@angular/material/icon';
 import { SearchBarModule } from '../../atoms/search-bar/search-bar.module';
+import { FormsModule } from '@angular/forms';
+import { FilterPipeModule } from 'ngx-filter-pipe';
 
 @NgModule({
   declarations: [TableComponent],
@@ -19,7 +21,9 @@ import { SearchBarModule } from '../../atoms/search-bar/search-bar.module';
     InputCheckboxModule,
     IconButtonModule,
     MatIconModule,
-    SearchBarModule
+    SearchBarModule,
+    FormsModule,
+    FilterPipeModule
   ],
   exports: [
     TableComponent

@@ -1,11 +1,11 @@
-<app-search-bar (search)="search($event)"></app-search-bar>
+<app-search-bar (keydownEvent)="search($event)"></app-search-bar>
 <table>
   <tr>
     <th class="w-16"></th>
     <th *ngFor="let col of displayedColumns ; let i = index">{{col.label}}</th>
     <th class="w-100"></th>
   </tr>
-  <tr *ngFor="let item of dataSource | async">
+  <tr *ngFor="let item of dataSource | filterBy: filterTable">
     <td>
       <app-input-checkbox></app-input-checkbox>
     </td>
