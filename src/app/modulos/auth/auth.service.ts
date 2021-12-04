@@ -91,6 +91,14 @@ export class AuthService {
     })
   }
 
+  getUid(){
+    if(this.user && this.user.uid){
+      return this.user.uid
+    }else{
+      throw new Error("Usuario não autenticado");
+    }
+  }
+
   checkToken(){
 
   }

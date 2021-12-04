@@ -33,6 +33,8 @@ export class TableComponent<T> implements OnInit {
   }
 
   @Output() clickEvent = new EventEmitter<ClickTableEvent>()
+  @Output() searchEvent = new EventEmitter<string>()
+
 
   btnExcluir: IBtnInterface = {
     label: 'Excluir',
@@ -76,6 +78,10 @@ export class TableComponent<T> implements OnInit {
       eventName: 'selectRow',
       data: item
     })
+  }
+
+  search(evt: string){
+    this.searchEvent.emit(evt)
   }
 
   // getColumnClass(col: IDisplayedColumns){

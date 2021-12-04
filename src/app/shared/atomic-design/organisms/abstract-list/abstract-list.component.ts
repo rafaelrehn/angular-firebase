@@ -15,7 +15,7 @@ export class AbstractListComponent<Entity extends DefaultEntity>{
     @Inject('fieldsService') protected fieldsService: AbstractFieldsService,
     protected route: Router
   ) {
-    this.service.initDataSource()
+    this.service.getAll()
     this.buildColumns()
   }
 
@@ -60,6 +60,14 @@ export class AbstractListComponent<Entity extends DefaultEntity>{
 
       default:
         break;
+    }
+  }
+
+  searchEvent(searchWord: string){
+    if(searchWord){
+      this.service.getAll({key: 'nome', value: searchWord})
+    }else{
+      this.service.getAll()
     }
   }
 }

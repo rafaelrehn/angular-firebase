@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SearchBarComponent } from './search-bar.component';
 import { MatIconModule } from '@angular/material/icon';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -9,7 +10,8 @@ import { MatIconModule } from '@angular/material/icon';
   declarations: [SearchBarComponent],
   imports: [
     CommonModule,
-    MatIconModule
+    MatIconModule,
+    FormsModule
   ],
   exports: [
     SearchBarComponent
