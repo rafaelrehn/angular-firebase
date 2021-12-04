@@ -7,6 +7,7 @@ import { BtnModule } from '../../atoms/btn/btn.module';
 import { InputCheckboxModule } from '../../atoms/input-checkbox/input-checkbox.module';
 import { IconButtonModule } from '../../atoms/icon-button/icon-button.module';
 import { MatIconModule } from '@angular/material/icon';
+import { SearchBarModule } from '../../atoms/search-bar/search-bar.module';
 
 @NgModule({
   declarations: [TableComponent],
@@ -17,7 +18,8 @@ import { MatIconModule } from '@angular/material/icon';
     BtnModule,
     InputCheckboxModule,
     IconButtonModule,
-    MatIconModule
+    MatIconModule,
+    SearchBarModule
   ],
   exports: [
     TableComponent
