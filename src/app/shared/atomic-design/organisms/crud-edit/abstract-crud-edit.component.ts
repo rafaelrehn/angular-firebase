@@ -10,6 +10,7 @@ import { DefaultEntity } from 'src/app/shared/default.entity';
 import { IBreadcrumb } from '../../atoms/breadcrumb/breadcrumb.interface';
 import { IBtnInterface } from '../../atoms/btn/btn.interface';
 import { IInputInterface } from '../../atoms/input/input.interface';
+import { IBtnBarClickEvent } from '../../molecules/btn-bar/btn-bar.component';
 
 @Component({
   selector: 'app-abstract-crud-edit',
@@ -92,23 +93,32 @@ export class AbstractCrudEditComponent<T extends DefaultEntity> implements OnIni
     }
   }
 
-  btnBarClick(event: any){
+  btnBarClick(event: IBtnBarClickEvent){
     console.log({event})
-    if(event == 'cancelar'){
+    if(event == IBtnBarClickEvent.cancelar){
       this.resetFormValues()
+    }else if(event == IBtnBarClickEvent.salvarNovo){
+      this.onSubmit(true)
     }
   }
 
-  async onSubmit(){
+  async onSubmit(salvarNovo?: boolean){
     const formValue = this.form.getRawValue()
     console.log({formValue})
     let key: string = ''
     if(this.isEdit){
       this.service.update(formValue, this.model.key as string)
+      this.redirect(key)
     }else{
       key = await this.service.insert(formValue)
-    }
-    this.redirect(key)
+      if(salvarNovo){
+        this.ngOnInit()
+      }
+    }    
+  }
+
+  novoForm(){
+
   }
 
   redirect(key?: string){

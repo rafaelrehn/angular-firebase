@@ -1,5 +1,10 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { IBtnInterface } from '../../atoms/btn/btn.interface';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+
+export enum IBtnBarClickEvent {
+  cancelar = 'cancelar',
+  submit = 'submit',
+  salvarNovo = 'salvarNovo'
+}
 
 @Component({
   selector: 'app-btn-bar',
@@ -15,7 +20,7 @@ export class BtnBarComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  clickEvent(event: 'cancelar' | 'submit'){
+  clickEvent(event: string){
     this.click.emit(event)
   }
 

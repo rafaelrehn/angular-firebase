@@ -9,7 +9,7 @@
     height: 32px;
     border-radius: 100px;
     border: 0px;
-    margin: 16px 0px;
+    margin-bottom: 16px;
     padding: 4px 16px;
     font-size: 16px;
     &:focus{
@@ -21,7 +21,7 @@
     background-color: var(--white);
     position: absolute;
     right: 10px;
-    top: 24px;
+    top: 8px;
     border-radius: 100px;
     transform: rotate(45deg);
     &:hover{

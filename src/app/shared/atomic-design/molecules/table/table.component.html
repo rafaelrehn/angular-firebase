@@ -1,28 +1,34 @@
 <app-search-bar (keydownEvent)="search($event)"></app-search-bar>
-<table>
-  <tr>
-    <th class="w-16"></th>
-    <th *ngFor="let col of displayedColumns ; let i = index">{{col.label}}</th>
-    <th class="w-100"></th>
-  </tr>
-  <tr *ngFor="let item of dataSource | filterBy: filterTable">
-    <td>
-      <app-input-checkbox></app-input-checkbox>
-    </td>
-    <td *ngFor="let col of displayedColumns ; let i = index" (click)="selectRow(item)">
-      <span [ngSwitch]="col.mask">
-        <span *ngSwitchCase="'currency'">{{getValue(item,i) | currency:'BRL'}}</span>
-        <span *ngSwitchCase="'checkbox'">
-          <mat-icon *ngIf="getValue(item,i)">checked</mat-icon>
-        </span>
-        <span *ngSwitchDefault>{{getValue(item,i)}}</span>
-      </span>
-    </td>
-    <td>
-      <div class="flex">
-        <app-icon-button (clickEvent)="editRow(item)" [iconName]="'edit'"></app-icon-button>
-        <app-icon-button (clickEvent)="excluir(item)" [iconName]="'delete'"></app-icon-button>
-      </div>
-    </td>
-  </tr>
-</table>
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th class="w-16"></th>
+        <th *ngFor="let col of displayedColumns ; let i = index">{{col.label}}</th>
+        <th class="w-100"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of dataSource | filterBy: filterTable">
+        <td>
+          <app-input-checkbox></app-input-checkbox>
+        </td>
+        <td *ngFor="let col of displayedColumns ; let i = index" (click)="selectRow(item)">
+          <span [ngSwitch]="col.mask">
+            <span *ngSwitchCase="'currency'">{{getValue(item,i) | currency:'BRL'}}</span>
+            <span *ngSwitchCase="'checkbox'">
+              <mat-icon *ngIf="getValue(item,i)">checked</mat-icon>
+            </span>
+            <span *ngSwitchDefault>{{getValue(item,i)}}</span>
+          </span>
+        </td>
+        <td>
+          <div class="flex">
+            <app-icon-button (clickEvent)="editRow(item)" [iconName]="'edit'"></app-icon-button>
+            <app-icon-button (clickEvent)="excluir(item)" [iconName]="'delete'"></app-icon-button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

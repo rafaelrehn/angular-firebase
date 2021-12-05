@@ -1,8 +1,11 @@
 table {
     font-family: arial, sans-serif;
-    border-collapse: collapse;
+    // position: relative;
+    // border-collapse: collapse;
     width: 100%;
     border: 1px solid var(--bg1);
+    border-collapse: separate; /* Don't collapse */
+    border-spacing: 0;
   }
 
   td, th {
@@ -11,8 +14,16 @@ table {
     padding: 0px 8px;
   }
 
-  th{
-    background-color: var(--bg1);
+  thead tr{
+    background: var(--bg1);
+    border: 1px solid var(--bg1);
+    border-top: 2px solid var(--bg1);
+    position: sticky;
+    top: 1px;
+    z-index: 10;
+
+    
+    // background: white;
   }
 
   tr:nth-child(even) {
@@ -30,3 +41,10 @@ table {
     }    
     
   }
+
+.table-container{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: auto;
+}
