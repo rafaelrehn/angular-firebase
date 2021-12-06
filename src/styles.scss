@@ -37,4 +37,19 @@ h1,h2,h3,h4,p{
   display: flex;
 }
 
+.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background, .mat-checkbox-checked.mat-accent .mat-checkbox-background{
+  background-color: var(--accent);
+}
+.mat-input-element {
+  caret-color: var(--accent);
+}
 
+.mat-form-field.mat-focused .mat-form-field-label {
+  color: var(--accent) !important;
+}
+.mat-form-field-underline {
+  background-color: var(--accent) !important;;
+}
+.mat-form-field-ripple {
+  background-color: var(--accent) !important;
+}
