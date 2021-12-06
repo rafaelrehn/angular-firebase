@@ -11,8 +11,8 @@ export class LoginComponent implements OnInit {
 
   constructor(private authService: AuthService) { }
 
-  async ngOnInit() {
-    await this.authService.checkUserIsAuthenticated()
+  ngOnInit() {
+    // await this.authService.checkUserIsAuthenticated()
   }
 
   loginGoogle() {

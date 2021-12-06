@@ -15,6 +15,7 @@ import { VeiculosViewComponent } from './modulos/veiculos/view/veiculos-view.com
 import { UtilitariosListComponent } from './modulos/utilitarios/list/utilitarios-list.component';
 import { UtilitariosEditComponent } from './modulos/utilitarios/edit/utilitarios-edit.component';
 import { UtilitariosViewComponent } from './modulos/utilitarios/view/utilitarios-view.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const ROUTES: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -24,13 +25,13 @@ const ROUTES: Routes = [
       { path: 'login', component: LoginComponent },
       { path: 'email-login', component: EmailComponent },
       { path: 'signup', component: SignupComponent },
-
       { path: '', redirectTo: 'login', pathMatch: 'full' },
     ]
   },
   {
     path: 'home',
     component: HomeComponent,
+    canActivate: [AuthGuard],
     children: [
       {
         path: 'dashboard', component: DashboardComponent

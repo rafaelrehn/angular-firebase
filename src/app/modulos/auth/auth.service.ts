@@ -54,6 +54,7 @@ export class AuthService {
   }
 
   logout() {
+    this.afAuth.signOut()
     this.afAuth.signOut().then(() => {
       this.router.navigate(['/']);
     });
@@ -67,14 +68,14 @@ export class AuthService {
     return this.afAuth.signInWithPopup(provider);
   }
 
-  async checkUserIsAuthenticated(){
-    console.log('checkUserIsAuthenticated()' ,this.user)
-    if(!this.user){
-      return await this.authState()
-    }else{
-      return true
-    }
-  }
+  // async checkUserIsAuthenticated(){
+  //   console.log('checkUserIsAuthenticated()' ,this.user)
+  //   if(!this.user){
+  //     return await this.authState()
+  //   }else{
+  //     return true
+  //   }
+  // }
 
   authState(): Promise<boolean> {
     return new Promise(resolve=>{
@@ -92,11 +93,11 @@ export class AuthService {
   }
 
   getUid(){
-    if(this.user && this.user.uid){
-      return this.user.uid
-    }else{
-      throw new Error("Usuario não autenticado");
-    }
+    // if(this.user && this.user.uid){
+      return this.user?.uid
+    // }else{
+    //   throw new Error("Usuario não autenticado");
+    // }
   }
 
   checkToken(){
