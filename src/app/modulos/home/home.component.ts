@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit {
       new IMenuBuilder().build('Veiculos', '/home/veiculos', 'time_to_leave').get(),
       new IMenuBuilder().build('Utilitários', '/home/utilitarios', 'build').get(),
       new IMenuBuilder().build('Profile', '/home/profile', 'assignment_ind').get(),
-      new IMenuBuilder().build('Sair', '/login', 'login').clazz('mt-auto mb-40-p').get(),
+      // new IMenuBuilder().build('Sair', '/login', 'login').clazz('mt-auto mb-40-p').get(),
     ]
   }
 
@@ -42,6 +42,10 @@ export class HomeComponent implements OnInit {
     let x = 'url(' + this.authService?.user?.photoURL + ')'
     // console.log('profile image', x)s
     return x
+  }
+
+  logout(){
+    this.authService.logout()
   }
 
 }
