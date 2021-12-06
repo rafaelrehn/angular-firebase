@@ -57,6 +57,8 @@ export class AuthService {
     this.afAuth.signOut()
     this.afAuth.signOut().then(() => {
       this.router.navigate(['/']);
+    }).catch(err=>{
+      console.log('singout err', err)
     });
   }
 

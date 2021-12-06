@@ -19,15 +19,15 @@ export class AuthGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Promise<boolean | UrlTree> {
 
-    await this.authService.authState()
-    const user = this.authService.getUid()
-    console.log({user})
-    const isUserAuthenticated = user ? true : false
+    const isUserAuthenticated = await this.authService.authState()
+    // // const user = await this.afAuth.user
+    // // console.log({user})
+    // const isUserAuthenticated = user ? true : false
+    console.log({isUserAuthenticated})
     if(!isUserAuthenticated){
       alert('Você precisa estar logado para continuar')
       this.router.navigate(['/auth'])
     }
-    console.log({isUserAuthenticated})
     return isUserAuthenticated
   }
 

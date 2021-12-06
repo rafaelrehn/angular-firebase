@@ -21,7 +21,7 @@
         <div class="ml-24" style="font-size: 9px;"></div>
         <div class="user-info" *ngIf="authService?.user">
           <div class="user-name">{{authService?.user?.displayName}}</div>
-          <div class="user-photo"  [style.background-image]="getProfileImage()" routerLink="/auth/profile"></div>
+          <div class="user-photo"  [style.background-image]="getProfileImage()" routerLink="/home/profile"></div>
         </div>
       </div>
       <div class="content-router">
