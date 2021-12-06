@@ -13,7 +13,7 @@ export enum IBtnBarClickEvent {
 })
 export class BtnBarComponent implements OnInit {
 
-  @Output() click = new EventEmitter<any>();
+  @Output() actionEvent = new EventEmitter<any>();
 
   constructor() { }
 
@@ -21,7 +21,7 @@ export class BtnBarComponent implements OnInit {
   }
 
   clickEvent(event: string){
-    this.click.emit(event)
+    this.actionEvent.emit(event)
   }
 
 }

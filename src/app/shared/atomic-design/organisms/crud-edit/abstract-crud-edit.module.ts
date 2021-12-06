@@ -7,6 +7,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { AppRoutingModule } from 'src/app/app-routing.module';
+import { LoaderModule } from '../../atoms/loader/loader.module';
 
 
 
@@ -20,6 +21,7 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
     MatButtonModule,
     MatIconModule,
     AppRoutingModule,
+    LoaderModule
   ],
   exports: [AbstractCrudEditComponent]
 })

@@ -19,6 +19,8 @@ import { IBtnBarClickEvent } from '../../molecules/btn-bar/btn-bar.component';
 })
 export class AbstractCrudEditComponent<T extends DefaultEntity> implements OnInit {
 
+  loading = false
+
   form: FormGroup;
   inputs: IInputInterface[]
   breadcrumb: IBreadcrumb[]
@@ -93,7 +95,7 @@ export class AbstractCrudEditComponent<T extends DefaultEntity> implements OnIni
     }
   }
 
-  btnBarClick(event: IBtnBarClickEvent){
+  actionEvent(event: IBtnBarClickEvent){
     console.log({event})
     if(event == IBtnBarClickEvent.cancelar){
       this.resetFormValues()
@@ -110,11 +112,19 @@ export class AbstractCrudEditComponent<T extends DefaultEntity> implements OnIni
       this.service.update(formValue, this.model.key as string)
       this.redirect(key)
     }else{
+      this.loading = true
       key = await this.service.insert(formValue)
+      this.loading = false
       if(salvarNovo){
-        this.ngOnInit()
+        this.reset()
+      }else{
+        this.redirect(key)
       }
-    }    
+    }
+  }
+
+  reset(){
+    this.form.reset()
   }
 
   novoForm(){
