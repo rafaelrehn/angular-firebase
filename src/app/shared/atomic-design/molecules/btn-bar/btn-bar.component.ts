@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 export enum IBtnBarClickEvent {
   cancelar = 'cancelar',
@@ -12,6 +12,8 @@ export enum IBtnBarClickEvent {
   styleUrls: ['./btn-bar.component.scss']
 })
 export class BtnBarComponent implements OnInit {
+
+  @Input() isEdit: boolean;
 
   @Output() actionEvent = new EventEmitter<any>();
 
