@@ -98,15 +98,15 @@ export class AbstractCrudEditComponent<T extends DefaultEntity> implements OnIni
   actionEvent(event: IBtnBarClickEvent){
     console.log({event})
     if(event == IBtnBarClickEvent.submit){
-      this.onSubmit()
+      this.submit()
     }else if(event == IBtnBarClickEvent.cancelar){
       this.resetFormValues()
     }else if(event == IBtnBarClickEvent.salvarNovo){
-      this.onSubmit(true)
+      this.submit(true)
     }
   }
 
-  async onSubmit(salvarNovo?: boolean){
+  async submit(salvarNovo?: boolean){
     const formValue = this.form.getRawValue()
     console.log({formValue})
     let key: string = ''
