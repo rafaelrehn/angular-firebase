@@ -77,8 +77,10 @@ export class AuthService {
   }
 
   getUid(){
-    console.log('this.user.uid', this.user.uid)
-    return this.user.uid
+    console.log('this.user', this.user)
+    console.log('encondeURI', )
+    const basicId = this.user.uid + '-' + encodeURI(this.user.displayName as string)
+    return basicId.replace(/(\.)|(\#)|(\[)|(\])/g, '%')
   }
 
   private setUserInfo(value: AuthUser){

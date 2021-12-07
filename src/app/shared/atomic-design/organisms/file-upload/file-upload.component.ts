@@ -28,9 +28,9 @@ export class FileUploadComponent implements OnInit {
   constructor(private uploadService: FileUploadService) { }
 
   ngOnInit(): void {
-    setTimeout(()=>{
+    // setTimeout(()=>{
       this.getListFiles()
-    }, 500)
+    // }, 500)
   }
 
   getListFiles(){

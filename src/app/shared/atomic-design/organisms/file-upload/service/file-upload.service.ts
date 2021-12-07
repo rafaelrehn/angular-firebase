@@ -3,6 +3,7 @@ import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
+import { AuthService } from 'src/app/modulos/auth/auth.service';
 import { FileUpload } from '../model/file-upload.model';
 
 @Injectable({
@@ -10,12 +11,14 @@ import { FileUpload } from '../model/file-upload.model';
 })
 export class FileUploadService {
 
-  private basePath = '/uploads';
+  get getBasePath(){
+    return `${this.authService.getUid()}/uploads`
+  }
 
-  constructor(private db: AngularFireDatabase, private storage: AngularFireStorage) { }
+  constructor(private db: AngularFireDatabase, private storage: AngularFireStorage, private authService: AuthService) { }
 
   pushFileToStorage(fileUpload: FileUpload): Observable<number | undefined> {
-    const filePath = `${this.basePath}/${fileUpload.file.name}`;
+    const filePath = `${this.getBasePath}/${fileUpload.file.name}`;
     const storageRef = this.storage.ref(filePath);
     const uploadTask = this.storage.upload(filePath, fileUpload.file);
 
@@ -33,12 +36,13 @@ export class FileUploadService {
   }
 
   private saveFileData(fileUpload: FileUpload): void {
-    this.db.list(this.basePath).push(fileUpload);
+    const _path = `${this.authService.getUid()}/uploads`
+    this.db.list(this.getBasePath).push(fileUpload);
   }
 
   getFiles(entityKey: string): AngularFireList<FileUpload> {
     const query = (ref: any)=>ref.orderByChild('entityKey').equalTo(entityKey)
-    return this.db.list(this.basePath, query);
+    return this.db.list(this.getBasePath, query);
   }
 
   deleteFile(fileUpload: FileUpload): void {
@@ -50,11 +54,13 @@ export class FileUploadService {
   }
 
   private deleteFileDatabase(key: string): Promise<void> {
-    return this.db.list(this.basePath).remove(key);
+    return this.db.list(this.getBasePath).remove(key);
   }
 
   private deleteFileStorage(name: string): void {
-    const storageRef = this.storage.ref(this.basePath);
+    const storageRef = this.storage.ref(this.getBasePath);
     storageRef.child(name).delete();
   }
+
+
 }

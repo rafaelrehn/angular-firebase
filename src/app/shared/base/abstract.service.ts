@@ -13,6 +13,10 @@ export class AbstractService<Entity> {
 
   dataSource!: Entity[];
 
+  private get privateUrl(){
+    return `${this.authService.getUid()}/${this.entityName}`
+  }
+
   constructor(
     private db: AngularFireDatabase,
     @Inject('entityName') private entityName: string,
@@ -23,7 +27,7 @@ export class AbstractService<Entity> {
     return new Promise((resolve,reject)=>{
       if(this.authService.user && this.authService.user.uid){
         const _entity = Object.assign(entity, {uid: this.authService.user.uid})
-        this.db.list(`${this.entityName}/${this.authService.getUid()}`).push(_entity)
+        this.db.list(`${this.privateUrl}`).push(_entity)
       .then(result => {
         console.log(result.key)
         resolve(result.key as string)
@@ -40,7 +44,7 @@ export class AbstractService<Entity> {
   update(entity: Entity, key: string) {
     if(this.authService.user && this.authService.user.uid){
       const _entity = Object.assign(entity, {uid: this.authService.user.uid})
-      this.db.list(`${this.entityName}/${this.authService.getUid()}`).update(key, _entity)
+      this.db.list(`${this.privateUrl}`).update(key, _entity)
         .catch(err => {
           console.error(err)
         })
@@ -50,7 +54,7 @@ export class AbstractService<Entity> {
   }
 
   getOne(key: string): Observable<Entity>{
-    return this.db.object(`${this.entityName}/${this.authService.getUid()}/${key}`).valueChanges() as Observable<Entity>
+    return this.db.object(`${this.privateUrl}/${key}`).valueChanges() as Observable<Entity>
   }
 
   getAll(params?: {key: string, value: string}): void {
@@ -61,7 +65,7 @@ export class AbstractService<Entity> {
       query = (ref: DatabaseReference)=>ref
     }
 
-    this.db.list(`${this.entityName}/${this.authService.getUid()}`, query)
+    this.db.list(`${this.privateUrl}`, query)
       .snapshotChanges()
       .pipe(
         map(changes => {
@@ -77,11 +81,12 @@ export class AbstractService<Entity> {
   }
 
   delete(key: string) {
-    this.db.object(`${this.entityName}/${this.authService.getUid()}/${key}`).remove()
+    this.db.object(`${this.privateUrl}/${key}`).remove()
       .catch(err => {
         console.error(err)
       })
   }
+
 
   // initDataSource(params?: {key: string, value: string}){
   //   this.dataSource = this.getAll(params)
