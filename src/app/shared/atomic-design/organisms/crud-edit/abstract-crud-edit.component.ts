@@ -97,7 +97,9 @@ export class AbstractCrudEditComponent<T extends DefaultEntity> implements OnIni
 
   actionEvent(event: IBtnBarClickEvent){
     console.log({event})
-    if(event == IBtnBarClickEvent.cancelar){
+    if(event == IBtnBarClickEvent.submit){
+      this.onSubmit()
+    }else if(event == IBtnBarClickEvent.cancelar){
       this.resetFormValues()
     }else if(event == IBtnBarClickEvent.salvarNovo){
       this.onSubmit(true)
