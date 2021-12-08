@@ -11,13 +11,7 @@ import { IBreadcrumb } from '../../atoms/breadcrumb/breadcrumb.interface';
 import { IBtnInterface } from '../../atoms/btn/btn.interface';
 import { IInputInterface } from '../../atoms/input/input.interface';
 import { IBtnBarClickEvent } from '../../molecules/btn-bar/btn-bar.component';
-
-@Component({
-  selector: 'app-abstract-crud-edit',
-  templateUrl: './abstract-crud-edit.component.html',
-  styleUrls: ['./abstract-crud-edit.component.scss']
-})
-export class AbstractCrudEditComponent<T extends DefaultEntity> implements OnInit {
+export class AbstractCrudEditComponent<T extends DefaultEntity> {
 
   loading = false
 
@@ -46,51 +40,53 @@ export class AbstractCrudEditComponent<T extends DefaultEntity> implements OnIni
     @Inject('fieldsService') protected fieldsService: AbstractFieldsService,
     protected router: Router,
     protected activatedRoute: ActivatedRoute,
-    ) { }
+  ) {
+    this.init()
+  }
 
-  async ngOnInit() {
+  async init() {
     this.buildForm()
     this.buildInputs()
     const key = this.activatedRoute.snapshot.paramMap.get('key') as string
-    if(key){
+    if (key) {
       await this.getData(key)
       this.isEdit = true
     }
     this.buildBreadCrumb()
   }
 
-  getData(key: string):Promise<void>{
-    return new Promise(resolve=>{
-      this.service.getOne(key).subscribe(res=>{
+  getData(key: string): Promise<void> {
+    return new Promise(resolve => {
+      this.service.getOne(key).subscribe(res => {
         this.model = res as any
-        Object.assign(this.model, {key: key})
+        Object.assign(this.model, { key: key })
         this.setValuesForm(res as any)
         resolve()
       })
     })
   }
 
-  setValuesForm(model: any){
-    Object.keys(model).forEach(key=>{
+  setValuesForm(model: any) {
+    Object.keys(model).forEach(key => {
       this.form.get(key)?.setValue(model[key])
     })
   }
 
-  IsEdit(): string{
+  IsEdit(): string {
     return this.activatedRoute.snapshot.paramMap.get('key') as string;
   }
 
-  buildForm(){
+  buildForm() {
     this.form = new FormGroup({})
-    this.fieldsService.buildFields().forEach((input: IInputInterface)=>{
+    this.fieldsService.buildFields().forEach((input: IInputInterface) => {
       this.form.addControl(input.name, new FormControl(null, input.required ? Validators.required : null))
     })
     this.setInitialRules()
   }
 
-  setInitialRules(){}
+  setInitialRules() { }
 
-  buildInputs(){
+  buildInputs() {
     try {
       this.inputs = this.fieldsService.buildFields()
     } catch (error) {
@@ -98,62 +94,61 @@ export class AbstractCrudEditComponent<T extends DefaultEntity> implements OnIni
     }
   }
 
-  actionEvent(event: IBtnBarClickEvent){
-    console.log({event})
-    if(event == IBtnBarClickEvent.submit){
+  actionEvent(event: IBtnBarClickEvent) {
+    console.log({ event })
+    if (event == IBtnBarClickEvent.submit) {
       this.submit()
-    }else if(event == IBtnBarClickEvent.cancelar){
+    } else if (event == IBtnBarClickEvent.cancelar) {
       this.resetFormValues()
-    }else if(event == IBtnBarClickEvent.salvarNovo){
+    } else if (event == IBtnBarClickEvent.salvarNovo) {
       this.submit(true)
     }
   }
 
-  async submit(salvarNovo?: boolean){
-    if(this.form.invalid){
-      // this.form.markAsDirty()
+  async submit(salvarNovo?: boolean) {
+    if (this.form.invalid) {
       this.form.markAllAsTouched()
       return
     }
     const formValue = this.form.getRawValue()
-    console.log({formValue})
+    console.log({ formValue })
     let key: string = ''
-    if(this.isEdit){
+    if (this.isEdit) {
       this.service.update(formValue, this.model.key as string)
       this.redirect(key)
-    }else{
+    } else {
       this.loading = true
       key = await this.service.insert(formValue)
       this.loading = false
-      if(salvarNovo){
+      if (salvarNovo) {
         this.reset()
-      }else{
+      } else {
         this.redirect(key)
       }
     }
   }
 
-  reset(){
+  reset() {
     this.form.reset()
   }
 
-  novoForm(){
+  novoForm() {
 
   }
 
-  redirect(key?: string){
-    if(this.isEdit){
+  redirect(key?: string) {
+    if (this.isEdit) {
       this.router.navigate([`../../${this.model.key}/view`], { relativeTo: this.activatedRoute })
-    }else if(key){
+    } else if (key) {
       this.router.navigate([`../${key}/view`], { relativeTo: this.activatedRoute })
-    }else{
+    } else {
       this.router.navigate([`../`], { relativeTo: this.activatedRoute })
     }
   }
 
-  resetFormValues(){
+  resetFormValues() {
     this.redirect()
   }
 
-  buildBreadCrumb(){}
+  buildBreadCrumb() { }
 }

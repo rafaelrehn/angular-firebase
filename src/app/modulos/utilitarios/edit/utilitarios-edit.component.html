@@ -1,2 +1,8 @@
 <app-header-actions [headerInfo]="headerInfo" [breadcrumb]="breadcrumb"></app-header-actions>
-<app-abstract-crud-edit></app-abstract-crud-edit>
+<form [formGroup]="form" autocomplete="off">
+  <app-form [form]="form" [inputs]="inputs"></app-form>
+  <app-btn-bar [isEdit]="this.isEdit" (actionEvent)="actionEvent($event)"></app-btn-bar>
+</form>
+<app-loader [loading]="loading"></app-loader>
+
+
