@@ -37,7 +37,7 @@ export class FileUploadComponent implements OnInit {
     this.uploadService.getFiles(this.entityKey).snapshotChanges().pipe(
       map(changes =>
         // store the key
-        changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
+        changes.map((c: any) => ({ key: c.payload.key, ...c.payload.val() }))
       )
     ).subscribe(fileUploads => {
       this.loading = false

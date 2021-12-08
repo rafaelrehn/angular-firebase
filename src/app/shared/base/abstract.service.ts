@@ -28,11 +28,11 @@ export class AbstractService<Entity> {
       if(this.authService.user && this.authService.user.uid){
         const _entity = Object.assign(entity, {uid: this.authService.user.uid})
         this.db.list(`${this.privateUrl}`).push(_entity)
-      .then(result => {
+      .then((result: any) => {
         console.log(result.key)
         resolve(result.key as string)
       })
-      .catch(err => {
+      .catch((err: any) => {
         reject(err)
       })
       }else{
@@ -69,7 +69,7 @@ export class AbstractService<Entity> {
       .snapshotChanges()
       .pipe(
         map(changes => {
-          return changes.map( c=> {
+          return changes.map( (c: any)=> {
             let res = c.payload.val() as any
             res.key = c.payload.key as string;
             return res as Entity
