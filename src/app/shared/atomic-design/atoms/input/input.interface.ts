@@ -35,5 +35,6 @@ export interface IInputInterface{
   inputType: IInputType;
   select?: ISelect;
   columnShow?: boolean;
-  context?: IInputContext
+  context?: IInputContext;
+  required?: boolean;
 }

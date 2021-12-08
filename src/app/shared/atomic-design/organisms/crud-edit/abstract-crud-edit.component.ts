@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { AbstractControl, FormControl, FormGroup } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Veiculo } from 'src/app/modulos/veiculos/veiculo';
 import { AbstractFieldsService } from 'src/app/shared/base/abstract-fields.interface';
@@ -82,10 +82,13 @@ export class AbstractCrudEditComponent<T extends DefaultEntity> implements OnIni
 
   buildForm(){
     this.form = new FormGroup({})
-    this.fieldsService.buildFields().map(m=>m.name).forEach((name: string)=>{
-      this.form.addControl(name, new FormControl())
+    this.fieldsService.buildFields().forEach((input: IInputInterface)=>{
+      this.form.addControl(input.name, new FormControl(null, input.required ? Validators.required : null))
     })
+    this.setInitialRules()
   }
+
+  setInitialRules(){}
 
   buildInputs(){
     try {
@@ -107,6 +110,11 @@ export class AbstractCrudEditComponent<T extends DefaultEntity> implements OnIni
   }
 
   async submit(salvarNovo?: boolean){
+    if(this.form.invalid){
+      // this.form.markAsDirty()
+      this.form.markAllAsTouched()
+      return
+    }
     const formValue = this.form.getRawValue()
     console.log({formValue})
     let key: string = ''

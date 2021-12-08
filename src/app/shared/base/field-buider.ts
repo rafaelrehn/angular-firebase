@@ -14,7 +14,8 @@ export class IFieldBuilder{
       label: name,
       type: 'text',
       inputType: inputType || IInputType.INPUT,
-      class: ''
+      class: '',
+      required: false
     }
     return this
   }
@@ -49,6 +50,11 @@ export class IFieldBuilder{
 
   context(context: IInputContext){
     this.input.context = context
+    return this
+  }
+
+  required(){
+    this.input.required = true
     return this
   }
 

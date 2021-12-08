@@ -48,7 +48,7 @@ export class InputMasterComponent implements OnInit {
 
   private _filter(value: string): any[] {
     const filterValue = value.toLowerCase();
-    return this.options.filter((option: any) => option['nome'].toLowerCase().includes(filterValue));
+    return this.options.filter((option: any) => (option['nome'] || '').toLowerCase().includes(filterValue));
   }
 
 }

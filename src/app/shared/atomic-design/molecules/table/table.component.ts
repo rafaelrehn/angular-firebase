@@ -34,7 +34,7 @@ export class TableComponent<T> implements OnInit {
   inputsSelectTabel: IInputInterface = {
     inputType: IInputType.CHECKBOX,
     name: 'x',
-    class: ''
+    class: '',
   }
 
   @Output() clickEvent = new EventEmitter<ClickTableEvent>()

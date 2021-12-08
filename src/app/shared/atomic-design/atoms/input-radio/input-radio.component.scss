@@ -1,0 +1,12 @@
+fieldset{
+  border: 0px;
+  flex-direction: column;
+  display: flex;
+  align-items: left;
+  padding: 0px;
+  margin-bottom: 8px;
+  label{
+    font-size: 12px;
+    color: var(--light-text);
+  }
+}
