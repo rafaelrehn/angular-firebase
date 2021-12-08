@@ -15,7 +15,7 @@
         height: $size;
         min-height: $size;
         background-color: var(--bg1);
-        background-size: 100%;
+        background-size: 120%;
         background-position: center;
         border: 3px solid transparent;
         box-shadow: var(--light-shadow);
@@ -27,7 +27,7 @@
     }
     .file-selected{
       border: 3px solid var(--accent) !important;
-      background-size: 120%;
+      background-size: 140%;
       box-shadow: var(--hard-shadow);
     }
 }

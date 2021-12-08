@@ -7,7 +7,7 @@ import { FileUploadService } from './service/file-upload.service';
 @Component({
   selector: 'app-file-upload',
   templateUrl: './file-upload.component.html',
-  styleUrls: ['./file-upload.component.scss']
+  styleUrls: ['./file-upload.component.scss'],
 })
 export class FileUploadComponent implements OnInit {
 
@@ -24,16 +24,16 @@ export class FileUploadComponent implements OnInit {
   fileUploads: FileUpload[] = [];
 
   @Input() entityKey: string
+  @Input() parentPath: string
 
   constructor(private uploadService: FileUploadService) { }
 
   ngOnInit(): void {
-    // setTimeout(()=>{
-      this.getListFiles()
-    // }, 500)
+    this.getListFiles()
   }
 
   getListFiles(){
+    this.uploadService.init(this.parentPath, this.entityKey)
     this.uploadService.getFiles(this.entityKey).snapshotChanges().pipe(
       map(changes =>
         // store the key

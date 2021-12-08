@@ -11,11 +11,24 @@ import { FileUpload } from '../model/file-upload.model';
 })
 export class FileUploadService {
 
+  parentPath: string
+  parentKey: string;
+
+
   get getBasePath(){
-    return `${this.authService.getUid()}/uploads`
+    if(this.parentPath){
+      return `${this.authService.getUid()}/${this.parentPath}/${this.parentKey}/uploads`
+    }else{
+      return `${this.authService.getUid()}/uploads`
+    }
   }
 
   constructor(private db: AngularFireDatabase, private storage: AngularFireStorage, private authService: AuthService) { }
+
+  init(parentPath?: string, parentKey?: string){
+    this.parentPath = parentPath as string
+    this.parentKey = parentKey as string
+  }
 
   pushFileToStorage(fileUpload: FileUpload): Observable<number | undefined> {
     const filePath = `${this.getBasePath}/${fileUpload.file.name}`;
