@@ -55,7 +55,7 @@ export class AbstractListComponent<Entity extends DefaultEntity>{
         break;
 
       case 'editRow':
-        this.selectRow(event.data)
+        this.editRow(event.data)
         break;
 
       default:
