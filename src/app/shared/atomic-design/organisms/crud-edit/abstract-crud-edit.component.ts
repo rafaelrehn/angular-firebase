@@ -52,7 +52,7 @@ export class AbstractCrudEditComponent<T extends DefaultEntity> {
       await this.getData(key)
       this.isEdit = true
     }
-    this.buildBreadCrumb()
+    this.breadcrumb = this.buildBreadCrumb()
   }
 
   getData(key: string): Promise<void> {

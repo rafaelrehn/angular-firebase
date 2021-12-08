@@ -4,11 +4,14 @@ import { Observable } from 'rxjs';
 import { AbstractFieldsService } from 'src/app/shared/base/abstract-fields.interface';
 import { AbstractService } from 'src/app/shared/base/abstract.service';
 import { DefaultEntity } from 'src/app/shared/default.entity';
+import { IBreadcrumb } from '../../atoms/breadcrumb/breadcrumb.interface';
 import { ClickTableEvent, IDisplayedColumns } from '../../molecules/table/table.component';
 
 export class AbstractListComponent<Entity extends DefaultEntity>{
 
   columns: IDisplayedColumns[]
+
+  breadcrumb: IBreadcrumb[]
 
   constructor(
     public service: AbstractService<Entity>,
@@ -17,6 +20,7 @@ export class AbstractListComponent<Entity extends DefaultEntity>{
   ) {
     this.service.getAll()
     this.buildColumns()
+    this.breadcrumb = this.buildBreadCrumb()
   }
 
   buildColumns() {
@@ -63,11 +67,13 @@ export class AbstractListComponent<Entity extends DefaultEntity>{
     }
   }
 
-  searchEvent(searchWord: string){
-    if(searchWord){
-      this.service.getAll({key: 'nome', value: searchWord})
-    }else{
+  searchEvent(searchWord: string) {
+    if (searchWord) {
+      this.service.getAll({ key: 'nome', value: searchWord })
+    } else {
       this.service.getAll()
     }
   }
+
+  buildBreadCrumb(): IBreadcrumb[] { return [] }
 }

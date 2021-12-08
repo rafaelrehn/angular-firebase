@@ -20,7 +20,6 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.buildInfo()
-    this.buildBreadcrumb()
   }
 
   buildInfo(){

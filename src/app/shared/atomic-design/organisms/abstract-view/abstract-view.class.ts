@@ -63,7 +63,7 @@ export abstract class AbstractViewClass<T>{
     }
 
     loadDefaultActions(){
-        this.buildBreadCrumb()
+      this.breadcrumb = this.buildBreadCrumb()
         this.afterContentLoaded()
     }
 

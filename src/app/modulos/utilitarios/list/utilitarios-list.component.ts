@@ -42,11 +42,10 @@ export class UtilitariosListComponent extends AbstractListComponent<Utilitario> 
   ) {
     super(service,fieldsService,route)
 
-    this.buildBreadCrumb()
   }
 
   buildBreadCrumb(){
-    this.breadcrumb = [
+    return [
       new BreadCrumbBuilder().build('Home', '/home').get(),
       new BreadCrumbBuilder().build('Utilitarios', '/home/utilitarios').active().get(),
     ]

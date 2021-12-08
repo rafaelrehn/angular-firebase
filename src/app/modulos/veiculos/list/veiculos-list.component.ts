@@ -33,7 +33,7 @@ export class VeiculosListComponent extends AbstractListComponent<Veiculo> {
     icon: 'note_add',
   }
 
-  breadcrumb: IBreadcrumb[]
+
 
   constructor(
     public service: AbstractService<Veiculo>,
@@ -42,11 +42,10 @@ export class VeiculosListComponent extends AbstractListComponent<Veiculo> {
   ) {
     super(service,fieldsService,route)
 
-    this.buildBreadCrumb()
   }
 
   buildBreadCrumb(){
-    this.breadcrumb = [
+    return [
       new BreadCrumbBuilder().build('Home', '/home').get(),
       new BreadCrumbBuilder().build('Veiculos', '/home/veiculos').active().get(),
     ]
