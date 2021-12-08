@@ -5,7 +5,8 @@ export enum IInputType{
   MULTISELECT = 'multiselect',
   RADIO = 'radio',
   CURRENCY = 'currency',
-  INTEGER = 'integer'
+  INTEGER = 'integer',
+  MASTER = 'master'
 }
 
 export interface ISelectOptions{
@@ -18,7 +19,11 @@ export interface ISelectOptions{
 export interface ISelect{
   multiselect: boolean;
   options: ISelectOptions[]
+}
 
+export interface IInputContext{
+  name: string
+  mainField: string
 }
 
 export interface IInputInterface{
@@ -30,4 +35,5 @@ export interface IInputInterface{
   inputType: IInputType;
   select?: ISelect;
   columnShow?: boolean;
+  context?: IInputContext
 }

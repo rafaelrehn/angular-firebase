@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { IInputInterface, IInputType, ISelectOptions } from "../atomic-design/atoms/input/input.interface";
+import { IInputContext, IInputInterface, IInputType, ISelectOptions } from "../atomic-design/atoms/input/input.interface";
 
 @Injectable()
 export class IFieldBuilder{
@@ -44,6 +44,11 @@ export class IFieldBuilder{
 
   setClass(param: string){
     this.input.class = param
+    return this
+  }
+
+  context(context: IInputContext){
+    this.input.context = context
     return this
   }
 

@@ -24,7 +24,7 @@ export class VeiculosFieldServiceService implements AbstractFieldsService {
       new IFieldBuilder().build('combustivel', IInputType.RADIO).select(COMBUSTIVEL_OPTIONS).columnShow().label('Combustível').get(),
       new IFieldBuilder().build('cambio', IInputType.RADIO).select(CAMBIO_OPTIONS).columnShow().label('Câmbio').get(),
       new IFieldBuilder().build('cor', IInputType.SELECT).select(COR_OPTIONS).columnShow().label('Cor principal').get(),
-      new IFieldBuilder().build('itemsAdicionais', IInputType.MULTISELECT).select(ITENS_ADICIONAIS_OPTIONS).label('Items adicionais').get(),
+      new IFieldBuilder().build('itemsAdicionais', IInputType.MASTER).select(ITENS_ADICIONAIS_OPTIONS).label('Items adicionais').context({name: 'utilitarios', mainField: 'nome'}).get(),
       new IFieldBuilder().build('publicar', IInputType.CHECKBOX).label('Publicar').columnShow().get(),
       new IFieldBuilder().build('vendido', IInputType.CHECKBOX).label('Vendido').columnShow().get(),
     ]
