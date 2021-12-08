@@ -7,6 +7,7 @@ import { InputSelectModule } from '../../atoms/input-select/input-select.module'
 import { InputCheckboxModule } from '../../atoms/input-checkbox/input-checkbox.module';
 import { InputRadioModule } from '../../atoms/input-radio/input-radio.module';
 import { InputMasterModule } from '../../atoms/input-master/input-master.module';
+import { InputContainerModule } from '../../atoms/input-container/input-container.module';
 
 
 
@@ -14,13 +15,9 @@ import { InputMasterModule } from '../../atoms/input-master/input-master.module'
   declarations: [FormComponent],
   imports: [
     CommonModule,
-    InputModule,
-    InputSelectModule,
     FormsModule,
     ReactiveFormsModule,
-    InputCheckboxModule,
-    InputRadioModule,
-    InputMasterModule
+    InputContainerModule
   ],
   exports: [FormComponent]
 })

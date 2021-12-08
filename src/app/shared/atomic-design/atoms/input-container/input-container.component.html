@@ -1,0 +1,8 @@
+<div [ngSwitch]="input.inputType">
+  <app-input-select *ngSwitchCase="'select'" [form]="form" [input]="input"></app-input-select>
+  <app-input-select *ngSwitchCase="'multiselect'" [form]="form" [input]="input"></app-input-select>
+  <app-input-checkbox *ngSwitchCase="'checkbox'" [form]="form" [input]="input"></app-input-checkbox>
+  <app-input-radio *ngSwitchCase="'radio'" [form]="form" [input]="input" class="mb-8"></app-input-radio>
+  <app-input-master *ngSwitchCase="'master'" [form]="form" [input]="input"></app-input-master>
+  <app-input *ngSwitchDefault [form]="form" [input]="input"></app-input>
+</div>
