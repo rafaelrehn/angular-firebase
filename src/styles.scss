@@ -47,8 +47,11 @@ h1,h2,h3,h4,p{
 .mat-form-field.mat-focused .mat-form-field-label {
   color: var(--accent) !important;
 }
+.mat-form-field.mat-form-field-invalid .mat-form-field-underline{
+  // background-color: red !important;;
+}
 .mat-form-field-underline {
-  background-color: var(--accent) !important;;
+  // background-color: var(--accent) !important;
 }
 .mat-form-field-ripple {
   background-color: var(--accent) !important;
