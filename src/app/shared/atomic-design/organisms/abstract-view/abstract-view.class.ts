@@ -69,5 +69,5 @@ export abstract class AbstractViewClass<T>{
 
     afterContentLoaded(): void {}
 
-    buildBreadCrumb(): void {}
+    buildBreadCrumb(): IBreadcrumb[] { return []}
 }

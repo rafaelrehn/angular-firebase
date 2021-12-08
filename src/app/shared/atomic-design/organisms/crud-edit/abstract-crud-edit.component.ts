@@ -150,5 +150,5 @@ export class AbstractCrudEditComponent<T extends DefaultEntity> {
     this.redirect()
   }
 
-  buildBreadCrumb() { }
+  buildBreadCrumb(): IBreadcrumb[] { return [] }
 }

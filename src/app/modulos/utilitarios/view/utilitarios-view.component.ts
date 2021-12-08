@@ -53,7 +53,7 @@ export class UtilitariosViewComponent extends AbstractViewClass<Utilitario> impl
   }
 
   buildBreadCrumb(){
-    this.breadcrumb = [
+    return [
       new BreadCrumbBuilder().build('Home', '/home').get(),
       new BreadCrumbBuilder().build('Utilitarios', '/home/utilitarios').get(),
       new BreadCrumbBuilder().build(

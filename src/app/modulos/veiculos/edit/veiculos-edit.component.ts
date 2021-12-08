@@ -53,7 +53,7 @@ export class VeiculosEditComponent extends AbstractCrudEditComponent<Veiculo> {
 
   buildBreadCrumb(){
     if(this.isEdit){
-      this.breadcrumb = [
+      return [
         new BreadCrumbBuilder().build('Home', '/home').get(),
         new BreadCrumbBuilder().build('Veiculos', '/home/veiculos').get(),
         new BreadCrumbBuilder().build(
@@ -61,7 +61,7 @@ export class VeiculosEditComponent extends AbstractCrudEditComponent<Veiculo> {
            '/home/veiculos/').active().get(),
       ]
     }else{
-      this.breadcrumb = [
+      return [
         new BreadCrumbBuilder().build('Home', '/home').get(),
         new BreadCrumbBuilder().build('Veiculos', '/home/veiculos').get(),
         new BreadCrumbBuilder().build(`Novo registro`, '/home/veiculos/').active().get(),
@@ -70,7 +70,7 @@ export class VeiculosEditComponent extends AbstractCrudEditComponent<Veiculo> {
   }
 
   setInitialRules(){
-    this.form.get('nome')?.setValidators(Validators.required)
+    this.form.get('nome')?.setValidators([Validators.required, Validators.minLength(10)])
   }
 
 }

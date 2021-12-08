@@ -53,7 +53,7 @@ export class VeiculosViewComponent extends AbstractViewClass<Veiculo> implements
   }
 
   buildBreadCrumb(){
-    this.breadcrumb = [
+    return [
       new BreadCrumbBuilder().build('Home', '/home').get(),
       new BreadCrumbBuilder().build('Veiculos', '/home/veiculos').get(),
       new BreadCrumbBuilder().build(

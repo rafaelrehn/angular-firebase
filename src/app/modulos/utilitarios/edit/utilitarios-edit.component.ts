@@ -52,7 +52,7 @@ export class UtilitariosEditComponent extends AbstractCrudEditComponent<Utilitar
 
   buildBreadCrumb(){
     if(this.isEdit){
-      this.breadcrumb = [
+      return [
         new BreadCrumbBuilder().build('Home', '/home').get(),
         new BreadCrumbBuilder().build('Utilitarios', '/home/utilitarios').get(),
         new BreadCrumbBuilder().build(
@@ -60,7 +60,7 @@ export class UtilitariosEditComponent extends AbstractCrudEditComponent<Utilitar
            '/home/utilitarios/').active().get(),
       ]
     }else{
-      this.breadcrumb = [
+      return [
         new BreadCrumbBuilder().build('Home', '/home').get(),
         new BreadCrumbBuilder().build('Utilitarios', '/home/utilitarios').get(),
         new BreadCrumbBuilder().build(`Novo registro`, '/home/utilitarios/').active().get(),
