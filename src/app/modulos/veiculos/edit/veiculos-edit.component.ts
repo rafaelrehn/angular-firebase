@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BreadCrumbBuilder } from 'src/app/shared/atomic-design/atoms/breadcrumb/breadcrumb-builder';
 import { IBtnInterface } from 'src/app/shared/atomic-design/atoms/btn/btn.interface';
@@ -42,12 +43,14 @@ export class VeiculosEditComponent extends AbstractCrudEditComponent<Veiculo> {
     protected fieldsService: VeiculosFieldServiceService,
     protected router: Router,
     protected activatedRoute: ActivatedRoute,
+    protected _snackBar: MatSnackBar
   ) {
     super(
       service,
       fieldsService,
       router,
-      activatedRoute
+      activatedRoute,
+      _snackBar
     )
   }
 
@@ -70,7 +73,7 @@ export class VeiculosEditComponent extends AbstractCrudEditComponent<Veiculo> {
   }
 
   setInitialRules(){
-    this.form.get('nome')?.setValidators([Validators.required, Validators.minLength(10)])
+    // this.form.get('nome')?.setValidators([Validators.required])
   }
 
 }

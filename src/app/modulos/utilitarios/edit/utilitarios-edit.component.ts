@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BreadCrumbBuilder } from 'src/app/shared/atomic-design/atoms/breadcrumb/breadcrumb-builder';
 import { IBtnInterface } from 'src/app/shared/atomic-design/atoms/btn/btn.interface';
@@ -41,12 +42,14 @@ export class UtilitariosEditComponent extends AbstractCrudEditComponent<Utilitar
     protected fieldsService: UtilitariosFieldServiceService,
     protected router: Router,
     protected activatedRoute: ActivatedRoute,
+    protected _snackBar: MatSnackBar
   ) {
     super(
       service,
       fieldsService,
       router,
-      activatedRoute
+      activatedRoute,
+      _snackBar
     )
   }
 

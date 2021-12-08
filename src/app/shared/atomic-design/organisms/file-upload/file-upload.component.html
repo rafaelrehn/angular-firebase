@@ -30,6 +30,8 @@
     </mat-checkbox>
     <app-btn [icon]="'delete'" [label]="'Remover selecionados'" [clazz]="'btn-accent'"
       [disabled]="checkRemoverIsDisabled()" (click)="removerArquivosSelecionados()"></app-btn>
+    <app-btn *ngIf="customActionBtnLabel" [icon]="'check_circle_outline'" [clazz]="'btn-warn'" [label]="customActionBtnLabel"
+      [disabled]="!isOneSelected()" (click)="customActionEmit()"></app-btn>
     <app-btn [label]="'Cancelar'" [disabled]="checkRemoverIsDisabled()" (click)="limparSelecao()"></app-btn>
   </div>
 </div>

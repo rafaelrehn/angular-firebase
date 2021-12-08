@@ -39,3 +39,11 @@
   }
 }
 
+.btn-warn{
+  background-color: var(--warn);
+  &:disabled{
+    background-color: var(--warn-light);
+    color: var(--bg3);
+  }
+}
+

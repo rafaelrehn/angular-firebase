@@ -1,5 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Veiculo } from 'src/app/modulos/veiculos/veiculo';
 import { AbstractFieldsService } from 'src/app/shared/base/abstract-fields.interface';
@@ -40,6 +41,7 @@ export class AbstractCrudEditComponent<T extends DefaultEntity> {
     @Inject('fieldsService') protected fieldsService: AbstractFieldsService,
     protected router: Router,
     protected activatedRoute: ActivatedRoute,
+    protected _snackBar: MatSnackBar
   ) {
     this.init()
   }
@@ -108,6 +110,11 @@ export class AbstractCrudEditComponent<T extends DefaultEntity> {
   async submit(salvarNovo?: boolean) {
     if (this.form.invalid) {
       this.form.markAllAsTouched()
+      this._snackBar.open('Por favor Revise o formulário!', 'Fechar', {
+        horizontalPosition: 'center',
+        verticalPosition: 'top',
+        duration: 2500,
+      });
       return
     }
     const formValue = this.form.getRawValue()
@@ -122,6 +129,11 @@ export class AbstractCrudEditComponent<T extends DefaultEntity> {
       this.loading = false
       if (salvarNovo) {
         this.reset()
+        this._snackBar.open('Registro inserido', 'Fechar', {
+          horizontalPosition: 'center',
+          verticalPosition: 'top',
+          duration: 2500,
+        });
       } else {
         this.redirect(key)
       }

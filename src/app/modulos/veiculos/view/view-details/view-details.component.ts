@@ -1,6 +1,7 @@
 import { Component, Injector, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, ROUTES } from '@angular/router';
 import { AbstractViewClass } from 'src/app/shared/atomic-design/organisms/abstract-view/abstract-view.class';
+import { FileUpload } from 'src/app/shared/atomic-design/organisms/file-upload/model/file-upload.model';
 import { AbstractService } from 'src/app/shared/base/abstract.service';
 import { VeiculosFieldServiceService } from '../../services/veiculos-field-service.service';
 import { Veiculo } from '../../veiculo';
@@ -31,6 +32,12 @@ export class ViewDetailsComponent extends AbstractViewClass<Veiculo> {
 
   setEntityKey(){
     this.entityKey = this.activatedRoute.parent?.snapshot.params['key'];
+  }
+
+  getImageSample(fileUpload?: FileUpload){
+    let x = 'url(' + fileUpload?.url + ')'
+    // console.log('profile image', x)s
+    return x
   }
 
 }

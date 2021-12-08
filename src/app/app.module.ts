@@ -14,6 +14,7 @@ import { AuthModule } from './modulos/auth/auth.module';
 import { ProfileModule } from './modulos/profile/profile.module';
 import { UtilitariosModule } from './modulos/utilitarios/utilitarios.module';
 import { ImagensVeiuclosModule } from './modulos/veiculos/children/imagens-veiuclos/imagens-veiuclos.module';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 const FirebaseConfig = [
   AngularFireAuthModule,
@@ -38,6 +39,7 @@ const Modulos = [
     BrowserAnimationsModule,
     AuthModule,
     ProfileModule,
+    MatSnackBarModule,
     ...Modulos,
   ],
   providers: [],

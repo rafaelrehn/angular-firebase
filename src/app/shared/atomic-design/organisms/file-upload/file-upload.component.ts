@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { MatCheckbox, MatCheckboxChange } from '@angular/material/checkbox';
 import { map } from 'rxjs/operators';
 import { FileUpload } from './model/file-upload.model';
@@ -25,11 +25,19 @@ export class FileUploadComponent implements OnInit {
 
   @Input() entityKey: string
   @Input() parentPath: string
+  @Input() customActionBtnLabel: string
+
+  @Output() customActionEvent = new EventEmitter<FileUpload>()
 
   constructor(private uploadService: FileUploadService) { }
 
   ngOnInit(): void {
     this.getListFiles()
+  }
+
+  customActionEmit(){
+    const fileUpload = this.fileUploads.filter(f=>f.selected)[0]
+    this.customActionEvent.emit(fileUpload)
   }
 
   getListFiles(){
@@ -60,6 +68,10 @@ export class FileUploadComponent implements OnInit {
 
   deleteFileUpload(fileUpload: FileUpload): void {
     this.uploadService.deleteFile(fileUpload);
+  }
+
+  isOneSelected(): boolean {
+    return this.fileUploads.map(m=>m.selected).filter(f=>f).length == 1
   }
 
 
@@ -100,8 +112,10 @@ export class FileUploadComponent implements OnInit {
             const fileUpload = new FileUpload(file)
             fileUpload.entityKey = this.entityKey
             this.currentFileUpload.push(fileUpload)
+
             this.uploadService.pushFileToStorage(fileUpload).subscribe(
               percentage => {
+
                 fileUpload.percentage = Math.round(percentage ? percentage : 0);
                 if(percentage == 100){
                   const i = this.currentFileUpload.map(i=>i.file.name).indexOf(fileUpload.file.name)
