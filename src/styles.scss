@@ -53,8 +53,8 @@ h1,h2,h3,h4,p{
 .mat-form-field-underline {
   // background-color: var(--accent) !important;
 }
-.mat-form-field-ripple {
-  // background-color: var(--accent) !important;
+.mat-form-field.mat-focused .mat-form-field-ripple {
+  background-color: var(--accent) !important;
 }
 .mat-radio-button.mat-accent .mat-radio-inner-circle, .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element:not(.mat-radio-persistent-ripple), .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-persistent-ripple, .mat-radio-button.mat-accent:active .mat-radio-persistent-ripple {
   background-color: var(--accent) !important;
@@ -62,4 +62,8 @@ h1,h2,h3,h4,p{
 
 .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
   border-color: var(--accent) !important;
+}
+
+.text-accent{
+  // color: var(--accent);
 }

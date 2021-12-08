@@ -1,1 +1,6 @@
-<app-view-input *ngFor="let viewInput of arrayViewForm" [viewInput]="viewInput"></app-view-input>
+<div class="flex">
+  <div class="flex-1">
+    <app-view-input *ngFor="let viewInput of arrayViewForm" [viewInput]="viewInput"></app-view-input>
+  </div>
+  <div class="flex-2"><ng-content></ng-content></div>
+</div>

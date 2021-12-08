@@ -1,6 +1,6 @@
 <mat-form-field appearance="fill" [formGroup]="form" >
   <fieldset>
-    <label for="">{{input.label}}</label>
+    <label for="">{{input.label}}  <span class="text-accent" *ngIf="input.required">*</span></label>
     <mat-radio-group aria-label="Select an option" [formControlName]="input.name">
       <mat-radio-button
         *ngFor="let option of input.select?.options"
