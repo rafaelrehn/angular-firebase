@@ -3,7 +3,7 @@
   <input type="{{input.type}}" class="form-control" id="{{input?.id}}" name="{{input?.name}}" autocomplete="off"
   [formControlName]="input.name"
   matInput>
-  <mat-error *ngIf="form.get([input.name])?.hasError('required')">
-    {{input?.label}} é <strong>obrigatório</strong>
-  </mat-error>
+
+  <app-input-error-container [input]="input" [form]="form"></app-input-error-container>
+
 </mat-form-field>

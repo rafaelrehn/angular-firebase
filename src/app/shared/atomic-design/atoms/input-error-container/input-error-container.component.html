@@ -1,0 +1,3 @@
+<mat-error *ngIf="form?.get([input.name])?.hasError('required') && form?.get([input.name])?.touched">
+  {{input?.label}} é <strong>obrigatório</strong>
+</mat-error>

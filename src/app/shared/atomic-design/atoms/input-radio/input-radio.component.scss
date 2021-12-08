@@ -5,8 +5,14 @@ fieldset{
   align-items: left;
   padding: 0px;
   margin-bottom: 8px;
+  position: relative;
   label{
     font-size: 12px;
     color: var(--light-text);
   }
+}
+.error-container{
+  position: absolute;
+  width: 158px;
+  margin-top: 7px;
 }

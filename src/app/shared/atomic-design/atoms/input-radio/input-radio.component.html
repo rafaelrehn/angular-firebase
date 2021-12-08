@@ -7,5 +7,8 @@
         [value]="option.value"
         [disabled]="option.disabled" class="mr-12">{{option.label}}</mat-radio-button>
     </mat-radio-group>
+    <div class="error-container">
+      <app-input-error-container [input]="input" [form]="form"></app-input-error-container>
+    </div>
   </fieldset>
 </mat-form-field>
