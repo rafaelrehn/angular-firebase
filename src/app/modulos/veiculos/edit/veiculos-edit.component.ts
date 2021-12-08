@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BreadCrumbBuilder } from 'src/app/shared/atomic-design/atoms/breadcrumb/breadcrumb-builder';
 import { IBtnInterface } from 'src/app/shared/atomic-design/atoms/btn/btn.interface';
@@ -66,6 +67,10 @@ export class VeiculosEditComponent extends AbstractCrudEditComponent<Veiculo> {
         new BreadCrumbBuilder().build(`Novo registro`, '/home/veiculos/').active().get(),
       ]
     }
+  }
+
+  setInitialRules(){
+    this.form.get('nome')?.setValidators(Validators.required)
   }
 
 }

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { VeiculosListComponent } from './list/veiculos-list.component';
 import { VeiculosEditComponent } from './edit/veiculos-edit.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AtomicModules } from 'src/app/shared/atomic-design/atomic.modules';
 import { BtnModule } from 'src/app/shared/atomic-design/atoms/btn/btn.module';
 import { TableModule } from 'src/app/shared/atomic-design/molecules/table/table.module';
@@ -14,6 +14,9 @@ import { ViewFormModule } from 'src/app/shared/atomic-design/molecules/view-form
 import { ViewChildModule } from 'src/app/shared/atomic-design/organisms/view-child/view-child.module';
 import { ViewDetailsComponent } from './view/view-details/view-details.component';
 import { HeaderActionsModule } from 'src/app/shared/atomic-design/molecules/list-header/header-actions.module';
+import { FormModule } from 'src/app/shared/atomic-design/molecules/form/form.module';
+import { BtnBarModule } from 'src/app/shared/atomic-design/molecules/btn-bar/btn-bar.module';
+import { LoaderModule } from 'src/app/shared/atomic-design/atoms/loader/loader.module';
 
 
 @NgModule({
@@ -21,6 +24,7 @@ import { HeaderActionsModule } from 'src/app/shared/atomic-design/molecules/list
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     AtomicModules,
     BtnModule,
     TableModule,
@@ -30,7 +34,10 @@ import { HeaderActionsModule } from 'src/app/shared/atomic-design/molecules/list
     HeaderActionsModule,
     ViewFormModule,
     ViewChildModule,
-    ViewFormModule
+    ViewFormModule,
+    FormModule,
+    BtnBarModule,
+    LoaderModule
   ]
 })
 export class VeiculosModule { }
