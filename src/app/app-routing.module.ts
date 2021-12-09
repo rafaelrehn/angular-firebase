@@ -16,29 +16,18 @@ import { UtilitariosListComponent } from './modulos/admin/utilitarios/list/utili
 import { UtilitariosEditComponent } from './modulos/admin/utilitarios/edit/utilitarios-edit.component';
 import { UtilitariosViewComponent } from './modulos/admin/utilitarios/view/utilitarios-view.component';
 import { AuthGuard } from './guards/auth.guard';
+import { HomeDefaultComponent } from './modulos/default/home-default/home-default.component';
+import { HomeClientComponent } from './modulos/client/home-client/home-client.component';
 
 const ROUTES: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
   {
-    path: 'auth', component: AuthComponent,
-    children: [
-      { path: 'login', component: LoginComponent },
-      { path: 'email-login', component: EmailComponent },
-      { path: 'signup', component: SignupComponent },
-      { path: '', redirectTo: 'login', pathMatch: 'full' },
-    ]
-  },
-  {
-    path: 'home',
+    path: 'admin',
     component: HomeComponent,
     canActivate: [AuthGuard],
     children: [
       {
         path: 'dashboard', component: DashboardComponent
       },
-
-
-
       {
         path: 'veiculos',
         component: VeiculosListComponent,
@@ -54,8 +43,6 @@ const ROUTES: Routes = [
         ]
       },
       { path: 'profile', component: ProfileComponent },
-
-
       {
         path: 'utilitarios',
         component: UtilitariosListComponent,
@@ -71,11 +58,25 @@ const ROUTES: Routes = [
         ]
       },
       { path: 'profile', component: ProfileComponent },
-
     ]
   },
-  { path: '', redirectTo: '/auth/login', pathMatch: 'full' },
-  { path: '**', redirectTo: '/auth/login' },
+  { path: 'client', component: HomeClientComponent },
+  { path: 'default', component: HomeDefaultComponent },
+  // { path: '', redirectTo: '/default', pathMatch: 'full' },
+  // { path: '**', redirectTo: '/default' },
+
+  {
+    path: 'auth', component: AuthComponent,
+    children: [
+      { path: 'login', component: LoginComponent },
+      { path: 'email-login', component: EmailComponent },
+      { path: 'signup', component: SignupComponent },
+      { path: '', redirectTo: 'login', pathMatch: 'full' },
+    ]
+  },
+
+  // { path: '', redirectTo: '/auth/login', pathMatch: 'full' },
+  // { path: '**', redirectTo: '/auth/login' },
 ];
 
 @NgModule({

@@ -30,10 +30,10 @@ export class HomeComponent implements OnInit {
 
   buildMenu(){
     this.menuList = [
-      new IMenuBuilder().build('Dashboard', '/home/dashboard', 'dashboard').get(),
-      new IMenuBuilder().build('Veiculos', '/home/veiculos', 'time_to_leave').get(),
-      new IMenuBuilder().build('Utilitários', '/home/utilitarios', 'build').get(),
-      new IMenuBuilder().build('Profile', '/home/profile', 'assignment_ind').get(),
+      new IMenuBuilder().build('Dashboard', './dashboard', 'dashboard').get(),
+      new IMenuBuilder().build('Veiculos', './veiculos', 'time_to_leave').get(),
+      new IMenuBuilder().build('Utilitários', './utilitarios', 'build').get(),
+      new IMenuBuilder().build('Profile', './profile', 'assignment_ind').get(),
       // new IMenuBuilder().build('Sair', '/login', 'login').clazz('mt-auto mb-40-p').get(),
     ]
   }
