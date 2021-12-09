@@ -2,7 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Veiculo } from 'src/app/modulos/veiculos/veiculo';
+import { Veiculo } from 'src/app/modulos/admin/veiculos/veiculo';
 import { AbstractFieldsService } from 'src/app/shared/base/abstract-fields.interface';
 import { AbstractService } from 'src/app/shared/base/abstract.service';
 import { IFieldBuilder } from 'src/app/shared/base/field-buider';

@@ -3,7 +3,7 @@ import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
-import { AuthService } from 'src/app/modulos/auth/auth.service';
+import { AuthService } from 'src/app/modulos/admin/auth/auth.service';
 import { FileUpload } from '../model/file-upload.model';
 
 @Injectable({

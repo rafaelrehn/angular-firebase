@@ -1,20 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthComponent } from './modulos/auth/auth/auth.component';
-import { EmailComponent } from './modulos/auth/email/email.component';
-import { LoginComponent } from './modulos/auth/login/login.component';
-import { SignupComponent } from './modulos/auth/signup/signup.component';
-import { DashboardComponent } from './modulos/dashboard/dashboard.component';
-import { HomeComponent } from './modulos/home/home.component';
-import { ProfileComponent } from './modulos/profile/profile.component';
-import { ImagensVeiuclosComponent } from './modulos/veiculos/children/imagens-veiuclos/imagens-veiuclos.component';
-import { VeiculosEditComponent } from './modulos/veiculos/edit/veiculos-edit.component';
-import { VeiculosListComponent } from './modulos/veiculos/list/veiculos-list.component';
-import { ViewDetailsComponent } from './modulos/veiculos/view/view-details/view-details.component';
-import { VeiculosViewComponent } from './modulos/veiculos/view/veiculos-view.component';
-import { UtilitariosListComponent } from './modulos/utilitarios/list/utilitarios-list.component';
-import { UtilitariosEditComponent } from './modulos/utilitarios/edit/utilitarios-edit.component';
-import { UtilitariosViewComponent } from './modulos/utilitarios/view/utilitarios-view.component';
+import { AuthComponent } from './modulos/admin/auth/auth/auth.component';
+import { EmailComponent } from './modulos/admin/auth/email/email.component';
+import { LoginComponent } from './modulos/admin/auth/login/login.component';
+import { SignupComponent } from './modulos/admin/auth/signup/signup.component';
+import { DashboardComponent } from './modulos/admin/dashboard/dashboard.component';
+import { HomeComponent } from './modulos/admin/home/home.component';
+import { ProfileComponent } from './modulos/admin/profile/profile.component';
+import { ImagensVeiuclosComponent } from './modulos/admin/veiculos/children/imagens-veiuclos/imagens-veiuclos.component';
+import { VeiculosEditComponent } from './modulos/admin/veiculos/edit/veiculos-edit.component';
+import { VeiculosListComponent } from './modulos/admin/veiculos/list/veiculos-list.component';
+import { ViewDetailsComponent } from './modulos/admin/veiculos/view/view-details/view-details.component';
+import { VeiculosViewComponent } from './modulos/admin/veiculos/view/veiculos-view.component';
+import { UtilitariosListComponent } from './modulos/admin/utilitarios/list/utilitarios-list.component';
+import { UtilitariosEditComponent } from './modulos/admin/utilitarios/edit/utilitarios-edit.component';
+import { UtilitariosViewComponent } from './modulos/admin/utilitarios/view/utilitarios-view.component';
 import { AuthGuard } from './guards/auth.guard';
 
 const ROUTES: Routes = [

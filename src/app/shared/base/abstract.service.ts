@@ -4,7 +4,7 @@ import { AngularFireDatabase, QueryFn, SnapshotAction } from '@angular/fire/data
 import { DatabaseQuery, DatabaseReference } from '@angular/fire/database/interfaces';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators'
-import { AuthService } from 'src/app/modulos/auth/auth.service';
+import { AuthService } from 'src/app/modulos/admin/auth/auth.service';
 
 @Injectable({
   providedIn: 'root'

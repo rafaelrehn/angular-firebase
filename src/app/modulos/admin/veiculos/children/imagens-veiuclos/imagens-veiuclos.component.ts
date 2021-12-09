@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
-import { AuthService } from 'src/app/modulos/auth/auth.service';
+import { AuthService } from 'src/app/modulos/admin/auth/auth.service';
 import { FileUpload } from 'src/app/shared/atomic-design/organisms/file-upload/model/file-upload.model';
 
 @Component({
