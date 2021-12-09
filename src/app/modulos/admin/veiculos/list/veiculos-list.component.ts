@@ -46,7 +46,7 @@ export class VeiculosListComponent extends AbstractListComponent<Veiculo> {
 
   buildBreadCrumb(){
     return [
-      new BreadCrumbBuilder().build('Home', '/home').get(),
+      new BreadCrumbBuilder().build('admin', '/home').get(),
       new BreadCrumbBuilder().build('Veiculos', '/home/veiculos').active().get(),
     ]
   }

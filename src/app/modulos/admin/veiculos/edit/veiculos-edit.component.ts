@@ -57,7 +57,7 @@ export class VeiculosEditComponent extends AbstractCrudEditComponent<Veiculo> {
   buildBreadCrumb(){
     if(this.isEdit){
       return [
-        new BreadCrumbBuilder().build('Home', '/home').get(),
+        new BreadCrumbBuilder().build('admin', '/home').get(),
         new BreadCrumbBuilder().build('Veiculos', '/home/veiculos').get(),
         new BreadCrumbBuilder().build(
           `${this.model.nome} - ${this.model.anoFabricacao} / ${this.model.anoModelo} - ${this.model.valor}`,
@@ -65,7 +65,7 @@ export class VeiculosEditComponent extends AbstractCrudEditComponent<Veiculo> {
       ]
     }else{
       return [
-        new BreadCrumbBuilder().build('Home', '/home').get(),
+        new BreadCrumbBuilder().build('admin', '/home').get(),
         new BreadCrumbBuilder().build('Veiculos', '/home/veiculos').get(),
         new BreadCrumbBuilder().build(`Novo registro`, '/home/veiculos/').active().get(),
       ]

@@ -24,8 +24,9 @@ export class AuthGuard implements CanActivate {
   isAutenthicated(){
     const ls = JSON.parse(localStorage.getItem('user') as any)
     const isUserAuthenticated = ls ? true : false
+    console.log('this.router>>>>>>>>>', this.router.url)
     if(!isUserAuthenticated){
-      alert('Você precisa estar logado para continuar')
+      // alert('Você precisa estar logado para continuar')
       this.router.navigate(['/auth'])
     }
     this.authService.user = ls

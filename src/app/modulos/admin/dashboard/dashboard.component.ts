@@ -28,7 +28,7 @@ export class DashboardComponent implements OnInit {
 
   buildBreadcrumb(){
     this.breadcrumb = [
-      new BreadCrumbBuilder().build('Home', '/home').get(),
+      new BreadCrumbBuilder().build('admin', '/home').get(),
       new BreadCrumbBuilder().build('Dashboard', '/home/dashboard').active().get(),
     ]
   }

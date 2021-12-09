@@ -60,10 +60,15 @@ const ROUTES: Routes = [
       { path: 'profile', component: ProfileComponent },
     ]
   },
-  { path: 'client', component: HomeClientComponent },
+  {
+    path: 'client/:slug',
+    component: HomeClientComponent,
+  },
   { path: 'default', component: HomeDefaultComponent },
-  // { path: '', redirectTo: '/default', pathMatch: 'full' },
-  // { path: '**', redirectTo: '/default' },
+
+  { path: '', redirectTo: 'default', pathMatch: 'full' },
+  { path: '**', redirectTo: 'default' },
+
 
   {
     path: 'auth', component: AuthComponent,
