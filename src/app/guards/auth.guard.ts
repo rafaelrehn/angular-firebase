@@ -6,6 +6,7 @@ import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, CanA
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { AuthService, AuthUser } from '../modulos/admin/auth/auth.service';
+import { NewUserService } from '../shared/base/new-user.service';
 
 interface UserRegistred{
   displayName: string
@@ -22,13 +23,14 @@ interface UserRegistred{
 })
 export class AuthGuard implements CanActivate {
 
-  dbPath = 'clients'
+
 
   constructor(
     private afAuth: AngularFireAuth,
     private router: Router,
     private authService: AuthService,
-    private db: AngularFireDatabase
+    private newUserService :NewUserService
+
   ) { }
 
   async canActivate(
@@ -47,41 +49,11 @@ export class AuthGuard implements CanActivate {
     }
     this.authService.user = ls
     if(ls){
-      this.checkIfClientIsRegistred(ls)
+      this.newUserService.checkIfClientIsRegistred(ls)
     }
     return isUserAuthenticated
   }
 
-  private checkIfClientIsRegistred(userRegistred: AuthUser){
-    console.log({userRegistred})
 
-    const query = (ref: DatabaseReference)=> ref.orderByChild('uid').equalTo(userRegistred.uid)
-    this.db.list(this.dbPath, query)
-    .snapshotChanges()
-    .pipe(
-      map(changes => {
-        return changes.map( (c: any)=> {
-          let res = c.payload.val() as any
-          res.key = c.payload.key as string;
-          return res as any
-        });
-      })
-    ).subscribe((res: any[])=>{
-      if(res.length == 0){
-        this.insertNewClient(userRegistred)
-      }
-    })
-  }
-
-  private insertNewClient(userRegistred: AuthUser){
-    const newClient = Object.assign(userRegistred, {slug: this.convertToSlug(userRegistred.displayName as string)})
-    this.db.list(this.dbPath).push(newClient)
-  }
-
-  convertToSlug(text: string): string {
-    return text.toLowerCase()
-               .replace(/[^\w ]+/g, '')
-               .replace(/ +/g, '-');
-  }
 
 }

@@ -5,5 +5,5 @@
       <input type="password" placeholder="Password" (ngModel)="password" name="password" class="input-txt" required>
       <button type="submit" [disabled]="!formData.valid" class="auth-btn">Log in</button>
     </form>
-    <a routerLink="/signup" routerLinkActive="active" class="create-account-txt">No account? <strong>Create one here</strong></a>
+    <a routerLink="/auth/signup" routerLinkActive="active" class="create-account-txt">No account? <strong>Create one here</strong></a>
   </div>

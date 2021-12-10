@@ -70,10 +70,10 @@ const ROUTES: Routes = [
   {
     path: 'auth', component: AuthComponent,
     children: [
-      { path: 'login', component: LoginComponent },
+      // { path: 'login', component: LoginComponent },
       { path: 'email-login', component: EmailComponent },
       { path: 'signup', component: SignupComponent },
-      { path: '', redirectTo: 'login', pathMatch: 'full' },
+      { path: '', redirectTo: 'email-login', pathMatch: 'full' },
     ]
   },
 
