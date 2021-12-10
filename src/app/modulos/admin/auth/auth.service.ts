@@ -14,6 +14,7 @@ export interface AuthUser{
    * The user's unique ID.
    */
   uid: string;
+  slug?: string;
 }
 
 @Injectable({

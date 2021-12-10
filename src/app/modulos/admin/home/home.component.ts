@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { LoadingService } from 'src/app/shared/base/loading.service';
 import { IMenuBuilder, IMenuInterface } from 'src/app/shared/base/menu-builder';
 import { AuthService } from '../auth/auth.service';
@@ -16,7 +17,8 @@ export class HomeComponent implements OnInit {
 
   constructor(
     public loadingService: LoadingService,
-    public authService: AuthService
+    public authService: AuthService,
+    public router: Router
   ) {
 
    }
@@ -46,6 +48,10 @@ export class HomeComponent implements OnInit {
 
   logout(){
     this.authService.logout()
+  }
+
+  acessarWebsite(){
+    this.router.navigate(['/client/' + this.authService.user.slug])
   }
 
 }

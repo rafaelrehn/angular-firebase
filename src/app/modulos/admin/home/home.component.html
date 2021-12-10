@@ -28,6 +28,7 @@
     </div>
     <div class="content flex-3 flex flex-column">
       <div class="content-header">
+        <div (click)="acessarWebsite()">Acessar website</div>
         <div class="ml-24" style="font-size: 9px;"></div>
         <div class="user-info" *ngIf="authService?.user">
           <div class="user-name">{{authService?.user?.displayName}}</div>
