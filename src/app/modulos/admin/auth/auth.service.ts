@@ -70,17 +70,18 @@ export class AuthService {
     this.afAuth.signOut().then(() => {
       console.log('removing key')
       localStorage.removeItem('user')
-      this.router.navigate(['/']);
+      this.router.navigate(['/auth']);
     }).catch(err=>{
       console.log('singout err', err)
     });
   }
 
   getUid(){
-    console.log('this.user', this.user)
-    console.log('encondeURI', )
-    const basicId = this.user.uid + '-' + encodeURI(this.user.displayName as string)
-    return basicId.replace(/(\.)|(\#)|(\[)|(\])/g, '%')
+    // console.log('this.user', this.user)
+    // console.log('encondeURI', )
+    // const basicId = this.user.uid + '-' + encodeURI(this.user.displayName as string)
+    // return basicId.replace(/(\.)|(\#)|(\[)|(\])/g, '%')
+    return this.user.uid
   }
 
   private setUserInfo(value: AuthUser){
@@ -96,6 +97,6 @@ export class AuthService {
   }
 
   private goHome(){
-    this.router.navigateByUrl('/home');
+    this.router.navigateByUrl('/admin');
   }
 }

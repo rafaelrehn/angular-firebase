@@ -31,8 +31,8 @@ export class ProfileComponent implements OnInit {
 
   buildBreadcrumb(){
     this.breadcrumb = [
-      new BreadCrumbBuilder().build('admin', '/home').get(),
-      new BreadCrumbBuilder().build('Profile', '/home/profile').active().get(),
+      new BreadCrumbBuilder().build('admin', '/admin').get(),
+      new BreadCrumbBuilder().build('Profile', '/admin/profile').active().get(),
     ]
   }
 

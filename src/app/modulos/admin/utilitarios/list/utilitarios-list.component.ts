@@ -46,8 +46,8 @@ export class UtilitariosListComponent extends AbstractListComponent<Utilitario> 
 
   buildBreadCrumb(){
     return [
-      new BreadCrumbBuilder().build('admin', '/home').get(),
-      new BreadCrumbBuilder().build('Utilitarios', '/home/utilitarios').active().get(),
+      new BreadCrumbBuilder().build('admin', '/admin').get(),
+      new BreadCrumbBuilder().build('Utilitarios', '/admin/utilitarios').active().get(),
     ]
   }
 

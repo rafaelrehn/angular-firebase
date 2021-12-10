@@ -1,4 +1,9 @@
 <div class="p-16">
   <h4>Vocês está acessando a pagina de vendas de</h4>
   <h1>{{clientSlug}}</h1>
+  <pre>{{clientInfo|json}}</pre>
 </div>
+
+<br>
+<h4>Lista de veiculos deste cliente</h4>
+<div *ngFor="let veiculo of veiculos">{{veiculo.nome}} -- {{veiculo.valor}}</div>

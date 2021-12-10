@@ -5,7 +5,6 @@ import { EmailComponent } from './modulos/admin/auth/email/email.component';
 import { LoginComponent } from './modulos/admin/auth/login/login.component';
 import { SignupComponent } from './modulos/admin/auth/signup/signup.component';
 import { DashboardComponent } from './modulos/admin/dashboard/dashboard.component';
-import { HomeComponent } from './modulos/admin/home/home.component';
 import { ProfileComponent } from './modulos/admin/profile/profile.component';
 import { ImagensVeiuclosComponent } from './modulos/admin/veiculos/children/imagens-veiuclos/imagens-veiuclos.component';
 import { VeiculosEditComponent } from './modulos/admin/veiculos/edit/veiculos-edit.component';
@@ -18,6 +17,7 @@ import { UtilitariosViewComponent } from './modulos/admin/utilitarios/view/utili
 import { AuthGuard } from './guards/auth.guard';
 import { HomeDefaultComponent } from './modulos/default/home-default/home-default.component';
 import { HomeClientComponent } from './modulos/client/home-client/home-client.component';
+import { HomeComponent } from './modulos/admin/home/home.component';
 
 const ROUTES: Routes = [
   {
@@ -64,12 +64,9 @@ const ROUTES: Routes = [
     path: 'client/:slug',
     component: HomeClientComponent,
   },
-  { path: 'default', component: HomeDefaultComponent },
-
-  { path: '', redirectTo: 'default', pathMatch: 'full' },
-  { path: '**', redirectTo: 'default' },
-
-
+  { path: 'default',
+    component: HomeDefaultComponent
+  },
   {
     path: 'auth', component: AuthComponent,
     children: [

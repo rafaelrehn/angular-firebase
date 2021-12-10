@@ -9,12 +9,13 @@ import { AngularFireAuthModule } from "@angular/fire/auth";
 import { AngularFireModule } from '@angular/fire';
 import { VeiculosModule } from './modulos/admin/veiculos/veiculos.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HomeModule } from './modulos/admin/home/home.module';
 import { AuthModule } from './modulos/admin/auth/auth.module';
 import { ProfileModule } from './modulos/admin/profile/profile.module';
 import { UtilitariosModule } from './modulos/admin/utilitarios/utilitarios.module';
 import { ImagensVeiuclosModule } from './modulos/admin/veiculos/children/imagens-veiuclos/imagens-veiuclos.module';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { HomeClientModule } from './modulos/client/home-client/home-client.module';
+import { HomeModule } from './modulos/admin/home/home.module';
 
 const FirebaseConfig = [
   AngularFireAuthModule,
@@ -40,6 +41,7 @@ const Modulos = [
     AuthModule,
     ProfileModule,
     MatSnackBarModule,
+    HomeClientModule,
     ...Modulos,
   ],
   providers: [],

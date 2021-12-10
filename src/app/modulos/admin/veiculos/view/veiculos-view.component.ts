@@ -54,11 +54,11 @@ export class VeiculosViewComponent extends AbstractViewClass<Veiculo> implements
 
   buildBreadCrumb(){
     return [
-      new BreadCrumbBuilder().build('admin', '/home').get(),
-      new BreadCrumbBuilder().build('Veiculos', '/home/veiculos').get(),
+      new BreadCrumbBuilder().build('admin', '/admin').get(),
+      new BreadCrumbBuilder().build('Veiculos', '/admin/veiculos').get(),
       new BreadCrumbBuilder().build(
         `${this.model.nome} - ${this.model.anoFabricacao} / ${this.model.anoModelo} - ${this.model.valor}`,
-         '/home/veiculos/').active().get(),
+         '/admin/veiculos/').active().get(),
     ]
   }
 

@@ -17,7 +17,7 @@ export class AuthComponent implements OnInit {
 
   ngOnInit(): void {
     if(this.authGuard.isAutenthicated()){
-      this.router.navigate(['/home'])
+      this.router.navigate(['/admin'])
     }
   }
 
