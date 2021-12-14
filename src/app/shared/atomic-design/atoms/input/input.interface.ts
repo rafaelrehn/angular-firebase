@@ -37,4 +37,5 @@ export interface IInputInterface{
   columnShow?: boolean;
   context?: IInputContext;
   required?: boolean;
+  disabled?: boolean;
 }

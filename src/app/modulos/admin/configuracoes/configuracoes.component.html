@@ -1,2 +1,6 @@
 <app-header-actions [headerInfo]="headerInfo" [breadcrumb]="breadcrumb"></app-header-actions>
-<!-- <pre>{{authService.user | json}}</pre> -->
+<form [formGroup]="form" autocomplete="off">
+  <app-form [form]="form" [inputs]="inputs"></app-form>
+  <app-btn-bar [isEdit]="this.isEdit" (actionEvent)="actionEvent($event)"></app-btn-bar>
+</form>
+<pre>{{model | json}}</pre>

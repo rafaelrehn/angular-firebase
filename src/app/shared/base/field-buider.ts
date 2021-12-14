@@ -15,7 +15,8 @@ export class IFieldBuilder{
       type: 'text',
       inputType: inputType || IInputType.INPUT,
       class: '',
-      required: false
+      required: false,
+      disabled: false
     }
     return this
   }
@@ -55,6 +56,11 @@ export class IFieldBuilder{
 
   required(){
     this.input.required = true
+    return this
+  }
+
+  disabled(){
+    this.input.disabled = true
     return this
   }
 

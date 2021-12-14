@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { LoadingService } from 'src/app/shared/base/loading.service';
 import { IMenuBuilder, IMenuInterface } from 'src/app/shared/base/menu-builder';
 import { AuthService } from '../auth/auth.service';
+import { ConfiguracoesService } from '../configuracoes/services/configuracoes.service';
 
 @Component({
   selector: 'app-home',
@@ -18,7 +19,8 @@ export class HomeComponent implements OnInit {
   constructor(
     public loadingService: LoadingService,
     public authService: AuthService,
-    public router: Router
+    public router: Router,
+    private configuracoesService: ConfiguracoesService
   ) {
 
    }
@@ -51,8 +53,9 @@ export class HomeComponent implements OnInit {
     this.authService.logout()
   }
 
-  acessarWebsite(){
-    this.router.navigate(['/client/' + this.authService.user.uid])
+  async acessarWebsite(){
+    const currentClient = await this.configuracoesService.getOne(this.authService.user.uid)
+    this.router.navigate(['/client/' + currentClient.slug])
   }
 
 }
