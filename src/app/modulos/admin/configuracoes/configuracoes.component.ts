@@ -104,6 +104,7 @@ export class ConfiguracoesComponent implements OnInit {
 
   async submit(){
     let formValue: any = this.form.getRawValue()
+    formValue.slug = this.convertToSlug(formValue.slug)
     this.model = Object.assign(this.model, formValue)
     // formValue = {...this.model}
     await this.service.update(this.model, this.model.key)
@@ -113,6 +114,12 @@ export class ConfiguracoesComponent implements OnInit {
       duration: 2500,
     })
     await this.findCurrentClient()
+  }
+
+  convertToSlug(text: string) {
+    return text.toLowerCase()
+               .replace(/ /g, '-')
+               .replace(/[^\w-]+/g, '');
   }
 
 
