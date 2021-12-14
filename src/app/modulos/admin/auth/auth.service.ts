@@ -115,10 +115,6 @@ export class AuthService {
           this.user.displayName = displayName
           resolve(res)
         })
-        // const user = Object.assign(_user, { displayName: displayName })
-        // this.afAuth.updateCurrentUser(user).then(res=>{
-        //   resolve(res)
-        // })
       })
     })
 

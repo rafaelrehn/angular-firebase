@@ -34,6 +34,11 @@ export class ProfileComponent implements OnInit {
     this.buildBreadcrumb()
     this.buildInputs()
     this.buildForm()
+    this.findCurrentProfile()
+  }
+
+  findCurrentProfile(){
+    this.setValuesForm(this.authService.user)
   }
 
   buildInfo(){
@@ -41,6 +46,12 @@ export class ProfileComponent implements OnInit {
       t1: 'Profile',
       t2: 'Informações gerais do usuário',
     }
+  }
+
+  setValuesForm(model: any) {
+    Object.keys(model).forEach(key => {
+      this.form.get(key)?.setValue(model[key])
+    })
   }
 
   buildBreadcrumb(){
