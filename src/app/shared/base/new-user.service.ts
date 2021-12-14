@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { DatabaseReference } from '@angular/fire/database/interfaces';
+import { Observable, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { AuthUser } from 'src/app/modulos/admin/auth/auth.service';
 
@@ -11,6 +12,8 @@ export class NewUserService {
 
   dbPath = 'clients'
 
+  subscriber$: Subscription
+
   constructor(
     private db: AngularFireDatabase
   ) { }
@@ -19,7 +22,7 @@ export class NewUserService {
     console.log("checkIfClientIsRegistred", {userRegistred})
 
     const query = (ref: DatabaseReference)=> ref.orderByChild('uid').equalTo(userRegistred.uid)
-    this.db.list(this.dbPath, query)
+    this.subscriber$ = this.db.list(this.dbPath, query)
     .snapshotChanges()
     .pipe(
       map(changes => {
@@ -37,13 +40,14 @@ export class NewUserService {
   }
 
   private insertNewClient(userRegistred: AuthUser){
-    const newClient = Object.assign(userRegistred, {slug: this.convertToSlug(userRegistred)})
+    const newClient = Object.assign(userRegistred, {slug: userRegistred.uid})
     this.db.list(this.dbPath).push(newClient)
+    this.subscriber$.unsubscribe()
   }
 
-  private convertToSlug(user: AuthUser): string {
-      return user.uid.toLowerCase()
-      .replace(/[^\w ]+/g, '')
-      .replace(/ +/g, '-');
-  }
+  // private convertToSlug(user: AuthUser): string {
+  //     return user.uid.toLowerCase()
+  //     .replace(/[^\w ]+/g, '')
+  //     .replace(/ +/g, '-');
+  // }
 }

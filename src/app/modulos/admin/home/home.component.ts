@@ -51,7 +51,7 @@ export class HomeComponent implements OnInit {
   }
 
   acessarWebsite(){
-    this.router.navigate(['/client/' + this.authService.user.slug])
+    this.router.navigate(['/client/' + this.authService.user.uid])
   }
 
 }
