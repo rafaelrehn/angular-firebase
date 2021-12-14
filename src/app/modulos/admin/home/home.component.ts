@@ -36,6 +36,7 @@ export class HomeComponent implements OnInit {
       new IMenuBuilder().build('Veiculos', './veiculos', 'time_to_leave').get(),
       new IMenuBuilder().build('Utilitários', './utilitarios', 'build').get(),
       new IMenuBuilder().build('Profile', './profile', 'assignment_ind').get(),
+      new IMenuBuilder().build('Configurações', './configuracoes', 'extension').get(),
       // new IMenuBuilder().build('Sair', '/login', 'login').clazz('mt-auto mb-40-p').get(),
     ]
   }

@@ -18,6 +18,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { HomeDefaultComponent } from './modulos/default/home-default/home-default.component';
 import { HomeClientComponent } from './modulos/client/home-client/home-client.component';
 import { HomeComponent } from './modulos/admin/home/home.component';
+import { ConfiguracoesComponent } from './modulos/admin/configuracoes/configuracoes.component';
 
 const ROUTES: Routes = [
   {
@@ -43,6 +44,7 @@ const ROUTES: Routes = [
         ]
       },
       { path: 'profile', component: ProfileComponent },
+      { path: 'configuracoes', component: ConfiguracoesComponent },
       {
         path: 'utilitarios',
         component: UtilitariosListComponent,
