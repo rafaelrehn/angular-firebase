@@ -48,9 +48,6 @@ export class AuthGuard implements CanActivate {
       this.router.navigate(['/auth'])
     }
     this.authService.user = ls
-    if(ls){
-      this.newUserService.checkIfClientIsRegistred(ls)
-    }
     return isUserAuthenticated
   }
 

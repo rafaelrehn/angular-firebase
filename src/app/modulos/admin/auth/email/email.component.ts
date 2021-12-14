@@ -16,13 +16,14 @@ export class EmailComponent implements OnInit {
 
   ngOnInit() {}
 
-  onSubmit(formData: any) {
+  async onSubmit(formData: any) {
     if (formData.valid) {
       console.log(formData.value);
-      this.authService.login(
+      await this.authService.login(
         formData.value.email,
         formData.value.password
       );
+      this.authService.goHome()
     }
   }
 

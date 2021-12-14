@@ -54,7 +54,7 @@ export class UtilitariosViewComponent extends AbstractViewClass<Utilitario> impl
 
   buildBreadCrumb(){
     return [
-      new BreadCrumbBuilder().build('admin', '/admin').get(),
+      new BreadCrumbBuilder().build('Admin', '/admin').get(),
       new BreadCrumbBuilder().build('Utilitarios', '/admin/utilitarios').get(),
       new BreadCrumbBuilder().build(
         `${this.model.nome}`,

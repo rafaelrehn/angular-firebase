@@ -25,7 +25,7 @@ export class ConfiguracoesComponent implements OnInit {
 
   inputs: IInputInterface[]
   form: FormGroup
-  isEdit: true
+  isEdit = true
 
   model: ClientInterface
 
@@ -44,6 +44,7 @@ export class ConfiguracoesComponent implements OnInit {
     this.buildInputs()
     this.buildForm()
     this.buildInfo()
+    this.buildBreadcrumb()
     this.findCurrentClient()
   }
 
@@ -79,13 +80,13 @@ export class ConfiguracoesComponent implements OnInit {
   buildInfo(){
     this.headerInfo = {
       t1: 'Configurações',
-      t2: 'Configurações do client',
+      t2: 'Configurações do cliente',
     }
   }
 
   buildBreadcrumb(){
     this.breadcrumb = [
-      new BreadCrumbBuilder().build('admin', '/admin').get(),
+      new BreadCrumbBuilder().build('Admin', '/admin').get(),
       new BreadCrumbBuilder().build('Configurações', '/admin/configuracoes').active().get(),
     ]
   }

@@ -2,10 +2,9 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import * as firebase from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { AngularFireDatabase } from '@angular/fire/database';
 import { NewUserService } from 'src/app/shared/base/new-user.service';
 
-export interface AuthUser{
+export interface AuthUser {
   expiredDate?: Date
   displayName: string | null;
   email: string | null;
@@ -32,49 +31,48 @@ export class AuthService {
     private afAuth: AngularFireAuth,
     private router: Router,
     private newUserService: NewUserService
-    ) {}
+  ) { }
 
-  login(email: string, password: string) {
-    // this.db
-    this.afAuth.signInWithEmailAndPassword(email, password)
-    .then(value => {
-      console.log('Nice, it worked!');
-      const { displayName, email, phoneNumber, photoURL, providerId, uid } = value.user?.providerData[0] as firebase.UserInfo
-      this.setUserInfo({ displayName, email, phoneNumber, photoURL, providerId, uid: value.user?.uid as string })
-
-
-      this.goHome()
+  login(email: string, password: string): Promise<void> {
+    return new Promise(resolve => {
+      this.afAuth.signInWithEmailAndPassword(email, password)
+        .then(value => {
+          console.log('Nice, it worked!');
+          const { displayName, email, phoneNumber, photoURL, providerId, uid } = value.user?.providerData[0] as firebase.UserInfo
+          this.setUserInfo({ displayName, email, phoneNumber, photoURL, providerId, uid: value.user?.uid as string })
+          resolve()
+        })
+        .catch(err => {
+          console.log('Something went wrong: ', err.message);
+        });
     })
-    .catch(err => {
-      console.log('Something went wrong: ', err.message);
-    });
   }
 
   emailSignup(email: string, password: string) {
     this.afAuth.createUserWithEmailAndPassword(email, password)
-    .then(value => {
-     console.log('Sucess', value);
-     const { displayName, email, phoneNumber, photoURL, providerId, uid } = value.user?.providerData[0] as firebase.UserInfo
-     this.setUserInfo({ displayName, email, phoneNumber, photoURL, providerId, uid: value.user?.uid as string })
-     this.goHome()
-    })
-    .catch(error => {
-      console.log('Something went wrong: ', error);
-    });
+      .then(value => {
+        console.log('Sucess', value);
+        const { displayName, email, phoneNumber, photoURL, providerId, uid } = value.user?.providerData[0] as firebase.UserInfo
+        this.setUserInfo({ displayName, email, phoneNumber, photoURL, providerId, uid: value.user?.uid as string })
+        this.goHome()
+      })
+      .catch(error => {
+        console.log('Something went wrong: ', error);
+      });
   }
 
   googleLogin() {
-  //   const provider = new firebase.auth.GoogleAuthProvider();
-  //   return this.oAuthLogin(provider)
-  //     .then(value => {
-  //       console.log('gogle login, ', value)
-  //       const { displayName, email, phoneNumber, photoURL, providerId, uid } = value.user?.providerData[0] as firebase.UserInfo
-  //       this.setUserInfo({ displayName, email, phoneNumber, photoURL, providerId, uid })
-  //       this.goHome()
-  //  })
-  //   .catch(error => {
-  //     console.log('Something went wrong: ', error);
-  //   });
+    //   const provider = new firebase.auth.GoogleAuthProvider();
+    //   return this.oAuthLogin(provider)
+    //     .then(value => {
+    //       console.log('gogle login, ', value)
+    //       const { displayName, email, phoneNumber, photoURL, providerId, uid } = value.user?.providerData[0] as firebase.UserInfo
+    //       this.setUserInfo({ displayName, email, phoneNumber, photoURL, providerId, uid })
+    //       this.goHome()
+    //  })
+    //   .catch(error => {
+    //     console.log('Something went wrong: ', error);
+    //   });
   }
 
   logout() {
@@ -82,12 +80,12 @@ export class AuthService {
       console.log('removing key')
       localStorage.removeItem('user')
       this.router.navigate(['/auth']);
-    }).catch(err=>{
+    }).catch(err => {
       console.log('singout err', err)
     });
   }
 
-  getUid(){
+  getUid() {
     // console.log('this.user', this.user)
     // console.log('encondeURI', )
     // const basicId = this.user.uid + '-' + encodeURI(this.user.displayName as string)
@@ -95,10 +93,10 @@ export class AuthService {
     return this.user.uid
   }
 
-  private setUserInfo(value: AuthUser){
+  private setUserInfo(value: AuthUser) {
     this.user = value
     const date = new Date();
-    date.setDate(date.getDate()+1)
+    date.setDate(date.getDate() + 1)
     this.user.expiredDate = date
     localStorage.setItem('user', JSON.stringify(this.user))
     this.newUserService.checkIfClientIsRegistred(this.user)
@@ -108,7 +106,25 @@ export class AuthService {
     return this.afAuth.signInWithPopup(provider);
   }
 
-  private goHome(){
+  updateUserInfo(displayName: string): Promise<any> {
+    return new Promise(resolve => {
+      this.afAuth.currentUser.then(_user => {
+        _user?.updateProfile({
+          displayName: displayName
+        }).then(res=>{
+          this.user.displayName = displayName
+          resolve(res)
+        })
+        // const user = Object.assign(_user, { displayName: displayName })
+        // this.afAuth.updateCurrentUser(user).then(res=>{
+        //   resolve(res)
+        // })
+      })
+    })
+
+  }
+
+  goHome() {
     this.router.navigateByUrl('/admin');
   }
 }
