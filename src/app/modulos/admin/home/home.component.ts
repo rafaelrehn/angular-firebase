@@ -27,9 +27,6 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.buildMenu()
-    // this.authService.checkUserIsAuthenticated().then(res=>{
-    //   this.authChecked = res
-    // })
   }
 
   buildMenu(){
@@ -39,13 +36,11 @@ export class HomeComponent implements OnInit {
       new IMenuBuilder().build('Utilitários', './utilitarios', 'build').get(),
       new IMenuBuilder().build('Profile', './profile', 'assignment_ind').get(),
       new IMenuBuilder().build('Configurações', './configuracoes', 'extension').get(),
-      // new IMenuBuilder().build('Sair', '/login', 'login').clazz('mt-auto mb-40-p').get(),
     ]
   }
 
   getProfileImage(){
     let x = 'url(' + this.authService?.user?.photoURL + ')'
-    // console.log('profile image', x)s
     return x
   }
 
