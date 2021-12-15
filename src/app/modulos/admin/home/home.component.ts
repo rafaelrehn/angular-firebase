@@ -40,7 +40,12 @@ export class HomeComponent implements OnInit {
   }
 
   getProfileImage(){
-    let x = 'url(' + this.authService?.user?.photoURL + ')'
+    let x
+    if(this.authService?.user?.photoURL){
+      x = 'url(' + this.authService?.user?.photoURL + ')'
+    }else{
+      x = `url('/assets/img/profile.png')`
+    }
     return x
   }
 

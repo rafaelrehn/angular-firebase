@@ -27,12 +27,13 @@
         </div>
     </div>
     <div class="content flex-3 flex flex-column">
+      <div (click)="acessarWebsite()" class="visitar-loja mr-80">Visitar minha loja virtual</div>
       <div class="content-header">
-        <div (click)="acessarWebsite()">Visitar loja</div>
         <div class="ml-24" style="font-size: 9px;"></div>
         <div class="user-info" *ngIf="authService?.user">
           <div class="user-name">{{authService?.user?.displayName}}</div>
           <div class="user-photo"  [style.background-image]="getProfileImage()" routerLink="/home/profile"></div>
+          <!-- <div class="user-photo" routerLink="/home/profile"></div> -->
         </div>
       </div>
       <div class="content-router">

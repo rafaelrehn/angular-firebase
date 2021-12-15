@@ -85,6 +85,17 @@ $header: 84px;
   background-color: var(--white);
   overflow: hidden;
   position: relative;
+
+  .visitar-loja{
+    cursor: pointer;
+    position: fixed;
+    top: 24px;
+    left: 50%;
+    &:hover{
+      text-decoration: underline;
+      text-decoration-color: var(--accent);
+    }
+  }
   .content-header{
     top: 0px;
     right: 0px;
@@ -93,6 +104,8 @@ $header: 84px;
     align-items: center;
     height: $header;
     // border-bottom: 1px solid var(--accent);
+
+
     .user-info{
       margin-right: 24px;
       margin-left: auto;

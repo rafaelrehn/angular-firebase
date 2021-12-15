@@ -38,20 +38,14 @@ export class ConfiguracoesService {
   }
 
   update(entity: ClientInterface, key: string) {
-    // if(this.authService.user && this.authService.user.uid){
-      // const _entity = Object.assign(entity, {uid: this.authService.user.uid})
-      return new Promise(resolve=>{
-        this.db.list(`${this.privateUrl}`).update(key, entity)
-        .catch(err => {
-          console.error(err)
-        }).then(res=>{
-          resolve(res)
-        })
+    return new Promise(resolve=>{
+      this.db.list(`${this.privateUrl}`).update(key, entity)
+      .catch(err => {
+        console.error(err)
+      }).then(res=>{
+        resolve(res)
       })
-
-    // }else{
-    //   throw new Error("Usuario nao autenticado");
-    // }
+    })
   }
 
   getOne(userUid: string): Promise<ClientInterface>{

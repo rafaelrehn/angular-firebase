@@ -17,6 +17,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.buildInfo()
+    this.buildBreadcrumb()
   }
 
   buildInfo(){

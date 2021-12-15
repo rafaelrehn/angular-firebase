@@ -17,6 +17,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { HomeClientModule } from './modulos/client/home-client/home-client.module';
 import { HomeModule } from './modulos/admin/home/home.module';
 import { ConfiguracoesModule } from './modulos/admin/configuracoes/configuracoes.module';
+import { HomeDefaultModule } from './modulos/default/home-default/home-default.module';
 
 const FirebaseConfig = [
   AngularFireAuthModule,
@@ -27,7 +28,8 @@ const Modulos = [
   VeiculosModule,
   UtilitariosModule,
   ImagensVeiuclosModule,
-  ConfiguracoesModule
+  ConfiguracoesModule,
+  HomeDefaultModule
 ]
 
 @NgModule({
