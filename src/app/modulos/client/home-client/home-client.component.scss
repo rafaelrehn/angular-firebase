@@ -1,0 +1,63 @@
+.client-container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+@media (min-width: 768px) {
+  .client-container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .client-container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .client-container {
+    width: 1170px;
+  }
+}
+
+.client-header{
+  // background: rgb(176, 247, 220);
+}
+
+.client-content{
+  // background: rgb(182, 252, 150);
+}
+
+.client-footer{
+  // background: rgb(182, 253, 250);
+}
+
+.car-list{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  .car-item{
+    min-width: 240px;
+    width: 360px;
+    max-width: 480px;
+    // border: 1px solid var(--accent);
+    box-shadow: var(--hard-shadow);
+    border-radius: 8px;
+    padding: 8px;
+    overflow: hidden;
+    .car-img{
+      background-size: cover;
+      height: 240px;
+      width: 100%;
+      background-position: center;
+    }
+    .car-content{
+      height: 70px;
+      width: 100%;
+      background-color: yellow;
+    }
+
+    // background-color: yellow;
+  }
+
+}

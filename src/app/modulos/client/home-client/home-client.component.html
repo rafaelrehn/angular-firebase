@@ -1,9 +1,22 @@
-<div class="p-16">
-  <h4>Vocês está acessando a pagina de vendas de</h4>
-  <h1>{{clientSlug}}</h1>
-  <pre>{{clientInfo|json}}</pre>
-</div>
+<div class="client-container">
+  <div class="client-header">
+    <div class="p-16">
+      <h4>Vocês está acessando a pagina de vendas de</h4>
+      <h1>{{clientSlug}}</h1>
+      <pre>{{clientInfo|json}}</pre>
+    </div>
 
-<br>
-<h4>Lista de veiculos deste cliente</h4>
-<div *ngFor="let veiculo of veiculos">{{veiculo.nome}} -- {{veiculo.valor}}</div>
+  </div>
+  <div class="client-content">
+    <div class="car-box">
+      <h4>Lista de veiculos deste cliente</h4>
+      <div class="car-list">
+        <div class="car-item" *ngFor="let veiculo of veiculos">
+          <div class="car-img" [style.background-image]="'url(' + veiculo.imagemPrincipal?.url + ')'"></div>
+          <div class="car-content">{{veiculo.nome}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="client-footer">fooooter pai</div>
+</div>
