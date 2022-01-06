@@ -1,0 +1,4 @@
+<div *ngIf="form" appearance="fill" [formGroup]="form" class="mb-8">
+  <mat-slide-toggle id="{{input?.id}}" name="{{input?.name}}" [formControlName]="input.name">{{input?.label}}</mat-slide-toggle>
+  <app-input-error-container [input]="input" [form]="form"></app-input-error-container>
+</div>

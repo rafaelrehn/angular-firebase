@@ -9,6 +9,7 @@ import { InputModule } from '../input/input.module';
 import { InputSelectModule } from '../input-select/input-select.module';
 import { MatInputModule } from '@angular/material/input';
 import { InputTextareaModule } from '../input-textarea/input-textarea.module';
+import { InputToggleModule } from '../input-toggle/input-toggle.module';
 
 
 
@@ -24,7 +25,8 @@ import { InputTextareaModule } from '../input-textarea/input-textarea.module';
     InputModule,
     InputSelectModule,
     MatInputModule,
-    InputTextareaModule
+    InputTextareaModule,
+    InputToggleModule
   ],
   exports:[
     InputContainerComponent

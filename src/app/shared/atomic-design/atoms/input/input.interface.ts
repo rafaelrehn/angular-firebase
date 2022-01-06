@@ -7,7 +7,8 @@ export enum IInputType{
   CURRENCY = 'currency',
   INTEGER = 'integer',
   MASTER = 'master',
-  TEXTAREA = 'textarea'
+  TEXTAREA = 'textarea',
+  TOGGLE = 'toggle'
 }
 
 export interface ISelectOptions{
