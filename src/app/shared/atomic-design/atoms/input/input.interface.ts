@@ -6,7 +6,8 @@ export enum IInputType{
   RADIO = 'radio',
   CURRENCY = 'currency',
   INTEGER = 'integer',
-  MASTER = 'master'
+  MASTER = 'master',
+  TEXTAREA = 'textarea'
 }
 
 export interface ISelectOptions{

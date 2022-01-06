@@ -8,6 +8,7 @@ import { InputMasterModule } from '../input-master/input-master.module';
 import { InputModule } from '../input/input.module';
 import { InputSelectModule } from '../input-select/input-select.module';
 import { MatInputModule } from '@angular/material/input';
+import { InputTextareaModule } from '../input-textarea/input-textarea.module';
 
 
 
@@ -22,7 +23,8 @@ import { MatInputModule } from '@angular/material/input';
     InputMasterModule,
     InputModule,
     InputSelectModule,
-    MatInputModule
+    MatInputModule,
+    InputTextareaModule
   ],
   exports:[
     InputContainerComponent
