@@ -4,13 +4,23 @@
     app-veiculos-view,
     app-file-upload,
     app-veiculos-list,
+    app-veiculos-edit,
     app-table,
     app-utilitarios-list,
-    app-imagens-veiuclos{
+    app-imagens-veiuclos,
+    form{
       display: flex;
       flex-direction: column;
       height: 100%;
       overflow: hidden;
+    }
+  }
+  ::ng-deep{
+    app-form{
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      overflow: auto;
     }
   }
 }

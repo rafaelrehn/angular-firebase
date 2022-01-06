@@ -17,6 +17,11 @@ export class VeiculosFieldServiceService implements AbstractFieldsService {
   buildFields(): IInputInterface[]{
     return [
       new IFieldBuilder().build('nome').label('Nome').columnShow().required().get(),
+      new IFieldBuilder().build('nome').label('Nome').columnShow().required().get(),
+      new IFieldBuilder().build('nome').label('Nome').columnShow().required().get(),
+      new IFieldBuilder().build('nome').label('Nome').columnShow().required().get(),
+      new IFieldBuilder().build('nome').label('Nome').columnShow().required().get(),
+      new IFieldBuilder().build('nome').label('Nome').columnShow().required().get(),
       new IFieldBuilder().build('marca').label('Marca').columnShow().required().get(),
       new IFieldBuilder().build('anoFabricacao').label('Ano de fabricação').required().setClass('w-140').get(),
       new IFieldBuilder().build('anoModelo').label('Ano Modelo').setClass('w-140').required().get(),
