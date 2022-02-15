@@ -1,22 +1,48 @@
 <div class="client-container">
   <div class="client-header">
-    <div class="p-16">
-      <h4>Vocês está acessando a pagina de vendas de</h4>
-      <h1>{{clientSlug}}</h1>
-      <pre>{{clientInfo|json}}</pre>
+    <div class="container">
+      <div class="jumbo-header">
+        <div class="jumbo-text">
+          <h1>LOGO</h1>
+          <h2>Compra e venda de veiculos!</h2>
+          <button>
+            My Action Button
+            <span>
+              <i class="fa-solid fa-right-long"></i>
+            </span>
+          </button>
+        </div>
+        <div class="jumbo-img"></div>
+      </div>
+      <!-- <div class="p-16">
+        <h4>Vocês está acessando a pagina de vendas de</h4>
+        <h1>{{clientSlug}}</h1>
+        <pre>{{clientInfo|json}}</pre>
+      </div> -->
     </div>
-
   </div>
   <div class="client-content">
-    <div class="car-box">
-      <h4>Lista de veiculos deste cliente</h4>
-      <div class="car-list">
-        <div class="car-item" *ngFor="let veiculo of veiculos">
-          <div class="car-img" [style.background-image]="'url(' + veiculo.imagemPrincipal?.url + ')'"></div>
-          <div class="car-content">{{veiculo.nome}}</div>
+    <div class="container">
+      <div class="car-box">
+        <h4>Lista de veiculos deste cliente</h4>
+        <div class="car-list">
+          <div class="car-item" *ngFor="let veiculo of veiculos">
+            <div class="car-img" [style.background-image]="'url(' + veiculo.imagemPrincipal?.url + ')'"></div>
+            <div class="car-content">{{veiculo.nome}}</div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="client-footer">fooooter pai</div>
+  <div class="client-footer">
+    <div class="container">
+      <div class="footer-logo">LOGO</div>
+      <div class="footer-links">
+        <div class="footer-link">link</div>
+        <div class="footer-link">link</div>
+        <div class="footer-link">link</div>
+        <div class="footer-link">link</div>
+      </div>
+    </div>
+  </div>
 </div>

@@ -1,8 +1,15 @@
+
 .client-container {
-  padding-right: 15px;
-  padding-left: 15px;
+  // padding-right: 15px;
+  // padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+  min-height: 100%;
+  min-width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  height: 100%;
 }
 @media (min-width: 768px) {
   .client-container {
@@ -22,14 +29,87 @@
 
 .client-header{
   // background: rgb(176, 247, 220);
+  background-color: black;
+
+  .container{
+    .jumbo-header{
+      min-height: 500px;
+      height: 500px;
+      display: flex;
+      align-items: center;
+      .jumbo-text{
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        h1,h2{
+          color: white;
+        }
+        h1{
+          font-size: 48px;
+          font-weight: bolder;
+
+        }
+        button{
+          background-color: rgb(211, 60, 93);
+          color: white;
+          border-radius: 0px;
+          border: 0px;
+          width: 240px;
+          height: 44px;
+          display: flex;
+          align-items: center;
+          font-weight: bold;
+          padding: 0px 16px;
+          text-transform: uppercase;
+          span{
+            margin-left: auto;
+          }
+        }
+      }
+      .jumbo-img{
+        flex: 2;
+        background: url('/assets/img/logo-home.jpg');
+        // background-color: yellow;
+        width: 100%;
+        height: 100%;
+        background-position: center;
+        background-size: cover;
+        // flex: 1;
+      }
+    }
+  }
 }
 
 .client-content{
   // background: rgb(182, 252, 150);
+  margin: 0px 20px;
 }
 
 .client-footer{
   // background: rgb(182, 253, 250);
+  background-color: black;
+  color: white;
+  min-height: 180px;
+  margin-top: auto;
+  display: flex;
+  padding: 8px;
+  align-items: center;
+  // justify-content: center;
+  .container{
+    display: flex;
+    .footer-logo{
+      font-size: 24px;
+      font-weight: bolder;
+    }
+    .footer-links{
+      margin-left: auto;
+      display: flex;
+      .footer-link{
+        width: 60px;
+      }
+    }
+  }
 }
 
 .car-list{
