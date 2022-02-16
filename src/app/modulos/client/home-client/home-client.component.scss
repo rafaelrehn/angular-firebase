@@ -1,8 +1,6 @@
 $client-primary: rgb(211, 60, 93);
 
 .client-container {
-  // padding-right: 15px;
-  // padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
   min-height: 100%;
@@ -28,17 +26,31 @@ $client-primary: rgb(211, 60, 93);
   }
 }
 
-.client-header{
-  // background: rgb(176, 247, 220);
+.client-navbar{
   background-color: black;
-
-  .container{
+  height: 80px;
+  min-height: 80px;
+  border-bottom: 1px solid $client-primary;
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  padding: 0px 36px;
+  .navbar-logo{
+    flex: 1;
+  }
+  .navbar-item{
+    color: white;
+  }
+}
+.client-header{
+  background-color: black;
     .jumbo-header{
       min-height: 350px;
       height: 350px;
       display: flex;
       align-items: center;
       .jumbo-text{
+        padding: 32px;
         flex: 1;
         display: flex;
         flex-direction: column;
@@ -49,7 +61,6 @@ $client-primary: rgb(211, 60, 93);
         h1{
           font-size: 48px;
           font-weight: bolder;
-
         }
         button{
           background-color: $client-primary;
@@ -71,34 +82,26 @@ $client-primary: rgb(211, 60, 93);
       .jumbo-img{
         flex: 2;
         background: url('/assets/img/logo-home.jpg');
-        // background-color: yellow;
         width: 100%;
         height: 100%;
         background-position: center;
         background-size: cover;
-        // flex: 1;
       }
     }
-  }
 }
 
 .client-content{
-  // background: rgb(182, 252, 150);
-  margin: 0px 20px;
-  padding: 12px;
+  padding: 32px;
 }
 
 .client-footer{
-  // background: rgb(182, 253, 250);
   background-color: black;
   color: white;
   min-height: 180px;
   margin-top: auto;
   display: flex;
-  padding: 8px;
+  padding: 32px;
   align-items: center;
-  // justify-content: center;
-  .container{
     display: flex;
     .footer-logo{
       font-size: 24px;
@@ -111,29 +114,29 @@ $client-primary: rgb(211, 60, 93);
         width: 60px;
       }
     }
-  }
 }
 
 .menu-h1{
   color: black;
-  padding: 16px 0px;
-  font-size: 16px;
+  margin-bottom: 16px;
   font-weight: bold;
 }
 
 .car-list{
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  grid-auto-rows: auto;
+  grid-gap: 24px;
   .car-item{
-    min-width: 240px;
-    width: 360px;
-    max-width: 480px;
-    // border: 1px solid var(--accent);
     box-shadow: var(--light-shadow);
-    // border-radius: 8px;
-    // padding: 8px;
     overflow: hidden;
+    transition: all .15s;
+    cursor: pointer;
+    border: 1px solid transparent;
+    &:hover{
+      box-shadow: var(--hard-shadow);
+      border: 1px solid $client-primary;
+    }
     .car-img{
       background-size: cover;
       height: 240px;
@@ -141,7 +144,6 @@ $client-primary: rgb(211, 60, 93);
       background-position: center;
     }
     .car-content{
-      // height: 70px;
       padding: 16px;
       width: 100%;
       display: flex;
@@ -150,11 +152,9 @@ $client-primary: rgb(211, 60, 93);
       .car-marca-year{
         display: flex;
         align-items: center;
-        color: rgb(80, 80, 80);  
+        color: rgb(80, 80, 80);
         .car-marca{
-          // padding: 8px;
           flex: 1;
-          // padding: 2px 8px;
           font-size: 13px;
         }
         .car-year{
@@ -163,19 +163,34 @@ $client-primary: rgb(211, 60, 93);
         }
       }
       .car-name{
-        // background-color: black;
-        // color: white;
-        // padding: 2px 8px;
         font-weight: 500;
         font-size: 16px;
       }
       .car-price-action{
         display: flex;
         align-items: center;
+        position: relative;
+        .car-price{
+          flex: 1;
+        }
+        .car-action i{
+          bottom: 0px;
+          right: 0px;
+          position: absolute;
+          color: $client-primary;
+          border: 0px;
+        }
       }
     }
-          
-    // background-color: yellow;
   }
-
+}
+.app-footer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(24, 24, 24);
+  color: rgb(192, 192, 192);
+  padding: 4px 12px;
+  font-size: 10px;
+  cursor: pointer;
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { DatabaseReference } from '@angular/fire/database/interfaces';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { map } from 'rxjs/operators';
 import { AuthUser } from '../../admin/auth/auth.service';
 import { Veiculo } from '../../admin/veiculos/veiculo';
@@ -22,7 +22,8 @@ export class HomeClientComponent implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private db: AngularFireDatabase
+    private db: AngularFireDatabase,
+    public router: Router
   ) { }
 
   ngOnInit(): void {
@@ -71,6 +72,10 @@ export class HomeClientComponent implements OnInit {
         console.log('lista de veiculos deste cliente', res)
         this.veiculos = res
       })
+  }
+
+  goAdmin(){
+    this.router.navigate(['/admin'])
   }
 
 }
