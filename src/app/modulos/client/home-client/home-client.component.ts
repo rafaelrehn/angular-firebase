@@ -13,12 +13,11 @@ import { Veiculo } from '../../admin/veiculos/veiculo';
 })
 export class HomeClientComponent implements OnInit {
 
-  clientSlug: string
+  clientInfo: AuthUser;
   dbPath = 'clients'
 
-  clientInfo: any
 
-  veiculos: Veiculo[]
+
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -27,8 +26,8 @@ export class HomeClientComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.clientSlug = this.activatedRoute.snapshot.paramMap.get('slug') as string
-    this.checkIfClientIsRegistred(this.clientSlug)
+    const clientSlug = this.activatedRoute.snapshot.paramMap.get('slug') as string
+    this.checkIfClientIsRegistred(clientSlug)
   }
 
   private checkIfClientIsRegistred(clientSlug: string){
@@ -47,32 +46,32 @@ export class HomeClientComponent implements OnInit {
       })
     ).subscribe((res: any[])=>{
       if(res.length >0){
-        this.clientInfo = res[0]
-        console.log('encntrou um client???', this.clientInfo)
-        if(this.clientInfo){
-          this.buscarVeiculos(this.clientInfo)
+        const clientInfo = res[0]
+        console.log('encntrou um client???', clientInfo)
+        if(clientInfo){
+          this.clientInfo = clientInfo
         }
       }
     })
   }
 
-  buscarVeiculos(client: AuthUser){
-    const path = `${client.uid}/veiculos`
-    this.db.list(path)
-      .snapshotChanges()
-      .pipe(
-        map(changes => {
-          return changes.map( (c: any)=> {
-            let res = c.payload.val() as any
-            res.key = c.payload.key as string;
-            return res as Veiculo
-          });
-        })
-      ).subscribe(res=>{
-        console.log('lista de veiculos deste cliente', res)
-        this.veiculos = res
-      })
-  }
+  // buscarVeiculos(client: AuthUser){
+  //   const path = `${client.uid}/veiculos`
+  //   this.db.list(path)
+  //     .snapshotChanges()
+  //     .pipe(
+  //       map(changes => {
+  //         return changes.map( (c: any)=> {
+  //           let res = c.payload.val() as any
+  //           res.key = c.payload.key as string;
+  //           return res as Veiculo
+  //         });
+  //       })
+  //     ).subscribe(res=>{
+  //       console.log('lista de veiculos deste cliente', res)
+  //       this.veiculos = res
+  //     })
+  // }
 
   goAdmin(){
     this.router.navigate(['/admin'])

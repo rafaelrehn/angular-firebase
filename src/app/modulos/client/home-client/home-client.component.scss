@@ -1,30 +1,5 @@
 $client-primary: rgb(211, 60, 93);
 
-.client-container {
-  margin-right: auto;
-  margin-left: auto;
-  min-height: 100%;
-  min-width: 100%;
-  display: flex;
-  flex-direction: column;
-  overflow-y: auto;
-  height: 100%;
-}
-@media (min-width: 768px) {
-  .client-container {
-    width: 750px;
-  }
-}
-@media (min-width: 992px) {
-  .client-container {
-    width: 970px;
-  }
-}
-@media (min-width: 1200px) {
-  .client-container {
-    width: 1170px;
-  }
-}
 
 .client-navbar{
   background-color: black;
@@ -41,57 +16,6 @@ $client-primary: rgb(211, 60, 93);
   .navbar-item{
     color: white;
   }
-}
-.client-header{
-  background-color: black;
-    .jumbo-header{
-      min-height: 350px;
-      height: 350px;
-      display: flex;
-      align-items: center;
-      .jumbo-text{
-        padding: 32px;
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
-        h1,h2{
-          color: white;
-        }
-        h1{
-          font-size: 48px;
-          font-weight: bolder;
-        }
-        button{
-          background-color: $client-primary;
-          color: white;
-          border-radius: 0px;
-          border: 0px;
-          width: 240px;
-          height: 44px;
-          display: flex;
-          align-items: center;
-          font-weight: bold;
-          padding: 0px 16px;
-          text-transform: uppercase;
-          span{
-            margin-left: auto;
-          }
-        }
-      }
-      .jumbo-img{
-        flex: 2;
-        background: url('/assets/img/logo-home.jpg');
-        width: 100%;
-        height: 100%;
-        background-position: center;
-        background-size: cover;
-      }
-    }
-}
-
-.client-content{
-  padding: 32px;
 }
 
 .client-footer{
@@ -116,74 +40,6 @@ $client-primary: rgb(211, 60, 93);
     }
 }
 
-.menu-h1{
-  color: black;
-  margin-bottom: 16px;
-  font-weight: bold;
-}
-
-.car-list{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-  grid-auto-rows: auto;
-  grid-gap: 24px;
-  .car-item{
-    box-shadow: var(--light-shadow);
-    overflow: hidden;
-    transition: all .15s;
-    cursor: pointer;
-    border: 1px solid transparent;
-    &:hover{
-      box-shadow: var(--hard-shadow);
-      border: 1px solid $client-primary;
-    }
-    .car-img{
-      background-size: cover;
-      height: 240px;
-      width: 100%;
-      background-position: center;
-    }
-    .car-content{
-      padding: 16px;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      .car-marca-year{
-        display: flex;
-        align-items: center;
-        color: rgb(80, 80, 80);
-        .car-marca{
-          flex: 1;
-          font-size: 13px;
-        }
-        .car-year{
-          font-size: 11px;
-          margin-left: auto;
-        }
-      }
-      .car-name{
-        font-weight: 500;
-        font-size: 16px;
-      }
-      .car-price-action{
-        display: flex;
-        align-items: center;
-        position: relative;
-        .car-price{
-          flex: 1;
-        }
-        .car-action i{
-          bottom: 0px;
-          right: 0px;
-          position: absolute;
-          color: $client-primary;
-          border: 0px;
-        }
-      }
-    }
-  }
-}
 .app-footer{
   display: flex;
   align-items: center;
