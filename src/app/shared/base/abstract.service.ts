@@ -88,12 +88,6 @@ export class AbstractService<Entity> {
   }
 
   getAllInputMaster(urlPath: string): Promise<Entity[]>{
-    // let query: QueryFn
-    // if(params){
-    //   query = (ref: DatabaseReference)=> ref.orderByChild(params.key).equalTo(params.value)
-    // }else{
-    //   query = (ref: DatabaseReference)=>ref
-    // }
     return new Promise(resolve=>{
       this.db.list(`${this.authService.getUid()}/${urlPath}`)
       .snapshotChanges()
@@ -106,15 +100,9 @@ export class AbstractService<Entity> {
           });
         })
       ).subscribe((res: Entity[])=>{
-        // this.dataSource = res
         resolve(res)
       })
     })
 
   }
-
-
-  // initDataSource(params?: {key: string, value: string}){
-  //   this.dataSource = this.getAll(params)
-  // }
 }

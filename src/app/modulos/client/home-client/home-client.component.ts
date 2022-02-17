@@ -14,11 +14,6 @@ import { HomeClientService } from './home-client.service';
 })
 export class HomeClientComponent implements OnInit {
 
-
-
-
-
-
   constructor(
     private activatedRoute: ActivatedRoute,
     private homeClientService: HomeClientService,

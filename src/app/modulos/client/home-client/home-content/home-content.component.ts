@@ -24,27 +24,31 @@ export class HomeContentComponent implements OnInit {
   async ngOnInit() {
     // const clientSlug = this.activatedRoute.snapshot.paramMap.get('slug') as string
     const clientInfo = await this.homeClientService.checkIfClientIsRegistred()
-    if(clientInfo){
+    if (clientInfo) {
       this.buscarVeiculos(clientInfo)
     }
   }
 
-  buscarVeiculos(client: AuthUser){
-      const path = `${client.uid}/veiculos`
-      this.db.list(path)
-        .snapshotChanges()
-        .pipe(
-          map(changes => {
-            return changes.map( (c: any)=> {
-              let res = c.payload.val() as any
-              res.key = c.payload.key as string;
-              return res as Veiculo
-            });
-          })
-        ).subscribe(res=>{
-          console.log('lista de veiculos deste cliente', res)
-          this.veiculos = res
+  buscarVeiculos(client: AuthUser) {
+    const path = `${client.uid}/veiculos`
+    this.db.list(path)
+      .snapshotChanges()
+      .pipe(
+        map(changes => {
+          return changes.map((c: any) => {
+            let res = c.payload.val() as any
+            res.key = c.payload.key as string;
+            return res as Veiculo
+          });
         })
-    }
+      ).subscribe(res => {
+        console.log('lista de veiculos deste cliente', res)
+        this.veiculos = res
+      })
+  }
+
+  getRouterLink(veiculo: Veiculo){
+    return `../detalhes/${veiculo.key}`
+  }
 
 }

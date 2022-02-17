@@ -20,6 +20,7 @@ import { HomeClientComponent } from './modulos/client/home-client/home-client.co
 import { HomeComponent } from './modulos/admin/home/home.component';
 import { ConfiguracoesComponent } from './modulos/admin/configuracoes/configuracoes.component';
 import { HomeContentComponent } from './modulos/client/home-client/home-content/home-content.component';
+import { CarDetailComponent } from './modulos/client/home-client/car-detail/car-detail.component';
 
 const ROUTES: Routes = [
   {
@@ -68,6 +69,7 @@ const ROUTES: Routes = [
     component: HomeClientComponent,
     children: [
       { path: 'home', component: HomeContentComponent },
+      { path: 'detalhes/:key', component: CarDetailComponent },
       // { path: 'imagens', component: ImagensVeiuclosComponent },
       { path: '',   redirectTo: 'home', pathMatch: 'prefix' },
     ]

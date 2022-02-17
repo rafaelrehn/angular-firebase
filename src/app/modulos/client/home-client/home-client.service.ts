@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { DatabaseReference } from '@angular/fire/database/interfaces';
+import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { AuthUser } from '../../admin/auth/auth.service';
+import { Veiculo } from '../../admin/veiculos/veiculo';
 
 @Injectable()
 export class HomeClientService {
@@ -48,5 +50,9 @@ export class HomeClientService {
           })
       }
     })
+  }
+
+  getOneCar(key: string){
+    return this.db.object(`${this.clientInfo.uid}/veiculos/${key}`).valueChanges() as Observable<Veiculo>
   }
 }
