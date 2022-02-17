@@ -1,5 +1,9 @@
 $client-primary: rgb(211, 60, 93);
 
+.client-container{
+  overflow-y: auto;
+  height: 100%;
+}
 
 .client-navbar{
   background-color: black;
