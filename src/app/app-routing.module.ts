@@ -19,6 +19,7 @@ import { HomeDefaultComponent } from './modulos/default/home-default/home-defaul
 import { HomeClientComponent } from './modulos/client/home-client/home-client.component';
 import { HomeComponent } from './modulos/admin/home/home.component';
 import { ConfiguracoesComponent } from './modulos/admin/configuracoes/configuracoes.component';
+import { HomeContentComponent } from './modulos/client/home-client/home-content/home-content.component';
 
 const ROUTES: Routes = [
   {
@@ -65,6 +66,11 @@ const ROUTES: Routes = [
   {
     path: 'client/:slug',
     component: HomeClientComponent,
+    children: [
+      { path: 'home', component: HomeContentComponent },
+      // { path: 'imagens', component: ImagensVeiuclosComponent },
+      { path: '',   redirectTo: 'home', pathMatch: 'prefix' },
+    ]
   },
   { path: 'default',
     component: HomeDefaultComponent

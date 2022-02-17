@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs/operators';
 import { AuthUser } from 'src/app/modulos/admin/auth/auth.service';
 import { Veiculo } from 'src/app/modulos/admin/veiculos/veiculo';
+import { HomeClientService } from '../home-client.service';
 
 @Component({
   selector: 'app-home-content',
@@ -12,26 +13,19 @@ import { Veiculo } from 'src/app/modulos/admin/veiculos/veiculo';
 })
 export class HomeContentComponent implements OnInit {
 
-  @Input() clientInfo: AuthUser;
   veiculos: Veiculo[]
 
   constructor(
     private activatedRoute: ActivatedRoute,
+    private homeClientService: HomeClientService,
     private db: AngularFireDatabase,
   ) { }
 
-  ngOnInit(): void {
-    // this.clientSlug = this.activatedRoute.snapshot.paramMap.get('slug') as string
-    if(this.clientInfo){
-      this.buscarVeiculos(this.clientInfo)
-    }
-  }
-
-  ngOnChanges(change: SimpleChanges){
-    console.log(change)
-    const currentvalue = change.clientInfo?.currentValue
-    if(change.clientInfo.currentValue){
-      this.buscarVeiculos(currentvalue)
+  async ngOnInit() {
+    // const clientSlug = this.activatedRoute.snapshot.paramMap.get('slug') as string
+    const clientInfo = await this.homeClientService.checkIfClientIsRegistred()
+    if(clientInfo){
+      this.buscarVeiculos(clientInfo)
     }
   }
 

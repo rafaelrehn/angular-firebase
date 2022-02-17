@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { map } from 'rxjs/operators';
 import { AuthUser } from '../../admin/auth/auth.service';
 import { Veiculo } from '../../admin/veiculos/veiculo';
+import { HomeClientService } from './home-client.service';
 
 @Component({
   selector: 'app-home-client',
@@ -13,65 +14,21 @@ import { Veiculo } from '../../admin/veiculos/veiculo';
 })
 export class HomeClientComponent implements OnInit {
 
-  clientInfo: AuthUser;
-  dbPath = 'clients'
+
 
 
 
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private db: AngularFireDatabase,
+    private homeClientService: HomeClientService,
     public router: Router
   ) { }
 
   ngOnInit(): void {
     const clientSlug = this.activatedRoute.snapshot.paramMap.get('slug') as string
-    this.checkIfClientIsRegistred(clientSlug)
+    this.homeClientService.setClientSlug(clientSlug)
   }
-
-  private checkIfClientIsRegistred(clientSlug: string){
-    console.log({clientSlug})
-
-    const query = (ref: DatabaseReference)=> ref.orderByChild('slug').equalTo(clientSlug)
-    this.db.list(this.dbPath, query)
-    .snapshotChanges()
-    .pipe(
-      map(changes => {
-        return changes.map( (c: any)=> {
-          let res = c.payload.val() as any
-          res.key = c.payload.key as string;
-          return res as any
-        });
-      })
-    ).subscribe((res: any[])=>{
-      if(res.length >0){
-        const clientInfo = res[0]
-        console.log('encntrou um client???', clientInfo)
-        if(clientInfo){
-          this.clientInfo = clientInfo
-        }
-      }
-    })
-  }
-
-  // buscarVeiculos(client: AuthUser){
-  //   const path = `${client.uid}/veiculos`
-  //   this.db.list(path)
-  //     .snapshotChanges()
-  //     .pipe(
-  //       map(changes => {
-  //         return changes.map( (c: any)=> {
-  //           let res = c.payload.val() as any
-  //           res.key = c.payload.key as string;
-  //           return res as Veiculo
-  //         });
-  //       })
-  //     ).subscribe(res=>{
-  //       console.log('lista de veiculos deste cliente', res)
-  //       this.veiculos = res
-  //     })
-  // }
 
   goAdmin(){
     this.router.navigate(['/admin'])
