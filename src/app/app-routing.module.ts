@@ -21,6 +21,9 @@ import { HomeComponent } from './modulos/admin/home/home.component';
 import { ConfiguracoesComponent } from './modulos/admin/configuracoes/configuracoes.component';
 import { HomeContentComponent } from './modulos/client/home-client/home-content/home-content.component';
 import { CarDetailComponent } from './modulos/client/home-client/car-detail/car-detail.component';
+import { AboutPageComponent } from './modulos/client/about-page/about-page.component';
+import { ContactPageComponent } from './modulos/client/contact-page/contact-page.component';
+import { CarListComponent } from './modulos/client/car-list/car-list.component';
 
 const ROUTES: Routes = [
   {
@@ -69,6 +72,9 @@ const ROUTES: Routes = [
     component: HomeClientComponent,
     children: [
       { path: 'home', component: HomeContentComponent },
+      { path: 'sobre', component: AboutPageComponent },
+      { path: 'veiculos', component: CarListComponent },
+      { path: 'contato', component: ContactPageComponent },
       { path: 'detalhes/:key', component: CarDetailComponent },
       // { path: 'imagens', component: ImagensVeiuclosComponent },
       { path: '',   redirectTo: 'home', pathMatch: 'prefix' },

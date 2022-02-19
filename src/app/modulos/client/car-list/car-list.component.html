@@ -1,0 +1,26 @@
+<div class="client-content">
+    <div class="car-box">
+      <div class="menu-h1">
+        <i class="fa-solid fa-list"></i>
+        Veículos
+      </div>
+      <div class="car-list">
+        <div class="car-item" *ngFor="let veiculo of veiculos" [routerLink]="getRouterLink(veiculo)">
+          <div class="car-img" [style.background-image]="'url(' + veiculo.imagemPrincipal?.url + ')'"></div>
+          <div class="car-content">
+            <div class="car-marca-year">
+              <div class="car-marca">{{veiculo.marca}}</div>
+              <div class="car-year">{{veiculo.anoFabricacao}} / {{veiculo.anoModelo}}</div>
+            </div>
+            <div class="car-name">{{veiculo.nome}}</div>
+            <div class="car-price-action">
+              <div class="car-price">R$ {{veiculo.valor}}</div>
+              <div class="car-action">
+                <i class="fa-solid fa-right-long fa-2x"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

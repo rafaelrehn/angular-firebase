@@ -5,6 +5,9 @@ import { HomeContentModule } from './home-content/home-content.module';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { HomeClientService } from './home-client.service';
 import { CarDetailModule } from './car-detail/car-detail.module';
+import { CarListModule } from '../car-list/car-list.module';
+import { ContactPageModule } from '../contact-page/contact-page.module';
+import { AboutPageModule } from '../about-page/about-page.module';
 
 
 
@@ -15,7 +18,10 @@ import { CarDetailModule } from './car-detail/car-detail.module';
     CommonModule,
     HomeContentModule,
     AppRoutingModule,
-    CarDetailModule
+    CarDetailModule,
+    CarListModule,
+    ContactPageModule,
+    AboutPageModule
   ],
   providers: [
     HomeClientService

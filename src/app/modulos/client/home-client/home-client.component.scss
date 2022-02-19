@@ -19,7 +19,15 @@ $client-primary: rgb(211, 60, 93);
   }
   .navbar-item{
     color: white;
+    &:hover{
+      cursor: pointer;
+      color: $client-primary;
+    }
   }
+}
+.navbar-active{
+  color: $client-primary !important;
+  // background-color: red;
 }
 
 .client-footer{

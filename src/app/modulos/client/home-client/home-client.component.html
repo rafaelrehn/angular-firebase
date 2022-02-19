@@ -1,15 +1,13 @@
 <div class="client-container">
   <div class="client-navbar">
-      <div class="navbar-item navbar-logo">LOGO</div>
-      <div class="navbar-item">home</div>
-      <div class="navbar-item">veiculos</div>
-      <div class="navbar-item">sobre</div>
-      <div class="navbar-item">contato</div>
+      <div class="navbar-item navbar-logo" routerLink="home">LOGO</div>
+      <div class="navbar-item" routerLink="home" routerLinkActive="navbar-active">home</div>
+      <div class="navbar-item" routerLink="veiculos" routerLinkActive="navbar-active">veiculos</div>
+      <div class="navbar-item" routerLink="sobre" routerLinkActive="navbar-active">sobre</div>
+      <div class="navbar-item" routerLink="contato" routerLinkActive="navbar-active">contato</div>
   </div>
 
   <router-outlet></router-outlet>
-
-  <!-- <app-home-content [clientInfo]="clientInfo"></app-home-content> -->
 
   <div class="client-footer">
       <div class="footer-logo">LOGO</div>

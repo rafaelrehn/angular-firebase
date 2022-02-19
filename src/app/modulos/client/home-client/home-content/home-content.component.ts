@@ -13,42 +13,15 @@ import { HomeClientService } from '../home-client.service';
 })
 export class HomeContentComponent implements OnInit {
 
-  veiculos: Veiculo[]
+  
 
   constructor(
-    private activatedRoute: ActivatedRoute,
-    private homeClientService: HomeClientService,
-    private db: AngularFireDatabase,
+
   ) { }
 
   async ngOnInit() {
-    // const clientSlug = this.activatedRoute.snapshot.paramMap.get('slug') as string
-    const clientInfo = await this.homeClientService.checkIfClientIsRegistred()
-    if (clientInfo) {
-      this.buscarVeiculos(clientInfo)
-    }
+
   }
 
-  buscarVeiculos(client: AuthUser) {
-    const path = `${client.uid}/veiculos`
-    this.db.list(path)
-      .snapshotChanges()
-      .pipe(
-        map(changes => {
-          return changes.map((c: any) => {
-            let res = c.payload.val() as any
-            res.key = c.payload.key as string;
-            return res as Veiculo
-          });
-        })
-      ).subscribe(res => {
-        console.log('lista de veiculos deste cliente', res)
-        this.veiculos = res
-      })
-  }
-
-  getRouterLink(veiculo: Veiculo){
-    return `../detalhes/${veiculo.key}`
-  }
-
+  
 }
