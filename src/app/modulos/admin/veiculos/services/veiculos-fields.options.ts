@@ -69,6 +69,34 @@ export const CAMBIO_OPTIONS: ISelectOptions[] = [
     },
   ]
 
+export const CATEGORIA_OPTIONS: ISelectOptions[] = [
+  {
+    label: 'Hatch',
+    value: 'hatch',
+    selected: true
+  },
+  {
+    label: 'Sedan',
+    value: 'sedan'
+  },
+  {
+    label: 'Utilitário',
+    value: 'utilitario'
+  },
+  {
+    label: 'Picape',
+    value: 'Picape'
+  },
+  {
+    label: 'SUV',
+    value: 'suv'
+  },
+  {
+    label: 'Outros',
+    value: 'outros'
+  },
+]
+
 export const COR_OPTIONS: ISelectOptions[] = [
     {
       label: 'Branco',

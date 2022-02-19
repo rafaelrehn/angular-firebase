@@ -16,6 +16,11 @@
     }
   }
   ::ng-deep{
+    app-header-actions{
+      margin-bottom: 16px;
+    }
+  }
+  ::ng-deep{
     app-form{
       display: flex;
       flex-direction: column;
