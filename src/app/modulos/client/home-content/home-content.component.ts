@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs/operators';
 import { AuthUser } from 'src/app/modulos/admin/auth/auth.service';
 import { Veiculo } from 'src/app/modulos/admin/veiculos/veiculo';
-import { HomeClientService } from '../home-client.service';
+import { HomeClientService } from '../home-client/home-client.service';
 
 @Component({
   selector: 'app-home-content',

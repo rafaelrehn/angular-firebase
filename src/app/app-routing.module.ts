@@ -19,8 +19,8 @@ import { HomeDefaultComponent } from './modulos/default/home-default/home-defaul
 import { HomeClientComponent } from './modulos/client/home-client/home-client.component';
 import { HomeComponent } from './modulos/admin/home/home.component';
 import { ConfiguracoesComponent } from './modulos/admin/configuracoes/configuracoes.component';
-import { HomeContentComponent } from './modulos/client/home-client/home-content/home-content.component';
-import { CarDetailComponent } from './modulos/client/home-client/car-detail/car-detail.component';
+import { HomeContentComponent } from './modulos/client/home-content/home-content.component';
+import { CarDetailComponent } from './modulos/client/car-detail/car-detail.component';
 import { AboutPageComponent } from './modulos/client/about-page/about-page.component';
 import { ContactPageComponent } from './modulos/client/contact-page/contact-page.component';
 import { CarListComponent } from './modulos/client/car-list/car-list.component';
