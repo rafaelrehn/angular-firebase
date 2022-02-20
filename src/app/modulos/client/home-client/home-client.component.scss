@@ -1,4 +1,11 @@
 $client-primary: rgb(211, 60, 93);
+@media only screen and (max-width: 426px) {
+  .hide-small-device {
+    display: none;
+    // color: red !important;
+  }
+}
+
 
 .client-container{
   overflow-y: auto;
@@ -6,6 +13,9 @@ $client-primary: rgb(211, 60, 93);
 }
 
 .client-navbar{
+  z-index: 1000;
+  top: 0px;
+  position: sticky;
   background-color: black;
   height: 80px;
   min-height: 80px;
@@ -14,12 +24,14 @@ $client-primary: rgb(211, 60, 93);
   align-items: center;
   gap: 36px;
   padding: 0px 36px;
+  overflow-x: auto;
+  justify-content: space-around;
   .navbar-logo{
     flex: 1;
   }
   .navbar-item{
     color: white;
-    &:hover{
+    &:hover:not(div.navbar-item.navbar-logo.hide-small-device){
       cursor: pointer;
       color: $client-primary;
     }
@@ -38,18 +50,22 @@ $client-primary: rgb(211, 60, 93);
   display: flex;
   padding: 32px;
   align-items: center;
+  display: flex;
+  gap: 32px;
+  .footer-logo{
+    font-size: 24px;
+    font-weight: bolder;
+  }
+  .footer-links{
+    margin-left: auto;
     display: flex;
-    .footer-logo{
-      font-size: 24px;
-      font-weight: bolder;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 16px;
+    .footer-link{
+      width: 40px;
     }
-    .footer-links{
-      margin-left: auto;
-      display: flex;
-      .footer-link{
-        width: 60px;
-      }
-    }
+  }
 }
 
 .app-footer{
