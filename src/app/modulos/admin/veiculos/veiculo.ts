@@ -15,4 +15,5 @@ export interface Veiculo extends DefaultEntity {
   cor: string;
   combustivel: string;
   itemsAdicionais: string[];
+  uploads: any[]
 }

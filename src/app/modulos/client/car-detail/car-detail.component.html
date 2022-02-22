@@ -9,14 +9,15 @@
       <div class="info-valor">{{veiculo.valor}}</div>
     </div>
     <div class="default-info">
-      <div class="info-value">{{veiculo.anoFabricacao}}/{{veiculo.anoModelo}}</div>
+      <div class="info-value flex flex-column">{{veiculo.anoFabricacao}}/{{veiculo.anoModelo}}</div>
       <div class="info-value">{{veiculo.cambio}}</div>
-      <div class="info-value">{{veiculo.categoria}}</div>
       <div class="info-value">{{veiculo.combustivel}}</div>
-      <div class="info-value">{{veiculo.cor}}</div>
     </div>
     <div class="adicionais-info">
       <div class="value" *ngFor="let info of veiculo.itemsAdicionais">{{info}}</div>
+    </div>
+    <div class="image-box">
+      <div class="image" *ngFor="let img of images" [style.background-image]="'url(' + img.url + ')'"></div>
     </div>
   </div>
   <div class="cardetail-footer">
@@ -27,4 +28,4 @@
   <i class="fa-solid fa-arrow-left"></i>
 </div>
 
-<pre>{{veiculo | json}}</pre>
+<!-- <pre>{{veiculo | json}}</pre> -->

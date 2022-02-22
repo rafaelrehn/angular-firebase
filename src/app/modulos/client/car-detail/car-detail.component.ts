@@ -17,6 +17,8 @@ export class CarDetailComponent implements OnInit {
 
   veiculo: Veiculo
 
+  images: any[] = []
+
   constructor(
     private activatedRoute: ActivatedRoute,
     private _location: Location,
@@ -30,8 +32,18 @@ export class CarDetailComponent implements OnInit {
 
   buscarInfoVeiculo(key: string){
     this.homeClientService.getOneCar(key).subscribe(res=>{
+      this.parseImage(res)
       this.veiculo = res
     })
+  }
+
+  parseImage(res: any){
+    const uploads = res.uploads
+    if(uploads){
+      Object.keys(uploads).forEach(key=>{
+        this.images.push(uploads[key])
+      })
+    }
   }
 
 
