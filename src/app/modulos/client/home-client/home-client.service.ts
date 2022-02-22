@@ -22,12 +22,12 @@ export class HomeClientService {
     this.clientSlug = slug
   }
 
-  checkIfClientIsRegistred(): Promise<AuthUser> {
+  checkIfClientIsRegistred(clientSlug?: string): Promise<AuthUser> {
     return new Promise(resolve => {
       if (this.clientInfo) {
         resolve(this.clientInfo)
       } else {
-        const query = (ref: DatabaseReference) => ref.orderByChild('slug').equalTo(this.clientSlug)
+        const query = (ref: DatabaseReference) => ref.orderByChild('slug').equalTo(clientSlug || this.clientSlug)
         this.db.list(this.dbPath, query)
           .snapshotChanges()
           .pipe(

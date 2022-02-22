@@ -24,6 +24,7 @@ import { CarDetailComponent } from './modulos/client/car-detail/car-detail.compo
 import { AboutPageComponent } from './modulos/client/about-page/about-page.component';
 import { ContactPageComponent } from './modulos/client/contact-page/contact-page.component';
 import { CarListComponent } from './modulos/client/car-list/car-list.component';
+import { ClientGuard } from './guards/client.guard';
 
 const ROUTES: Routes = [
   {
@@ -70,6 +71,7 @@ const ROUTES: Routes = [
   {
     path: 'client/:slug',
     component: HomeClientComponent,
+    canActivate: [ClientGuard],
     children: [
       { path: 'home', component: HomeContentComponent },
       { path: 'sobre', component: AboutPageComponent },
