@@ -79,3 +79,29 @@ $client-primary: rgb(211, 60, 93);
       }
     }
   }
+
+  @media (max-width: 540px) {
+    .client-content{
+      padding: 8px;
+    }
+    .car-list{
+      grid-gap: 8px !important;
+    }
+    .car-item{
+      display: flex;
+      height: 120px;
+      align-items: center;
+      .car-img{
+        margin: 8px;
+        height: 104px !important;
+        // height: auto !important;
+        // height: 90px !important;
+      }
+      .car-content{
+        padding: 8px !important;
+        padding-left: 0px !important;
+        height: 100%;
+        justify-content: space-between;
+      }
+    }
+  }
