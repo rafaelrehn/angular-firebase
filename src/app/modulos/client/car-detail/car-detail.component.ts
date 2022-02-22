@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Veiculo } from 'src/app/modulos/admin/veiculos/veiculo';
@@ -18,7 +19,7 @@ export class CarDetailComponent implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    // protected service: AbstractService<Veiculo>,
+    private _location: Location,
     private homeClientService: HomeClientService,
   ) { }
 
@@ -33,6 +34,10 @@ export class CarDetailComponent implements OnInit {
     })
   }
 
+
+  goBack() {
+    this._location.back();
+  }
 
 
 }

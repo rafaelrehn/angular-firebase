@@ -10,4 +10,9 @@ export interface Veiculo extends DefaultEntity {
   anoModelo: number;
   imagemPrincipal: FileUpload;
   marca: string;
+  cambio: string;
+  categoria: string;
+  cor: string;
+  combustivel: string;
+  itemsAdicionais: string[];
 }

@@ -6,5 +6,77 @@
     background-position: center;
   }
 }
-.cardetail-content{}
+.cardetail-content{
+  .main-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 16px;
+    .info-marca{
+      color: var(--client-light-text);
+    }
+    .info-nome{
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 400;
+      font-size: 18px;
+      padding: 4px 0px;
+    }
+    .info-valor{
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 16px;
+      color: var(--client-primary);
+    }
+
+  }
+  .default-info{
+    display: flex;
+    gap: 8px;
+    padding: 16px;
+    .info-label{
+      text-align: right;
+      width: 120px;
+      margin-right: 16px;
+    }
+  }
+  .adicionais-info{
+    display: flex;
+    gap: 8px;
+    padding: 16px;
+    flex-wrap: wrap;
+    .value{
+      border-radius: 4px;
+      background-color: var(--client-light-text);
+      color: white;
+      padding: 2px 6px;
+    }
+  }
+}
 .cardetail-footer{}
+.btn-voltar{
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  height: 45px;
+  width: 45px;
+  border-radius: 100px;
+  background-color: white;
+  border: 1px solid transparent;
+  box-shadow: var(--light-shadow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--client-primary);
+  &:hover{
+    border: 1px solid var(--client-primary);
+  }
+}

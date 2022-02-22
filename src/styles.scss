@@ -16,6 +16,12 @@
 }
 
 
+:root{
+  --client-primary: rgb(211, 60, 93);
+  --client-dark-text: rgb(0,0,0);
+  --client-light-text: rgb(59, 59, 59);
+}
+
 
 /* You can add global styles to this file, and also import other style files */
 // @import '~bootstrap/dist/css/bootstrap.min.css';
@@ -26,7 +32,7 @@
   -moz-box-sizing: border-box;    /* Firefox, other Gecko */
   box-sizing: border-box;         /* Opera/IE 8+ */
 }
-html, body { 
+html, body {
   height: 100%;
  }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;  overflow: hidden;}

@@ -1,10 +1,30 @@
-<div class="cardetail-header">
-  <div class="main-img" [style.background-image]="'url(' + veiculo.imagemPrincipal?.url + ')'"></div>
+<div class="cardetail" *ngIf="veiculo">
+  <div class="cardetail-header">
+    <div class="main-img" [style.background-image]="'url(' + veiculo?.imagemPrincipal?.url + ')'"></div>
+  </div>
+  <div class="cardetail-content">
+    <div class="main-info">
+      <div class="info-marca">{{veiculo.marca}}</div>
+      <div class="info-nome">{{veiculo.nome}}</div>
+      <div class="info-valor">{{veiculo.valor}}</div>
+    </div>
+    <div class="default-info">
+      <div class="info-value">{{veiculo.anoFabricacao}}/{{veiculo.anoModelo}}</div>
+      <div class="info-value">{{veiculo.cambio}}</div>
+      <div class="info-value">{{veiculo.categoria}}</div>
+      <div class="info-value">{{veiculo.combustivel}}</div>
+      <div class="info-value">{{veiculo.cor}}</div>
+    </div>
+    <div class="adicionais-info">
+      <div class="value" *ngFor="let info of veiculo.itemsAdicionais">{{info}}</div>
+    </div>
+  </div>
+  <div class="cardetail-footer">
+
+  </div>
 </div>
-<div class="cardetail-content"></div>
-<div class="cardetail-footer">
-  <div>botão voltar</div>
+<div class="btn-voltar" (click)="goBack()">
+  <i class="fa-solid fa-arrow-left"></i>
 </div>
 
-<p>car-detail works!</p>
 <pre>{{veiculo | json}}</pre>
