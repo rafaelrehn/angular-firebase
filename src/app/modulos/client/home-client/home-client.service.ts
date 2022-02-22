@@ -23,7 +23,7 @@ export class HomeClientService {
   }
 
   checkIfClientIsRegistred(clientSlug?: string): Promise<AuthUser> {
-    return new Promise(resolve => {
+    return new Promise((resolve,reject) => {
       if (this.clientInfo) {
         resolve(this.clientInfo)
       } else {
@@ -46,7 +46,11 @@ export class HomeClientService {
                 this.clientInfo = clientInfo
               }
               resolve(this.clientInfo)
+            }else{
+              reject('nenhum cliente encontrado')
             }
+          },err=>{
+            reject(err)
           })
       }
     })

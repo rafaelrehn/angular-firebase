@@ -78,8 +78,8 @@ const ROUTES: Routes = [
       { path: 'veiculos', component: CarListComponent },
       { path: 'contato', component: ContactPageComponent },
       { path: 'detalhes/:key', component: CarDetailComponent },
-      // { path: 'imagens', component: ImagensVeiuclosComponent },
       { path: '',   redirectTo: 'home', pathMatch: 'prefix' },
+      // { path: '**',   redirectTo: 'home', pathMatch: 'prefix' },
     ]
   },
   { path: 'default',
@@ -96,7 +96,7 @@ const ROUTES: Routes = [
   },
 
   { path: '', redirectTo: '/default', pathMatch: 'full' },
-  // { path: '**', redirectTo: '/auth/login' },
+  { path: '**', redirectTo: 'default' },
 ];
 
 @NgModule({
