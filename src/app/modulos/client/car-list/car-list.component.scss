@@ -102,6 +102,9 @@ $client-primary: rgb(211, 60, 93);
         padding-left: 0px !important;
         height: 100%;
         justify-content: space-between;
+        .car-name{
+          font-size: 14px !important;
+        }
       }
     }
   }
