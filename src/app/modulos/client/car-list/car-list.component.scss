@@ -23,7 +23,7 @@ $client-primary: rgb(211, 60, 93);
       cursor: pointer;
       // border: 1px solid transparent;
       display: flex;
-      height: 120px;
+      height: 92px;
       align-items: center;
       position: relative;
       &:hover{
@@ -48,7 +48,7 @@ $client-primary: rgb(211, 60, 93);
         height: 100%;
         z-index: 1;
         .car-marca{
-          font-weight: 500;
+          // font-weight: 700;
           font-size: 11px;
           color: var(--client-light-text);
         }
@@ -63,7 +63,7 @@ $client-primary: rgb(211, 60, 93);
           }
         }
         .car-name{
-          font-weight: 500;
+          font-weight: 600;
           font-size: 14px;
           text-overflow: ellipsis;
           white-space: nowrap;
