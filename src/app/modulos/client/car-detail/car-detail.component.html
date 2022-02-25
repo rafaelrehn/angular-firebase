@@ -9,9 +9,41 @@
       <div class="info-valor">{{veiculo.valor}}</div>
     </div>
     <div class="default-info">
-      <div class="info-value flex flex-column">{{veiculo.anoFabricacao}}/{{veiculo.anoModelo}}</div>
-      <div class="info-value">{{veiculo.cambio}}</div>
-      <div class="info-value">{{veiculo.combustivel}}</div>
+      <div class="default-info-box">
+        <div class="info-icon"><i class="fa-regular fa-calendar"></i></div>
+        <div class="info-content">
+          <div class="info-label">Fabricação</div>
+          <div class="info-value">{{veiculo.anoFabricacao}}/{{veiculo.anoModelo}}</div>
+        </div>        
+      </div>
+      <div class="default-info-box">
+        <div class="info-icon"><i class="fa-solid fa-road"></i></div>
+        <div class="info-content">
+          <div class="info-label">Km</div>
+          <div class="info-value">150000</div>
+        </div>        
+      </div>
+      <div class="default-info-box">
+        <div class="info-icon"><i class="fa-solid fa-gears"></i></div>
+        <div class="info-content">
+          <div class="info-label">Câmbio</div>
+          <div class="info-value">{{veiculo.cambio}}</div>
+        </div>        
+      </div>
+      <div class="default-info-box">
+        <div class="info-icon">
+          <i class="fa-solid fa-gas-pump"></i>
+        </div>
+        <div class="info-content">
+          <div class="info-label">Combustível</div>
+          <div class="info-value">{{veiculo.combustivel}}</div>
+        </div>        
+      </div>
+    </div>
+
+    <div class="items-adicionais-box">
+      <div class="info-icon"><i class="fa-solid fa-list"></i></div>
+      <div class="items-adicionais-label">Adicionais do veículo</div>
     </div>
     <div class="adicionais-info">
       <div class="value" *ngFor="let info of veiculo.itemsAdicionais">{{info}}</div>
