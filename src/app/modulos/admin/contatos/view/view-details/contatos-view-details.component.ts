@@ -7,15 +7,15 @@ import { ContatosFieldServiceService } from '../../services/contatos-field-servi
 import { Contato } from '../../contato';
 
 @Component({
-  selector: 'app-view-details',
-  templateUrl: './view-details.component.html',
-  styleUrls: ['./view-details.component.scss'],
+  selector: 'app-contatos-view-details',
+  templateUrl: './contatos-view-details.component.html',
+  styleUrls: ['./contatos-view-details.component.scss'],
   providers: [ AbstractService,
     { provide: 'entityName', useValue: 'contatos' },
     { provide: 'fieldsService', useClass: ContatosFieldServiceService }
   ]
 })
-export class ViewDetailsComponent extends AbstractViewClass<Contato> {
+export class ContatosViewDetailsComponent extends AbstractViewClass<Contato> {
 
   constructor(
     protected service: AbstractService<Contato>,

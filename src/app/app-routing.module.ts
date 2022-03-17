@@ -29,6 +29,7 @@ import { ContatosListComponent } from './modulos/admin/contatos/list/contatos-li
 import { ContatosEditComponent } from './modulos/admin/contatos/edit/contatos-edit.component';
 import { ImagensContatosComponent } from './modulos/admin/contatos/children/imagens-contato/imagens-contatos.component';
 import { ContatosViewComponent } from './modulos/admin/contatos/view/contatos-view.component';
+import { ContatosViewDetailsComponent } from './modulos/admin/contatos/view/view-details/contatos-view-details.component';
 
 const ROUTES: Routes = [
   {
@@ -48,7 +49,7 @@ const ROUTES: Routes = [
       {
         path: 'contatos/:key', component: ContatosViewComponent,
         children: [
-          { path: 'view', component: ViewDetailsComponent },
+          { path: 'view', component: ContatosViewDetailsComponent },
           { path: 'imagens', component: ImagensContatosComponent },
           { path: '',   redirectTo: 'view', pathMatch: 'prefix' },
         ]
