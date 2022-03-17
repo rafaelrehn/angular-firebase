@@ -1,0 +1,9 @@
+<app-view-form [arrayViewForm]="arrayViewForm">
+  <div class="imagem-box ml-16">
+    <div class="imagem-label">Imagem Principal</div>
+    <div *ngIf="model?.imagemPrincipal" class="imagem-principal"
+    [style.background-image]="getImageSample(model?.imagemPrincipal)"></div>
+    <div *ngIf="!model?.imagemPrincipal" class="no-img"></div>
+  </div>
+  <!-- <pre>{{model?.imagemPrincipal|json}}</pre> -->
+</app-view-form>

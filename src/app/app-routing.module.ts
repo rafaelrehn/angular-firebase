@@ -25,6 +25,9 @@ import { AboutPageComponent } from './modulos/client/about-page/about-page.compo
 import { ContactPageComponent } from './modulos/client/contact-page/contact-page.component';
 import { CarListComponent } from './modulos/client/car-list/car-list.component';
 import { ClientGuard } from './guards/client.guard';
+import { ContatosViewComponent } from './modulos/admin/contatos/view/contato-view.component';
+import { ContatosListComponent } from './modulos/admin/contatos/list/contatos-list.component';
+import { ContatosEditComponent } from './modulos/admin/contatos/edit/contatos-edit.component';
 
 const ROUTES: Routes = [
   {
@@ -34,6 +37,20 @@ const ROUTES: Routes = [
     children: [
       {
         path: 'dashboard', component: DashboardComponent
+      },
+      {
+        path: 'contatos',
+        component: ContatosListComponent,
+      },
+      { path: 'contatos/create', component: ContatosEditComponent },
+      { path: 'contatos/edit/:key', component: ContatosEditComponent },
+      {
+        path: 'contatos/:key', component: ContatosViewComponent,
+        children: [
+          { path: 'view', component: ViewDetailsComponent },
+          { path: 'imagens', component: ImagensVeiuclosComponent },
+          { path: '',   redirectTo: 'view', pathMatch: 'prefix' },
+        ]
       },
       {
         path: 'veiculos',

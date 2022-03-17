@@ -33,6 +33,7 @@ export class HomeComponent implements OnInit {
     this.menuList = [
       new IMenuBuilder().build('Dashboard', './dashboard', 'dashboard').get(),
       new IMenuBuilder().build('Veiculos', './veiculos', 'time_to_leave').get(),
+      new IMenuBuilder().build('Contatos', './contatos', 'person_pin').get(),
       new IMenuBuilder().build('Utilitários', './utilitarios', 'build').get(),
       new IMenuBuilder().build('Profile', './profile', 'assignment_ind').get(),
       new IMenuBuilder().build('Configurações', './configuracoes', 'extension').get(),

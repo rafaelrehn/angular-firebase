@@ -18,6 +18,7 @@ import { HomeClientModule } from './modulos/client/home-client/home-client.modul
 import { HomeModule } from './modulos/admin/home/home.module';
 import { ConfiguracoesModule } from './modulos/admin/configuracoes/configuracoes.module';
 import { HomeDefaultModule } from './modulos/default/home-default/home-default.module';
+import { ContatosModule } from './modulos/admin/contatos/contatos.module';
 
 const FirebaseConfig = [
   AngularFireAuthModule,
@@ -25,6 +26,7 @@ const FirebaseConfig = [
 ];
 
 const Modulos = [
+  ContatosModule,
   VeiculosModule,
   UtilitariosModule,
   ImagensVeiuclosModule,
