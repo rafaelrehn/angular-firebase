@@ -6,11 +6,11 @@ import { AuthService } from 'src/app/modulos/admin/auth/auth.service';
 import { FileUpload } from 'src/app/shared/atomic-design/organisms/file-upload/model/file-upload.model';
 
 @Component({
-  selector: 'app-imagens-veiuclos',
-  templateUrl: './imagens-veiuclos.component.html',
-  styleUrls: ['./imagens-veiuclos.component.scss']
+  selector: 'app-imagens-contatos',
+  templateUrl: './imagens-contatos.component.html',
+  styleUrls: ['./imagens-contatos.component.scss']
 })
-export class ImagensVeiuclosComponent implements OnInit {
+export class ImagensContatosComponent implements OnInit {
 
   entityKey: string;
 
@@ -31,7 +31,7 @@ export class ImagensVeiuclosComponent implements OnInit {
   }
 
   updateImagemPrincipal(file: FileUpload) {
-    const pathUrl = `${this.authService.getUid()}/veiculos`
+    const pathUrl = `${this.authService.getUid()}/contatos`
     this.db.list(pathUrl).update(this.entityKey, {imagemPrincipal: file})
     .then(updateEvent=>{
       console.log({evt: updateEvent})

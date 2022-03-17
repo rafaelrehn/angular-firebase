@@ -6,19 +6,19 @@ import { ISideMenuItens } from 'src/app/shared/atomic-design/atoms/side-menu/sid
 import { HeaderListInfo } from 'src/app/shared/atomic-design/molecules/list-header/header-actions.component';
 import { AbstractViewClass } from 'src/app/shared/atomic-design/organisms/abstract-view/abstract-view.class';
 import { AbstractService } from 'src/app/shared/base/abstract.service';
-import { VeiculosFieldServiceService } from '../services/veiculos-field-service.service';
-import { Veiculo } from '../contato';
+import { Contato } from '../contato';
+import { ContatosFieldServiceService } from '../services/contatos-field-service.service';
 
 @Component({
-  selector: 'app-veiculos-view',
-  templateUrl: './veiculos-view.component.html',
-  styleUrls: ['./veiculos-view.component.scss'],
+  selector: 'app-contatos-view',
+  templateUrl: './contatos-view.component.html',
+  styleUrls: ['./contatos-view.component.scss'],
   providers: [ AbstractService,
-    { provide: 'entityName', useValue: 'veiculos' },
-    { provide: 'fieldsService', useClass: VeiculosFieldServiceService }
+    { provide: 'entityName', useValue: 'contatos' },
+    { provide: 'fieldsService', useClass: ContatosFieldServiceService }
   ]
 })
-export class VeiculosViewComponent extends AbstractViewClass<Veiculo> implements OnInit {
+export class ContatosViewComponent extends AbstractViewClass<Contato> implements OnInit {
 
   sideMenuIntens: ISideMenuItens[] = [
     {
@@ -41,8 +41,8 @@ export class VeiculosViewComponent extends AbstractViewClass<Veiculo> implements
   }
 
   constructor(
-    protected service: AbstractService<Veiculo>,
-    protected fieldsService: VeiculosFieldServiceService,
+    protected service: AbstractService<Contato>,
+    protected fieldsService: ContatosFieldServiceService,
     protected router: Router,
     protected activatedRoute: ActivatedRoute
   ) {
@@ -55,16 +55,16 @@ export class VeiculosViewComponent extends AbstractViewClass<Veiculo> implements
   buildBreadCrumb(){
     return [
       new BreadCrumbBuilder().build('Admin', '/admin').get(),
-      new BreadCrumbBuilder().build('Veiculos', '/admin/veiculos').get(),
+      new BreadCrumbBuilder().build('Contatos', '/admin/contatos').get(),
       new BreadCrumbBuilder().build(
-        `${this.model.nome} - ${this.model.anoFabricacao} / ${this.model.anoModelo} - ${this.model.valor}`,
-         '/admin/veiculos/').active().get(),
+        `${this.model.nome}`,
+         '/admin/contatos/').active().get(),
     ]
   }
 
   afterContentLoaded(){
     this.headerInfo = {
-      t1: 'Veiculo',
+      t1: 'Contato',
       t2: this.model.nome,
       editBtn: {active: true},
       backBtn: {active: true, levels: 2}

@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Contato } from '../contato';
 import { AbstractService } from 'src/app/shared/base/abstract.service';
 import { IBtnInterface } from 'src/app/shared/atomic-design/atoms/btn/btn.interface';
@@ -45,7 +45,7 @@ export class ContatosListComponent extends AbstractListComponent<Contato> {
   buildBreadCrumb(){
     return [
       new BreadCrumbBuilder().build('Admin', '/admin').get(),
-      new BreadCrumbBuilder().build('Veiculos', '/admin/veiculos').active().get(),
+      new BreadCrumbBuilder().build('Contatos', '/admin/contatos').active().get(),
     ]
   }
 

@@ -19,6 +19,7 @@ import { HomeModule } from './modulos/admin/home/home.module';
 import { ConfiguracoesModule } from './modulos/admin/configuracoes/configuracoes.module';
 import { HomeDefaultModule } from './modulos/default/home-default/home-default.module';
 import { ContatosModule } from './modulos/admin/contatos/contatos.module';
+import { ImagensContatosModule } from './modulos/admin/contatos/children/imagens-contato/imagens-contatos.module';
 
 const FirebaseConfig = [
   AngularFireAuthModule,
@@ -31,7 +32,8 @@ const Modulos = [
   UtilitariosModule,
   ImagensVeiuclosModule,
   ConfiguracoesModule,
-  HomeDefaultModule
+  HomeDefaultModule,
+  ImagensContatosModule
 ]
 
 @NgModule({

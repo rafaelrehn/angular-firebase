@@ -28,6 +28,7 @@ import { ClientGuard } from './guards/client.guard';
 import { ContatosViewComponent } from './modulos/admin/contatos/view/contato-view.component';
 import { ContatosListComponent } from './modulos/admin/contatos/list/contatos-list.component';
 import { ContatosEditComponent } from './modulos/admin/contatos/edit/contatos-edit.component';
+import { ImagensContatosComponent } from './modulos/admin/contatos/children/imagens-contato/imagens-contatos.component';
 
 const ROUTES: Routes = [
   {
@@ -48,7 +49,7 @@ const ROUTES: Routes = [
         path: 'contatos/:key', component: ContatosViewComponent,
         children: [
           { path: 'view', component: ViewDetailsComponent },
-          { path: 'imagens', component: ImagensVeiuclosComponent },
+          { path: 'imagens', component: ImagensContatosComponent },
           { path: '',   redirectTo: 'view', pathMatch: 'prefix' },
         ]
       },

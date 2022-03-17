@@ -11,7 +11,7 @@ import { Contato } from '../../contato';
   templateUrl: './view-details.component.html',
   styleUrls: ['./view-details.component.scss'],
   providers: [ AbstractService,
-    { provide: 'entityName', useValue: 'veiculos' },
+    { provide: 'entityName', useValue: 'contatos' },
     { provide: 'fieldsService', useClass: ContatosFieldServiceService }
   ]
 })

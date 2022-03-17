@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ImagensVeiuclosComponent } from './imagens-veiuclos.component';
 import { FileUploadModule } from 'src/app/shared/atomic-design/organisms/file-upload/file-upload.module';
+import { ImagensContatosComponent } from './imagens-contatos.component';
 
 
 
 @NgModule({
-  declarations: [ImagensVeiuclosComponent],
+  declarations: [ImagensContatosComponent],
   imports: [
     CommonModule,
     FileUploadModule
   ],
-  
+
 })
-export class ImagensVeiuclosModule { }
+export class ImagensContatosModule { }

@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { VeiculosFieldServiceService } from './veiculos-field-service.service';
+import { ContatosFieldServiceService } from './contatos-field-service.service';
 
-describe('VeiculosFieldServiceService', () => {
-  let service: VeiculosFieldServiceService;
+describe('ContatosFieldServiceService', () => {
+  let service: ContatosFieldServiceService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(VeiculosFieldServiceService);
+    service = TestBed.inject(ContatosFieldServiceService);
   });
 
   it('should be created', () => {

@@ -55,17 +55,17 @@ export class ContatosViewComponent extends AbstractViewClass<Contato> implements
   buildBreadCrumb(){
     // return [
     //   new BreadCrumbBuilder().build('Admin', '/admin').get(),
-    //   new BreadCrumbBuilder().build('Veiculos', '/admin/veiculos').get(),
+    //   new BreadCrumbBuilder().build('Contatos', '/admin/contatos').get(),
     //   new BreadCrumbBuilder().build(
     //     `${this.model.nome} - ${this.model.anoFabricacao} / ${this.model.anoModelo} - ${this.model.valor}`,
-    //      '/admin/veiculos/').active().get(),
+    //      '/admin/contatos/').active().get(),
     // ]
     return []
   }
 
   afterContentLoaded(){
     this.headerInfo = {
-      t1: 'Veiculo',
+      t1: 'Contato',
       t2: this.model.nome,
       editBtn: {active: true},
       backBtn: {active: true, levels: 2}

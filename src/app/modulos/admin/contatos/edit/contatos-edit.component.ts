@@ -1,13 +1,10 @@
 import { Component } from '@angular/core';
-import { Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
-import { BreadCrumbBuilder } from 'src/app/shared/atomic-design/atoms/breadcrumb/breadcrumb-builder';
 import { IBtnInterface } from 'src/app/shared/atomic-design/atoms/btn/btn.interface';
 import { HeaderListInfo } from 'src/app/shared/atomic-design/molecules/list-header/header-actions.component';
 import { AbstractCrudEditComponent } from 'src/app/shared/atomic-design/organisms/crud-edit/abstract-crud-edit.component';
 import { AbstractService } from 'src/app/shared/base/abstract.service';
-import { LoadingService } from 'src/app/shared/base/loading.service';
 import { ContatosFieldServiceService } from '../services/contatos-field-service.service';
 import { Contato } from '../contato';
 
@@ -28,7 +25,7 @@ export class ContatosEditComponent extends AbstractCrudEditComponent<Contato> {
     backBtn: {active: true}
   }
 
-  veiculo: Contato;
+  contato: Contato;
   key: string = '';
 
   voltarBtn: IBtnInterface = {
@@ -57,16 +54,16 @@ export class ContatosEditComponent extends AbstractCrudEditComponent<Contato> {
     // if(this.isEdit){
     //   return [
     //     new BreadCrumbBuilder().build('Admin', '/admin').get(),
-    //     new BreadCrumbBuilder().build('Veiculos', '/admin/veiculos').get(),
+    //     new BreadCrumbBuilder().build('Contatos', '/admin/contatos').get(),
     //     new BreadCrumbBuilder().build(
     //       `${this.model.nome} - ${this.model.anoFabricacao} / ${this.model.anoModelo} - ${this.model.valor}`,
-    //        '/admin/veiculos/').active().get(),
+    //        '/admin/contatos/').active().get(),
     //   ]
     // }else{
     //   return [
     //     new BreadCrumbBuilder().build('Admin', '/admin').get(),
-    //     new BreadCrumbBuilder().build('Veiculos', '/admin/veiculos').get(),
-    //     new BreadCrumbBuilder().build(`Novo registro`, '/admin/veiculos/').active().get(),
+    //     new BreadCrumbBuilder().build('Contatos', '/admin/contatos').get(),
+    //     new BreadCrumbBuilder().build(`Novo registro`, '/admin/contatos/').active().get(),
     //   ]
     // }
     return []
