@@ -4,7 +4,7 @@ import { AtomicModules } from 'src/app/shared/atomic-design/atomic.modules';
 import { ViewDetailsComponent } from './view/view-details/view-details.component';
 import { ContatosListComponent } from './list/contatos-list.component';
 import { ContatosEditComponent } from './edit/contatos-edit.component';
-import { ContatosViewComponent } from './view/contato-view.component';
+import { ContatosViewComponent } from './view/contatos-view.component';
 
 
 @NgModule({
